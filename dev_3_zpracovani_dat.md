@@ -199,12 +199,12 @@ Pro zajištění rychlosti dotazů v OLAP se používá redundance v podobě:
 
 **Indexy** - umožňují rychlejší získání dat, která nás zajímají, pomocí předpočítaných výsledků. Omezují prostor nutný k prohledání při čtení dat.
 
-- obvykle se používají [B+ stromy](./5_databaze.md#indexování), ty jsou však limitovány jen pro 1D data, nejsou vhodné pro více dimenzí
+- obvykle se používají [B+ stromy](4_databaze.md#indexování), ty jsou však limitovány jen pro 1D data, nejsou vhodné pro více dimenzí
 - **UB stromy** - multidimenzionální data jsou linearizovány pomocí Z-křivky a následně indexovány pomocí B* stromu (jako B+, akorát tam jsou jiná pravidla pro rebalanc). Linearizace Z-křivkou poskytuje dobrý výkon pro intervalové dotazy a zajišťuje, že data, která si byla blízká původně si budou blízká i po linearizaci. Indexovat do linearizovaných dat lze pomocí konverze souřadnic na binární číslo a následném prokládání bitů souřadnic.
   |![](img/20230611224121.png)|![](img/20230611224138.png)|
   |---|---|
   |![](img/20230611224805.png)|![](img/20230611224906.png)|
-- **R stromy** - obdélníky, popsány v [otázce 5](./5_databaze.md#indexování), špatně se škálují do mnoha dimenzí
+- **R stromy** - obdélníky, popsány v [otázce 5](4_databaze.md#indexování), špatně se škálují do mnoha dimenzí
 - **Bitmap indexy** - vhodné pro dimenze s málo variantami (např. pobočky). Pro každou variantu uděláme bitové pole o délce tabulky faktů. Index v poli odpovídá řádku v tabulce faktů. U pole nastavíme 1 pro indexy, ve kterých varianta platí, jinak 0. Výhodou je, že se snadno používají bitové operace (AND, OR) a je možné takto pracovat i s rozdílnými dimenzemi. Při mazání v tabulce faktů je třeba buď upravit všechny bitmap indexy, nebo v tabulce faktů použít *tombstone* hodnotu (považujeme za prázdnou).
 - **Range-encoded bitmap indexy** - vyžadují, aby měla dimenze seřazené hodnoty variant (jinak stejně nemá cenu hledat pomocí intervalů). Opět má každá varianta bitové pole délky tabulky faktů. Pokud je varianta pro daný fakt pravdivá, nastavíme ji, a všechny následující varianty v pořadí, na hodnotu 1 (jinak 0). (Hodnota neznamená např. *narodil se v měsíci*, ale *byl už na živu v měsíci*) Při intervalovém dotazu pak stačí provést `<lower> AND (NOT <upper-exclusive>)`.
   ![](img/20230612104455.png)

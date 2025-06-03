@@ -12,19 +12,19 @@ Materiály mi stačily k úspěšnému absolvování státnic (otázky na sítě
 
 *Mohou nastat drobné změny, ale nic markantního*
 
-- [Programování a softwarový vývoj](./1_programovani_a_softwarovy_vyvoj.md)
-- [Kvalita kódu](./2_kvalita_kodu.md)
-- [Softwarové inženýrství](./3_softwarove_inzenyrstvi.md)
-- [Projektové řízení](./4_projektove_rizeni.md)
-- [Databáze](./5_databaze.md)
-- [Počítačové sítě](./6_pocitacove_site.md)
-- [Distribuované systémy](./7_distribuovane_systemy.md)
+- [Kvalita kódu](1_kvalita_kodu.md)
+- [Softwarové inženýrství](2_softwarove_inzenyrstvi.md)
+- [Projektové řízení](3_projektove_rizeni.md)
+- [Databáze](4_databaze.md)
+- [Počítačové sítě](5_pocitacove_site.md)
+- [Distribuované systémy](6_distribuovane_systemy.md)
 
 Specializace DEV
-- [Analýza a návrh systémů](./dev_1_analyza_a_navrh.md)
-- [Zpracování dat](./dev_2_zpracovani_dat.md)
-- [Bezpečný kód](./dev_3_bezpecny_kod.md)
-- [Uživatelská rozhraní](./dev_4_uzivatelska_rozhrani.md)
+- [Programování a softwarový vývoj](dev_1_programovani_a_softwarovy_vyvoj.md)
+- [Analýza a návrh systémů](dev_2_analyza_a_navrh.md)
+- [Zpracování dat](dev_3_zpracovani_dat.md)
+- [Bezpečný kód](dev_4_bezpecny_kod.md)
+- [Uživatelská rozhraní](dev_5_uzivatelska_rozhrani.md)
 
 #### Dodatečné materiály 
 

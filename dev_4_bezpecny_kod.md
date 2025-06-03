@@ -69,7 +69,7 @@ vedoucí k získání tajemství
   - kombinace s uživatelským jménem
   - jednorázová - jdou odděleným kanálem, obvykle součástí vícefaktorové autentizace, prokazujeme vlastnictví dalšího
     tokenu
-- ukládají se [hashovaná](./5_databaze.md#hašování) (pokud nepotřebujeme získat původní heslo), ideálně včetně soli a
+- ukládají se [hashovaná](4_databaze.md#hašování) (pokud nepotřebujeme získat původní heslo), ideálně včetně soli a
   pepře, nebo šifrovaná (problém je, že teď musíme chránit místo hesla šifrovací klíč), nikdy ne v plaintextu
   - **salt** - náhodně vygenerovaná data, která se ukládají zároveň s hashem a při hashování se přidávají k heslu,
     efektivně prodlužuje délku hesla a znemožní detekci stejných hesel dle shody hashů
@@ -499,7 +499,7 @@ což by mohlo být bezpečnostní riziko).
 - pro ošetření vstupů je navíc fajn používat validační knihovny (např. zod pro js, clap pro rust)
 - Pro průzkum toho, co všechno v našem systému závisí na uživatelském vstupu, je možné použít **taint analýzu**
 - Jednotky systému mohou
-  používat [kontrakty](./dev_1_analyza_a_navrh.md#rozhraní-komponent-kontrakty-na-úrovni-rozhraní-ocl) (preconditions,
+  používat [kontrakty](dev_2_analyza_a_navrh.md#rozhraní-komponent-kontrakty-na-úrovni-rozhraní-ocl) (preconditions,
   postconditions, invariants) jako pojistku v případě nedostatečného ošetření vstupů
 - Pro kontrolu dostatečného ošetření vstupů je možné použít **fuzzing** (viz další sekce)
 - Pro jednoduché zpracování sekvence vstupů (příkazů) je vhodné použít **automata-based modelling**
@@ -608,7 +608,7 @@ efektivně dělíme části příkazu na datovou a příkazovou.
 
 **Základní pojmy**
 
-- [hashování](./5_databaze.md#hašování)
+- [hashování](4_databaze.md#hašování)
 - **klíče** - rozsáhlé řetězce bitů, náhodná čísla, prvočísla...
 - **šifrování** - zajišťuje důvěrnost (transformace zprávy za účelem skrytí jejího obsahu před nepovolanými aktéry)
 - kódování není šifrování (např. zakódované heslo v base64 lze snadno převést do původního tvaru bez jakéhokoliv klíče)

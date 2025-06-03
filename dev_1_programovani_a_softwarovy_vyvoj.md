@@ -19,7 +19,7 @@ Vývoj sw řešení se obvykle skládá z kroků:
 - Testování
 - Nasazení
 
-Více v otázce [Softwarové inženýrství](./3_softwarove_inzenyrstvi.md)
+Více v otázce [Softwarové inženýrství](2_softwarove_inzenyrstvi.md)
 
 - Klíčové je zajistit pravidelnou a dobře definovanou komunikaci mezi stakeholdery (nejen na začátku, ale i v průběhu
   vývoje), definovat ubiquitous language (univerzální jazyk domény) a vynucovat jeho používání, aby v rámci úzce
@@ -30,7 +30,7 @@ Více v otázce [Softwarové inženýrství](./3_softwarove_inzenyrstvi.md)
 
 - Klíčovou součástí analýzy a návrhu bývá dekompozice (a abstrakce) na komponenty, při které dělíme komplexní systém na
   jednodušší nezávislé části, abychom nemuseli neustále držet v hlavě kontext celého systému. Cílem je minimalizovat
-  závislost mezi komponenty a dodržovat SOLID principy. [Více v Kvalita kódu](./2_kvalita_kodu.md).
+  závislost mezi komponenty a dodržovat SOLID principy. [Více v Kvalita kódu](1_kvalita_kodu.md).
 
 - Komponenty systému mají dobře definovaný kontrakt, nezávisí na konkrétních implementacích, ale na abstrakcích (např.
   parametr metody je typu interface, ne konkrétní struktura)
@@ -103,7 +103,7 @@ Webové informační systémy mají tato specifika:
 
 ### Auth
 
-Více v [Bezpečný kód](./dev_3_bezpecny_kod.md)
+Více v [Bezpečný kód](dev_4_bezpecny_kod.md)
 
 #### Autentizace
 

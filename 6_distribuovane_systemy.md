@@ -6,7 +6,7 @@
 
 **Distribuovaný systém** se skládá z komponentů (počítačů) propojených komunikační sítí. Distribuované systémy řeší problémy (výpočty/zpracovávání requestů) spoluprací jednotlivých komponentů (každý dělá něco). Díky tomu se systém snadněji škáluje (posilujeme subsystém, který má problémy).
 
-Architektury popsány v [otázce 1](./1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller), takže jen shrnutí:
+Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller), takže jen shrnutí:
 
 **Monolitická architektura** - obsahuje vše, co systém potřebuje, je možné pouze vertikální škálování, špatná spolehlivost (pád znamená pád celého systému)
 
@@ -18,7 +18,7 @@ Architektury popsány v [otázce 1](./1_programovani_a_softwarovy_vyvoj.md#zákl
 
 **Pipeline architecture** - sekvenční zpracování, každý komponent se stará o relativně transformaci vstupu na výstup (dělej malou věc, ale dělej ji dobře)
 
-**Service-oriented architecture** - popsáno v [samostatné kapitole](./7_distribuovane_systemy.md#architektura-orientovaná-na-služby-soa)
+**Service-oriented architecture** - popsáno v [samostatné kapitole](6_distribuovane_systemy.md#architektura-orientovaná-na-služby-soa)
 
 **Microservice architecture** - vysoká koheze, nízká provázanost služeb, systém je tvořen velkým množstvím malých služeb. Důležitá je rychlá komunikace mezi službami (gRPC). Služby nesdílí DB.
 

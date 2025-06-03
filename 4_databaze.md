@@ -25,7 +25,7 @@ Pro aplikace se hodí na ukládání velkých souborů (pdf, obrázky, video, st
 - relační systémy korelují s ERD
 - deklarativní přístup
 - obtížná implementace složitějších struktur (záleží však na systému)
-- O relačních databázích platí, že umožňují ACID [transakce](./5_databaze.md#řízení-transakcí).
+- O relačních databázích platí, že umožňují ACID [transakce](4_databaze.md#řízení-transakcí).
 
 ## Kódování a komprese dat
 
@@ -68,7 +68,7 @@ Pokud se otázkou myslí *Z jakých prvků se relační databáze skládají*, p
 
 ## Dotazovací jazyk SQL a jeho části (definice, manipulace, transakce)
 
-Dotazovací jazyk SQL vychází z [relační algebry](./5_databaze.md#relační-algebra).
+Dotazovací jazyk SQL vychází z [relační algebry](4_databaze.md#relační-algebra).
 
 Obsahuje konstrukty pro definici datového schématu, pro manipulaci s daty a pro transakční zpracování (viz další sekce).
 
@@ -267,4 +267,4 @@ Pro různé účely používáme různé algoritmy, jde o balanc rychlosti (u he
 - **MD5** - relativně rychlý, není bezpečný (lze rychle najít kolize i na běžném počítači).
 - rodina Secure Hashing Algorithm, za bezpečnou se aktuálně považuje **SHA-2** (SHA256, SHA512, SHA-384...)
 - **Argon2** - v současnosti doporučovaný pro hašování hesel
-- hashem (hloupým, ale rychlým) může být třeba i délka vstupu, modulo, součet ascii hodnot znaků... (nazývá se [Cyclic redundancy check](./dev_3_bezpecny_kod.md#notes))
+- hashem (hloupým, ale rychlým) může být třeba i délka vstupu, modulo, součet ascii hodnot znaků... (nazývá se [Cyclic redundancy check](dev_4_bezpecny_kod.md#notes))

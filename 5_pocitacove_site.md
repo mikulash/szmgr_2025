@@ -15,7 +15,7 @@ Základní typy sítí:
 
 K stanovení jednotných pravidel a způsobu komunikace slouží standardizované **protokoly**.
 
-Architektury [peer-to-peer](./6_pocitacove_site.md#peer-to-peer-p2p-sítě) vs klient-server (klienti komunikují pouze se serverem, service discovery konfigurací klientů, klient iniciuje spojení)
+Architektury [peer-to-peer](5_pocitacove_site.md#peer-to-peer-p2p-sítě) vs klient-server (klienti komunikují pouze se serverem, service discovery konfigurací klientů, klient iniciuje spojení)
 
 Směrování probíhá pomocí směrovacích tabulek routerů - na základě adresy (a případně typu) paketu se podle tabulky určí další směr, hop-by-hop princip. Další destinace se určuje na základě nejdelšího CIDR prefixu adresy. Směrovací tabulky jsou obvykle aktualizovány distribuovanými algoritmy. Na routerech je možné pakety filtrovat (zatoulané, k zajištění QoS) a případně klasifikovat (při modelech pay-as-you-go). Směrovat je možné nejen pomocí nejkratší cesty, ale i s ohledem na aktuální stav/vytíženost sítě.
 
@@ -102,7 +102,7 @@ V praxi se ujal model TCP/IP, který jednotlivé vrstvy ISO/OSI slučuje.
 - Zajišťuje doručení IP datagramů (data rozřezaná na kousky s obálkou) v rámci internetu host-to-host (i přes prostředníky, a.k.a. routery), síť je connection-less, paketová
 - Best-effort služba, není garance o doručení.
 
-Více v sekcích [IPv4](./6_pocitacove_site.md#funkce-ipv4) a [IPv6](./6_pocitacove_site.md#pokročilé-funkce-ipv6).
+Více v sekcích [IPv4](5_pocitacove_site.md#funkce-ipv4) a [IPv6](5_pocitacove_site.md#pokročilé-funkce-ipv6).
 
 ## Transportní protokoly (TCP, UDP)
 
@@ -289,7 +289,7 @@ Topologie overlay (jak jsou mezi sebou peerové vzájemně provázaní) určuje 
 
 ## Ad-hoc/senzorové sítě
 
-Ideálně začít popisem [ad-hoc](./6_pocitacove_site.md#ad-hoc) a [senzorových](./6_pocitacove_site.md#senzorové-sítě) sítí.
+Ideálně začít popisem [ad-hoc](5_pocitacove_site.md#ad-hoc) a [senzorových](5_pocitacove_site.md#senzorové-sítě) sítí.
 
 Rádiové sítě obecně:
 
@@ -375,7 +375,7 @@ Pro realtime přenosy se používá multicast, namísto spousty unicastů (síť
 
 Média se mohou přenášet diskretizovaně (soubor, zpráva), nebo kontinuálně (stream).
 
-**Text** - např. HTTP, SMTP, FTP, vyžaduje relativně málo bandwidth, delay a nároky na chybovost závisí na aplikaci. Komprese např. pomocí huffman, nebo shannon-fano kódování (více v [otázka 5 - databáze](./5_databaze.md#kódování-a-komprese-dat)), na webu se používá gzip (obsahuje huffmana), drobné chyby dělají problémy
+**Text** - např. HTTP, SMTP, FTP, vyžaduje relativně málo bandwidth, delay a nároky na chybovost závisí na aplikaci. Komprese např. pomocí huffman, nebo shannon-fano kódování (více v [otázka 5 - databáze](4_databaze.md#kódování-a-komprese-dat)), na webu se používá gzip (obsahuje huffmana), drobné chyby dělají problémy
 
 **Audio** - v základu analog, digitalizace pomocí vzorkování (hodnota v čase) signálu a kvantitativní (mapování např. na celá čísla). Požadavky na šířku pásma záleží na požadované kvalitě a případné komprimaci, jsme ochotni tolerovat drobné chyby
 

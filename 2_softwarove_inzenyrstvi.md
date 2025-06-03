@@ -170,7 +170,7 @@ RUP je konkrétní metodika stavějící na UP (přidává třeba jednotlivé ro
         - obsahuje veškerou zbývající požadovanou funkcionalitu ve formě **user stories**
             - jednotka funkcionality, testovatelná, logický celek
             - každé story má:
-                - **story points** reprezentující časovou náročnost odhadnutou pomocí [planning pokeru](./3_softwarove_inzenyrstvi.md#planning-poker)
+                - **story points** reprezentující časovou náročnost odhadnutou pomocí [planning pokeru](2_softwarove_inzenyrstvi.md#planning-poker)
                 - akceptační kritéria (testovatelná, formulovaná jako Given ... When ... Then ...)
                 - může mít seznam rizik
                 - stories mají prioritu (MoSCoW) dle hodnoty, náročnosti, rizika, přínosu...
@@ -198,7 +198,7 @@ RUP je konkrétní metodika stavějící na UP (přidává třeba jednotlivé ro
 
 - **Události:**
     - **project planning**
-        - tvorba [project charteru](./4_projektove_rizeni.md#pmi-project-management-body-of-knowledge-pmbok)
+        - tvorba [project charteru](3_projektove_rizeni.md#pmi-project-management-body-of-knowledge-pmbok)
         - tvorba product backlogu
         - výběr klíčových strategií (komunikace, rizika, řízení změn, kvalita...)
     - **sprint planning**
@@ -211,7 +211,7 @@ RUP je konkrétní metodika stavějící na UP (přidává třeba jednotlivé ro
         - product owner řeší komunikaci, vývojáři vývojáří, scrum master sleduje dodržování procesů
         - analýza, návrh, implementace, testování
         - max 1 měsíc, všechny sprinty trvají stejnou dobu
-        - po sprintu sledujeme [team velocity](./3_softwarove_inzenyrstvi.md#team-velocity), podle ní máme lepší odhad pro budoucí plány, lze podle ní upravit rozsah sprint backlogu
+        - po sprintu sledujeme [team velocity](2_softwarove_inzenyrstvi.md#team-velocity), podle ní máme lepší odhad pro budoucí plány, lze podle ní upravit rozsah sprint backlogu
     - **daily scrum (standup)**
         - 15 minut každý den, účastní se vývojáři a možná i scrum master
         - co jsem dělal včera, co budu dělat dneska, narazil jsem na nějaké problémy?

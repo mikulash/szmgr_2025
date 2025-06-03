@@ -17,7 +17,7 @@ Objektové paradigma si dobře rozumí s principy abstrakce, což lze aplikovat 
 
 Mezi metody se řadí:
 
-- modelování domény pomocí [UML](./dev_1_analyza_a_navrh.md#modely-softwarových-systémů-jazyk-uml), v různých částech vývoje se zabýváme různými úrovněmi detailů
+- modelování domény pomocí [UML](dev_2_analyza_a_navrh.md#modely-softwarových-systémů-jazyk-uml), v různých částech vývoje se zabýváme různými úrovněmi detailů
 - dekompozice systému do menších, koherentních částí
 - aplikace návrhových a architektonických vzorů, které popisují řešení na dobře známé a často se opakující problémy v (nejen) objektovém světě.
 
@@ -60,7 +60,7 @@ Non-functional requirements platí vždy, je třeba je brát v potaz i s nově p
 
 SW architektura určuje, jakým způsobem je systém strukturován, jakým způsobem je dělen na komponenty/moduly a jak mezi sebou jednotlivé komponenty/moduly interagují a jak jsou jednotlivé části systému nasazeny na hw.
 
-SW architektury (vyšší úroveň abstrakce) a architektonické vzory (nižší úroveň abstrakce) jsou obecná řešení architektur systému. Uvádím jen seznam, podrobně jsou popsány v [části otázky 1](./1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller)
+SW architektury (vyšší úroveň abstrakce) a architektonické vzory (nižší úroveň abstrakce) jsou obecná řešení architektur systému. Uvádím jen seznam, podrobně jsou popsány v [části otázky 1](dev_1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller)
 
 - **MVC/MVP/MVVM pattern**
 - **Klient-Server**
@@ -80,7 +80,7 @@ Pokud systém vystavuje rozhraní používaná i někým jiným (klient), je faj
 
 Návrhový vzor je obecné řešení k často se opakujícímu problému řešenému při návrhu sw, není potřeba kompletně vymýšlet vlastní řešení. Slouží nejen jako obecný návod pro implementaci, ale umožňují snadnější komunikaci v rámci týmu (např. tady použijeme Strategy pattern). Vzory je třeba používat s rozvahou, občas můžou být zbytečně obecné.
 
-*Architektonické vzory jsou popsány v [předchozí podotázce](./dev_1_analyza_a_navrh.md#softwarové-architektury-komponentové-systémy)*.
+*Architektonické vzory jsou popsány v [předchozí podotázce](dev_2_analyza_a_navrh.md#softwarové-architektury-komponentové-systémy)*.
 
 [Pro pochopení a ukázky kódu](https://refactoring.guru/design-patterns)
 
@@ -303,7 +303,7 @@ Popisuje kontext a prostředí, v jakém systém má fungovat. Jsou zde znázorn
 
 ![](img/20230607124347.png)
 
-Neřešíme části, se kterými přímo neinteragujeme. Ty jsou vidět v [Ecosystem map](./dev_1_analyza_a_navrh.md#ecosystem-map).
+Neřešíme části, se kterými přímo neinteragujeme. Ty jsou vidět v [Ecosystem map](dev_2_analyza_a_navrh.md#ecosystem-map).
 
 ### Use case diagram
 
@@ -373,7 +373,7 @@ Komunikační rozhraní komponentů se nazývají porty, přímé spoje connecto
 - Systémy bývají složité, špatně se udržují a je náročné měřit/zajistit kvalitu, často se mění nároky
   => pomůže dekompozice systému do menších koherentních částí, které se lépe udržují/mění, snadněji se měří kvalita
 
-Dekompozice podle [SOLID](./2_kvalita_kodu.md#solid-principy)
+Dekompozice podle [SOLID](1_kvalita_kodu.md#solid-principy)
 
 - **single responsibility** - každý modul/třída/funkce by se měly soustředit pouze na jednu část funkcionality (a tu zapouzdřovat)
 - **open/closed** - každý modul/třída/(funkce) by měly být rozšiřitelné tj. přidání změn způsobí minimální modifikaci kódu, většinou rozšiřujeme pomocí nových tříd/metod
@@ -383,7 +383,7 @@ Dekompozice podle [SOLID](./2_kvalita_kodu.md#solid-principy)
 
 **Problém s cyklickou vazbou objektů** - např. v metodě toString() je potřeba vhodně řešit, abychom se necyklili. Proto může být vhodnější definovat si pro takové případy speciální objekty s jasnou hierarchií a bez cyklů
 
-**Interface Definition Language** - popisuje rozhraní formou, která je nezávislá na použitém programovacím jazyce (např. OpenAPI Specification pro REST, protocol buffer pro gRPC, Web Service Definition Language pro SOAP, CORBA IDL). Obvykle je možné pomocí IDL schématu vygenerovat v daném programovacím jazyce kód/struktury, který poskytovatel implementuje a uživatel používá. Více v [otázce 7](./7_distribuovane_systemy.md).
+**Interface Definition Language** - popisuje rozhraní formou, která je nezávislá na použitém programovacím jazyce (např. OpenAPI Specification pro REST, protocol buffer pro gRPC, Web Service Definition Language pro SOAP, CORBA IDL). Obvykle je možné pomocí IDL schématu vygenerovat v daném programovacím jazyce kód/struktury, který poskytovatel implementuje a uživatel používá. Více v [otázce 7](6_distribuovane_systemy.md).
 
 **Event list** - seznam všech událostí, které mohou v systému nastat
 
@@ -399,21 +399,21 @@ Návrhové vzory nabízí řešení na často řešené problémy v návrzích s
 
 Accountability vzory *(přijdou mi ve slajdech popsány složitější, než jsou, proto popisuju koncepty/zapamatovatelné aspekty, zbytek si člověk dokáže odvodit. Odkazy vedou na příslušnou část s diagramem.)*
 
-- [Party](./dev_1_analyza_a_navrh.md#party) - společný název (abstrakce) pro osobu či firmu, obvykle má kontaktní údaje (adresu, telefon, email...)
-- [Organization Hierarchies](./dev_1_analyza_a_navrh.md#organization-hierarchies) - řešíme problém reprezentace organizace skládající se z často měnících se hierarchií organizačních jednotek (např. Korporace, Region, Pobočka, Oddělení... typy jednotek mohou být také předmětem změn). Řešením je stavební blok `Organizace`, která má 0..1 rodiče `Organizace` a 0..n potomků `Organizace` (rekurzivní vazba). Jednotlivé typy oddělení pak mohou dědit od `Organizace`.
-- [Organization Structure](./dev_1_analyza_a_navrh.md#organization-structure) - To samé co organization hierarchies, ale přidáváme k tomu `TimePeriod` (pro verzování v čase), `Typ Organizační Struktury`, který může mít `Pravidla` zajišťující, že třeba oddělení nebude nadřízené divizi.
-- [Accountability](./dev_1_analyza_a_navrh.md#accountability) - Organization Structure, ale Organizaci nahradíme Party (a vztahu říkáme accountability). Je tam opět `TimePeriod`, ale `Typ Organizační Struktury` se jmenuje `Accountability Type`. `Pravidla` pro vazby zahazujeme
-- [Accountability Knowledge Level](./dev_1_analyza_a_navrh.md#accountability-knowledge-level) - Accountability, ale `Pravidla` pro vazby mezi jednotlivými `Party`s zase přidáme. `Pravidla` jsou definována pro jednotlivé `Accountability Type`s, každé definuje povolenou kombinaci `Party Type` potomka a rodiče v hierarchii. Úrovni, kde popisujeme pravidla (a kde tím pádem jsou i `Accountability Type`s a `Party Type`s) říkáme knowledge level, existuje jen pro zajištění správné kompozice (ale nemá moc význam pro day-to-day operace).
+- [Party](dev_2_analyza_a_navrh.md#party) - společný název (abstrakce) pro osobu či firmu, obvykle má kontaktní údaje (adresu, telefon, email...)
+- [Organization Hierarchies](dev_2_analyza_a_navrh.md#organization-hierarchies) - řešíme problém reprezentace organizace skládající se z často měnících se hierarchií organizačních jednotek (např. Korporace, Region, Pobočka, Oddělení... typy jednotek mohou být také předmětem změn). Řešením je stavební blok `Organizace`, která má 0..1 rodiče `Organizace` a 0..n potomků `Organizace` (rekurzivní vazba). Jednotlivé typy oddělení pak mohou dědit od `Organizace`.
+- [Organization Structure](dev_2_analyza_a_navrh.md#organization-structure) - To samé co organization hierarchies, ale přidáváme k tomu `TimePeriod` (pro verzování v čase), `Typ Organizační Struktury`, který může mít `Pravidla` zajišťující, že třeba oddělení nebude nadřízené divizi.
+- [Accountability](dev_2_analyza_a_navrh.md#accountability) - Organization Structure, ale Organizaci nahradíme Party (a vztahu říkáme accountability). Je tam opět `TimePeriod`, ale `Typ Organizační Struktury` se jmenuje `Accountability Type`. `Pravidla` pro vazby zahazujeme
+- [Accountability Knowledge Level](dev_2_analyza_a_navrh.md#accountability-knowledge-level) - Accountability, ale `Pravidla` pro vazby mezi jednotlivými `Party`s zase přidáme. `Pravidla` jsou definována pro jednotlivé `Accountability Type`s, každé definuje povolenou kombinaci `Party Type` potomka a rodiče v hierarchii. Úrovni, kde popisujeme pravidla (a kde tím pádem jsou i `Accountability Type`s a `Party Type`s) říkáme knowledge level, existuje jen pro zajištění správné kompozice (ale nemá moc význam pro day-to-day operace).
 
 Příklad pro aplikaci accountability je ve [slajdech (str 35+)](https://is.muni.cz/auth/el/fi/podzim2021/PA103/um/02-03-Analysis-patterns.pdf#page=35).
 
 Observations & measurements
 
-- [Quantity](./dev_1_analyza_a_navrh.md#quantity) - kvantita má hodnotu a jednotku (v Rustu bychom použili Newtype pattern konkrétní jednotky a pomocí traitů implementovali funkcionalitu)
-- [Conversion Ratio](./dev_1_analyza_a_navrh.md#conversion-ratio) - převedení jedné jednotky na jinou, samo o sobě funguje jen pro lineární vztahy
-- [Compound Units](./dev_1_analyza_a_navrh.md#compound-units) - Jednotka může být buď `Atomic Unit` (např. kilometry), nebo `Compound Unit`, která má aspoň jeden `Unit Reference` obsahující mocninu (např. kilometry za hodinu).
-- [Measurement](./dev_1_analyza_a_navrh.md#measurement) - Reprezentuje výsledek měření. Každé měření bylo někým vykonáno (`Person`), zkoumalo nějaký měřený fenomén (`Phenomenon Type`) a zjistilo nějakou hodnotu, včetně jednotek (`Quantity`)
-- [Observation](./dev_1_analyza_a_navrh.md#observation) - výše popsaný `Measurement` je typ `Observation`, stejně jako `Category Observation` umožňující zaznamenávat nekvantitativní měření s nějakou kategorickou hodnotou (např. počet lidí s danou krevní skupinou), kde nás zajímá konkrétní `Phenomenon` (např. A+), který je součástí `Phenomenon Type`.
+- [Quantity](dev_2_analyza_a_navrh.md#quantity) - kvantita má hodnotu a jednotku (v Rustu bychom použili Newtype pattern konkrétní jednotky a pomocí traitů implementovali funkcionalitu)
+- [Conversion Ratio](dev_2_analyza_a_navrh.md#conversion-ratio) - převedení jedné jednotky na jinou, samo o sobě funguje jen pro lineární vztahy
+- [Compound Units](dev_2_analyza_a_navrh.md#compound-units) - Jednotka může být buď `Atomic Unit` (např. kilometry), nebo `Compound Unit`, která má aspoň jeden `Unit Reference` obsahující mocninu (např. kilometry za hodinu).
+- [Measurement](dev_2_analyza_a_navrh.md#measurement) - Reprezentuje výsledek měření. Každé měření bylo někým vykonáno (`Person`), zkoumalo nějaký měřený fenomén (`Phenomenon Type`) a zjistilo nějakou hodnotu, včetně jednotek (`Quantity`)
+- [Observation](dev_2_analyza_a_navrh.md#observation) - výše popsaný `Measurement` je typ `Observation`, stejně jako `Category Observation` umožňující zaznamenávat nekvantitativní měření s nějakou kategorickou hodnotou (např. počet lidí s danou krevní skupinou), kde nás zajímá konkrétní `Phenomenon` (např. A+), který je součástí `Phenomenon Type`.
   - je možné přidat i způsob měření `Protocol`, či sledovat přítomnost/nepřítomnost kategorického jevu, který může mít závislosti na (pod)jevech modelovaných pomocí `Observation Concept` (např. diabetik typu 2 je obecně diabetik)
 
 ### Diagramy analytických vzorů
