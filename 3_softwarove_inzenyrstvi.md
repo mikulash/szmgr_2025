@@ -2,7 +2,8 @@
 
 > Životní cyklus SW, proces vývoje a řízení softwarového vývoje. Metodika (Rational) Unified Process (UP, RUP), agilní
 > metodiky a principy agilního vývoje SW. Nasazení a provoz softwarových systémů. Údržba softwarových systémů,
-> znovupoužitelnost. Příklady z praxe pro vše výše uvedené. [PA017](https://is.muni.cz/auth/el/fi/podzim2020/PA017/um/cz/)
+> znovupoužitelnost. Příklady z praxe pro vše výše
+> uvedené. [PA017](https://is.muni.cz/auth/el/fi/podzim2020/PA017/um/cz/)
 
 ## Životní cyklus sw, proces vývoje a řízení softwarového vývoje
 
