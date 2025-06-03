@@ -1,10 +1,12 @@
 # Bezpečný kód
 
-> Bezpečný kód. Metody autentizace a řízení přístupu. Biometrické metody autentizace, jejich dopady a problémy.
-> Elektronický podpis a jeho použití. Autentizace strojů a aplikací. Zásady a principy bezpečného kódu. Typické
-> bezpečnostní chyby na úrovni kódu, souběžnost, ošetření vstupů. Detekce bezpečnostních zranitelností, penetrační
-> testování. Příklady z praxe pro vše výše uvedené. ([PV157](https://is.muni.cz/auth/el/fi/podzim2021/PV157/um/), PA193,
-> PV276)
+- [Metody autentizace a řízení přístupu](#metody-autentizace-a-řízení-přístupu)
+- [Biometrické metody autentizace, jejich dopady a problémy](#biometrické-metody-autentizace-jejich-dopady-a-problémy)
+- [Elektronický podpis a jeho použití](#elektronický-podpis-a-jeho-použití)
+- [Autentizace strojů a aplikací](#autentizace-strojů-a-aplikací)
+- [Zásady a principy bezpečného kódu](#zásady-a-principy-bezpečného-kódu)
+- [Typické bezpečnostní chyby na úrovni kódu, souběžnost, ošetření vstupů](#typické-bezpečnostní-chyby-na-úrovni-kódu-souběžnost-ošetření-vstupů)
+- [Detekce bezpečnostních zranitelností, penetrační testování](#detekce-bezpečnostních-zranitelností-penetrační-testování)
 
 ## Metody autentizace a řízení přístupu
 

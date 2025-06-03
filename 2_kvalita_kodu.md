@@ -1,10 +1,11 @@
 # Kvalita kódu
 
-> Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky. Taktiky pro zajištění kvality na úrovni
-> jednotlivých atributů kvality. Principy Clean Code a SOLID, refaktoring kódu. Testování kódu, jednotkové testy,
-> integrační testy, uživatelské a akceptační testy. Ladění a testování výkonu. Proces řízení kvality ve vývoji
-> softwarových systémů. Příklady z praxe pro vše výše
-> uvedené. [PV260](https://is.muni.cz/auth/el/fi/jaro2023/PV260/um/lectures/), PA017, PA103
+1. [Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky](#kvalita-ve-vývoji-softwarových-systémů-atributy-kvality-a-softwarové-metriky)
+2. [Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality](#taktiky-pro-zajištění-kvality-na-úrovni-jednotlivých-atributů-kvality)
+3. [Principy Clean Code a SOLID, refaktoring kódu](#principy-clean-code-a-solid-refaktoring-kódu)
+4. [Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy](#testování-kódu-jednotkové-testy-integrační-testy-uživatelské-a-akceptační-testy)
+5. [Ladění a testování výkonu](#ladění-a-testování-výkonu)
+6. [Proces řízení kvality ve vývoji softwarových systémů](#proces-řízení-kvality-ve-vývoji-softwarových-systémů)
 
 ## Kvalita ve vývoji softwarových systémů
 

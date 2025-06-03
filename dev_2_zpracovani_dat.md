@@ -1,6 +1,10 @@
 # Zpracování dat
 
-> Základní pojmy a principy datových skladů, datové analytiky a business intelligence. Životní cyklus datového skladu. Analytika velkých dat, jazyky pro realizaci analytických úloh, analytika na úrovni databází. Pokročilé techniky zpracování dat, výkonnostní aspekty zpracování velkých dat. Příklady z praxe pro vše výše uvedené. ([PA220](https://is.muni.cz/auth/el/fi/podzim2021/PA220/um/), PA036)
+1. [Základní pojmy a principy datových skladů, datové analytiky a business intelligence](#základní-pojmy-a-principy-datových-skladů-datové-analytiky-a-business-intelligence)
+2. [Životní cyklus datového skladu](#životní-cyklus-datového-skladu)
+3. [Analytika velkých dat, jazyky pro realizaci analytických úloh, analytika na úrovni databází](#analytika-velkých-dat-jazyky-pro-realizaci-analytických-úloh-analytika-na-úrovni-databází)
+4. [Pokročilé techniky zpracování dat, výkonnostní aspekty zpracování velkých dat](#pokročilé-techniky-zpracování-dat-výkonnostní-aspekty-zpracování-velkých-dat)
+5. [Příklady z praxe pro vše výše uvedené](#příklady-z-praxe)
 
 ## Základní pojmy a principy datových skladů, datové analytiky a business intelligence
 

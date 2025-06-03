@@ -1,9 +1,9 @@
 # 1. Programování a softwarový vývoj
 
-> Vývoj softwarových řešení, specifika implementace webových informačních systémů. Nástroje a prostředí pro softwarový
-> vývoj rozsáhlých systémů. Základní koncepty softwarových architektur z pohledu implementace. Vícevrstvá architektura
-> moderních informačních systémů, architektura model-view-controller. Persistence, ORM. Příklady z praxe pro vše výše
-> uvedené. (PA165 || PV179)
+- [Nástroje a prostředí pro softwarový vývoj rozsáhlých systémů](#Nástroje-a-prostředí-pro-softwarový-vývoj-rozsáhlých-systémů)
+- [Základní koncepty softwarových architektur z pohledu implementace](#základní-koncepty-softwarových-architektur-z-pohledu-implementace)
+- [Vícevrstvá architektura moderních informačních systémů, architektura model-view-controller](#vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller)
+- [Persistence, ORM](#persistence-ORM)
 
 [PA165 Enterprise Java](https://is.muni.cz/auth/el/fi/jaro2021/PA165/um/)
 
