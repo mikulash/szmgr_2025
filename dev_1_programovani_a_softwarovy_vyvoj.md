@@ -178,20 +178,11 @@ Pro vývoj rozsáhlých systémů se používají následující typy nástrojů
 
     - oddělení logiky zvyšuje modulárnost kódu, který je pak snadnější upravovat, testovat, udržovat
     - např. multipage web
-- **MVP pattern - model, view, presenter** - presenter je prostředník mezi modelem a view, jde přes něj veškerá
-  komunikace. Uživatel používá pouze view, akce uživatele view předává presenteru, který aktualizuje model a zasílá view
-  nová data. Např. SPA
-- **MVVM pattern - model, view, view model** - uživatel interaguje pouze přes view, veškerá komunikace jde přes view
-  model, které provádí data, propisuje je do modelu. Rozdíl oproti mvp je, že view model může být použit pro více views,
-  změny se sledují pomocí observeru. Např. android aplikace.
+- **MVP pattern - model, view, presenter** - presenter je prostředník mezi modelem a view, jde přes něj veškerá komunikace. Uživatel používá pouze view, akce uživatele view předává presenteru, který aktualizuje model a zasílá view nová data. Např. SPA. Vztah Presenter - View je imperativní. Presenter naslouchá událostem vyvolaným View a podle toho s ním manipuluje.
+- **MVVM pattern - model, view, view model** - uživatel interaguje pouze přes view, veškerá komunikace jde přes view  model, které provádí data, propisuje je do modelu. Rozdíl oproti mvp je, že view model může být použit pro více views,  změny se sledují pomocí observeru. Např. android aplikace. Vztah View - ViewModel je deklarativní. ViewModel neinteraguje s View přímo, ale pozoruje deklarované vlastnosti prostřednictvím speciální vrstvy datových vazeb.
+- **Klient-Server** - klient slouží jako uživatelské rozhraní. Server zpracovává požadavky zasílané klientem a odpovídá na ně. Server dle požadavku klienta provádí aplikační logiku, přistupuje k databázi... Komunikace je vždy iniciována klientem, server pouze odpovídá. Lze dělit na úrovně (2 tier, 3 tier i s databází, další úrovně můžou být servisní vrstvy...)
 
-- **Klient-Server** - klient slouží jako uživatelské rozhraní. Server zpracovává požadavky zasílané klientem a odpovídá
-  na ně. Server dle požadavku klienta provádí aplikační logiku, přistupuje k databázi... Komunikace je vždy iniciována
-  klientem, server pouze odpovídá. Lze dělit na úrovně (2 tier, 3 tier i s databází, další úrovně můžou být servisní
-  vrstvy...)
-
-- **Peer-to-Peer** - každý klient je současně i serverem, klienti spolu komunikují napřímo. Klienti takto sdílí
-  výpočetní výkon, distribuují data... např. BitTorrent
+- **Peer-to-Peer** - každý klient je současně i serverem, klienti spolu komunikují napřímo. Klienti takto sdílí výpočetní výkon, distribuují data... např. BitTorrent
 
 - **Vrstvená architektura (layered, případně clean)** - Dělí monolitický systém na vrstvy, každá je zodpovědná za
   určitou část aplikace. Vrstva využívá služeb vrstvy pod ní. Každá vrstva může být otevřená/uzavřená, otevřené vrstvy
@@ -304,16 +295,15 @@ automaticky" (rust\di, java\spring)
 pro logování - aspekt je definován jednou a je řečeno, že se má provádět pro všechny metody. Není nutné upravit každou
 metodu, aby explicitně logovala.
 
-**Software as a service**, **Platform as a service** (staráme se jen o vývoj, vše ostatní zajišťuje služba, např.
-Heroku), **Infrastructure as a service** (pronajímáme si infrastrukturu, např. klasický cloud, AWS, azure, gcp...)
+**Software as a service**, **Platform as a service** (staráme se jen o vývoj, vše ostatní zajišťuje služba, např. Heroku), **Infrastructure as a service** (pronajímáme si infrastrukturu, např. klasický cloud, AWS, azure, gcp...)
 
-**CORS** - zabraňuje, aby skript z prohlížeče komunikoval se serverem odjinud, než z webové aplikace. Např. pokud z
-klienta SPA myweb.com chci poslat asynchronní dotaz (pomocí fetch API) na other.com, tak pokud other.com explicitně
-nepovolí přístup, prohlížeč můj požadavek neodešle.
+**CORS** - zabraňuje, aby skript z prohlížeče komunikoval se serverem odjinud, než z webové aplikace. Např. pokud z klienta SPA myweb.com chci poslat asynchronní dotaz (pomocí fetch API) na other.com, tak pokud other.com explicitně nepovolí přístup, prohlížeč můj požadavek neodešle.
 
-**Message queue** - namísto synchronního zpracování je možné použít message queue (používá se často interně v
-distribuovaných systémech, není nutné okamžité zpracování, usnadňuje load balancing, je možný broadcast, zprávy mohou
-být persisted, ...) (apache kafka - byť je spíš event broker, rabbit mq).
+**Message queue** - namísto synchronního zpracování je možné použít message queue (používá se často interně v distribuovaných systémech, není nutné okamžité zpracování, usnadňuje load balancing, je možný broadcast, zprávy mohou být persisted, ...) FIFO, na kazdym konci queue je jeden konzument, RabbitMQ
+
+**Message bus** = dokaze zpravu poslat na vic zarizeni (ne jen jedno jako mq), pub/sub pattern, mam tam topics, ktery odebiram, kafka, redis
+
+**Event queue** - primarne pro event driven systemy, komunikujeme, ze neco probehlo, vetsinou append only log, napr pro big data analyzu. Kafka
 
 Možné problémy:
 
