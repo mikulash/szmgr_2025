@@ -376,11 +376,48 @@ kterých klient neví
 - aktuálně je preference pracovat s JSON
 - používání správných HTTP návratových hodnot
 
+#### Richardson Maturity Model - úrovně REST API
+
+- **Level 0 (Swamp of POX - Plain Old XML)**
+  - jeden endpoint pro celé API (např. `POST /api/service`)
+  - většinou jen POST metoda pro všechny operace
+  - akce určována obsahem payload `{"action": "getUser", "userId": 1}`
+
+- **Level 1 (Resources)**
+  - rozdělené zdroje s vlastními URI (`/api/users`, `/api/orders`)
+  - stále převážně POST operace pro všechny akce `POST /api/users`with payload `{"action": "getUser", "userId": 1 }`
+  - začíná resource-based design, ale nerespektuje HTTP metody
+
+- **Level 2 (HTTP Verbs)**
+  - správné využití HTTP metod pro různé operace s resources
+  - `GET /api/users/1` (získání), `POST /api/users` (vytvoření), `PUT /api/users/1` (aktualizace), `DELETE /api/users/1` (smazání)
+  - HTTP se používá jako aplikační protokol, ne jen transport
+  - intuitivní a snadno pochopitelné API
+
+- **Level 3 (Hypermedia/HATEOAS - Hypermedia As The Engine Of Application State)**
+  - odpovědi obsahují odkazy na související akce a možné stavy
+  - klient může dynamicky objevovat možnosti API bez hard-coded URL
+  - decoupling klienta od serveru, API lze měnit bez breaking changes, klienti u sebe nepotřebují uchovávat dané URI
+  - nejzralejší forma REST API
+
 #### HATEOAS (Hypermedia as the engine of application state)
 
 - jakýkoliv zdroj (URI) vrácený serverem může být předmětem další komunikace
 - k entitám přidáváme href
 
+```json
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john@example.com",
+  "links": {
+    "self": "/api/users/1",
+    "update": "/api/users/1",
+    "delete": "/api/users/1",
+    "orders": "/api/users/1/orders"
+  }
+}
+```
 #### WSDL (web services definition language)
 
 - standardizovaný způsob popisu rozhraní webových služeb (jméno, lokaci, podporované protokoly, operace, formát
