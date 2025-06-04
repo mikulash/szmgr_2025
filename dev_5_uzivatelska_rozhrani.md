@@ -10,14 +10,11 @@
 - [Testování použitelnosti](#testování-použitelnosti)
 - [Technologie a nástroje](#technologie-a-nástroje)
 
-*Fun fact: v PV247 se toho o této otázce (vyjma základů Reactu) moc nedozvíte. Ostatní předměty jsem neměl, tak jen z  
-vlastních zkušeností.*
+*Fun fact: v PV247 se toho o této otázce (vyjma základů Reactu) moc nedozvíte. Ostatní předměty jsem neměl, tak jen z vlastních zkušeností.*
 
 ## Principy návrhu a vývoje uživatelského rozhraní v moderních softwarových systémech, vč. webových a mobilních
 
-Klíčem k úspěchu UI je uživatelská přívětivost a snadné použití rozhraní. Nabušený systém s tunou pokročilých funkcionalit  
-bude k ničemu, pokud se nedá jednoduše používat koncovými uživateli. Běžní uživatelé obvykle dokáží systémům s dobrým UI  
-prominout i některé funkcionální nedostatky.
+Klíčem k úspěchu UI je uživatelská přívětivost a snadné použití rozhraní. Nabušený systém s tunou pokročilých funkcionalit bude k ničemu, pokud se nedá jednoduše používat koncovými uživateli. Běžní uživatelé obvykle dokáží systémům s dobrým UI prominout i některé funkcionální nedostatky.
 
 Návrh rozhraní může ovlivňovat:
 
@@ -25,8 +22,7 @@ Návrh rozhraní může ovlivňovat:
 - Úroveň odbornosti uživatelů
 - Nutnost možnosti přizpůsobení
 - Nutnost vícejazyčnosti aplikace (problém mohou dělat třeba odlišné druhy písma)
-- Nutnost přístupnosti (accessibility) pro uživatele s nějakým omezením (zrakové či sluchové specifické potřeby, nutnost  
-  používat pro ovládání pouze myš nebo pouze klávesnici)
+- Nutnost přístupnosti (accessibility) pro uživatele s nějakým omezením (zrakové nebo sluchové specifické potřeby, nutnost používat pro ovládání pouze myš nebo pouze klávesnici)
 - Platforma, na které aplikace běží
 
 UI se obvykle vyvíjí jako monolit, ale je možné dělat i microfrontendy.
@@ -34,30 +30,21 @@ UI se obvykle vyvíjí jako monolit, ale je možné dělat i microfrontendy.
 Je fajn brát v potaz
 
 - Uživatelskou přívětivost (např. složité formuláře je lepší rozdělit na více částí, pole uspořádat top-down namísto v tabulce)
-- Bezpečnost – u aplikací, na které mohou cílit útočníci, je vhodné stránku uživateli přizpůsobit (např. zobrazit jeho fotku),  
-  aby bylo těžké stránku napodobit
-  - Skrývání hesel (změna viditelnosti textu v input poli)
+- Bezpečnost – u aplikací, na které mohou cílit útočníci, je vhodné stránku uživateli přizpůsobit (např. zobrazit jeho fotku),  aby bylo těžké stránku napodobit
+- Skrývání hesel (změna viditelnosti textu ve vstupním poli)
 - Používání vhodných vstupních polí (např. `<input type="email">` pro e-mail, `<input type="tel">` pro telefonní číslo)
 - Rozhraní by mělo být jednotné (konzistentní – jednotné barvy, fonty, styl tlačítek apod.)
 - Responsivita – fungování aplikace na různě velkých obrazovkách (desktop, tablet, mobil)
 
-V současnosti je nejuniverzálnějším způsobem tvorby UI HTML + CSS + JS. Aktuálně jsou populární frontendové JS frameworky  
-(React, Vue, Solid, Svelte, Angular …). Lze je použít v prohlížeči, jako desktopovou aplikaci (Electron – přibalí se k aplikaci  
-Chromium, nebo s využitím native WebView, např. Tauri), pro mobilní aplikace (Progressive Web App, není nutné instalovat z App Store),  
-případně mají vlastní verze pro nativní mobilní zařízení (React Native, Svelte Native …). Tyto technologie mají obvykle  
-dobře řešené věci jako accessibility či lokalizaci, existují pro ně solidní komponentové knihovny.
+V současnosti je nejuniverzálnějším způsobem tvorby UI HTML + CSS + JS. Aktuálně jsou populární frontendové JS frameworky (React, Vue, Solid, Svelte, Angular …). Lze je použít v prohlížeči, jako desktopovou aplikaci (Electron – přibalí se k aplikaci Chromium, nebo s využitím nativního WebView, např. Tauri), pro mobilní aplikace (Progressive Web App, není nutné instalovat z App Store),  případně mají vlastní verze pro nativní mobilní zařízení (React Native, Svelte Native …). Tyto technologie mají obvykle dobře řešené věci jako accessibility či lokalizaci, existují pro ně solidní komponentové knihovny.
 
-Aktuálním trendem s interesantním potenciálem je WebAssembly, které umožňuje použití kompilovaného jazyka (C/C++, Rust …).  
-Výsledná aplikace je spustitelná v prohlížeči a zpravidla rychlejší než čistý JS. WASM podporuje dva režimy – práci s DOM,  
-nebo přímé vykreslování na `<canvas>` (používá třeba Figma).
+Aktuálním trendem s interesantním potenciálem je WebAssembly, které umožňuje použití kompilovaného jazyka (C/C++, Rust …). Výsledná aplikace je spustitelná v prohlížeči a zpravidla rychlejší než čistý JS. WASM podporuje dva režimy – práci s DOM,  nebo přímé vykreslování na `<canvas>` (používá třeba Figma).
 
-Alternativou může být použití multiplatformního frameworku Flutter (používá jazyk Dart, podporuje Android, iOS, web),  
-který umožňuje vývoj pro více platforem z jednoho kódu.
+Alternativou může být použití multiplatformního frameworku Flutter (používá jazyk Dart, podporuje Android, iOS, web), který umožňuje vývoj pro více platforem z jednoho kódu.
 
 Nativními jazyky pro mobilní aplikace jsou Swift (iOS) a Java/Kotlin (Android).
 
-Pro desktopové aplikace je možné použít i technologie jako GTK (existují bindingy pro různé jazyky) nebo Qt (C++),  
-JavaFX …
+Pro desktopové aplikace je možné použít i technologie jako GTK (existují bindingy pro různé jazyky) nebo Qt (C++), JavaFX …
 
 ### Specifika pro web
 
@@ -65,39 +52,32 @@ JavaFX …
   - Server side rendering (SSR) – stránka je plně renderovaná na serveru, vhodné pro statické aplikace
   - Client side rendering (CSR) – stránka se renderuje na straně klienta, data se do aplikace načítají pomocí dotazů na server
 
-- Dříve aplikace fungovaly jako multi-page (přechod na jinou stránku znamenal kompletní nový načtení, např. v PHP)
+- Dříve aplikace fungovaly jako multi-page (přechod na jinou stránku znamenal kompletní nové načtení, např. v PHP)
 - Později se přešlo na single-page přístup pomocí client side renderingu
-- Aktuálně je možné přístupy míchat (initial page load je SSR, následně CSR), což je vhodné pro rychlý počáteční load a SEO  
-  (např. Next.js)
+- Aktuálně je možné přístupy míchat (initial page load je SSR, následně CSR), což je vhodné pro rychlý počáteční load a SEO (např. Next.js)
 
 ## Proces vývoje uživatelského rozhraní a zásady kvality
 
-Začneme uživatelským výzkumem, abychom pochopili skutečné požadavky na UI. Následuje návrh pomocí wireframů a prototypů,  
-které lze použít pro zpětnou vazbu a jako předlohu pro vývoj. Na závěr je důležité provést uživatelské testování s různými  
-typy uživatelů, abychom předešli problémům při nasazení aplikace.
+Začneme uživatelským výzkumem, abychom pochopili skutečné požadavky na UI. Následuje návrh pomocí wireframů a prototypů, které lze použít pro zpětnou vazbu a jako předlohu pro vývoj. Na závěr je důležité provést uživatelské testování s různými typy uživatelů, abychom předešli problémům při nasazení aplikace.
 
 ### Uživatelský výzkum, analýza
 
 - Je důležité určit, kdo jsou naši uživatelé, jak dosud pracují se stávajícími systémy, co jim vyhovuje a co ne.
-- Je třeba zanalyzovat požadavky na systém a způsob, jakým se systém používá (např. minimalizace počtu kliknutí pro dosažení  
-  určité operace).
+- Je třeba analyzovat požadavky na systém a způsob, jakým se systém používá (např. minimalizace počtu kliknutí pro dosažení určité operace).
 - S uživateli lze pracovat ve **focus groups** (diskusních skupinách).
 - Lze použít A/B testování – každé skupině uživatelů prezentujeme určitou variantu produktu a sledujeme její dopad na chování.
 
 ### Interaction design
 
-Snažíme se pochopit, jakým způsobem uživatelé se systémem interagují, a navrhnout rozhraní tak, aby odpovídalo jejich potřebám  
-a zvyklostem. Patří sem mapování uživatelských toků, definice klíčových scénářů a optimalizace cest (user flows).
+Snažíme se pochopit, jakým způsobem uživatelé se systémem interagují, a navrhnout rozhraní tak, aby odpovídalo jejich potřebám a zvyklostem. Patří sem mapování uživatelských toků, definice klíčových scénářů a optimalizace cest (user flows).
 
 ### Wireframování
 
-Je vhodné pro návrh hrubého rozložení jednotlivých komponent rozhraní. Neřeší se zde barvy a styly, ale pouze layout a struktura  
-obsahu.
+Je vhodné pro návrh hrubého rozložení jednotlivých komponent rozhraní. Neřeší se zde barvy a styly, ale pouze layout a struktura obsahu.
 
 ### Prototypování
 
-Pomocí návrhových nástrojů jako Adobe XD nebo Figma lze vytvořit (částečně i interaktivní) prototyp, který se využije pro první  
-uživatelské testování a získání zpětné vazby.
+Pomocí návrhových nástrojů jako Adobe XD nebo Figma lze vytvořit (částečně i interaktivní) prototyp, který se využije pro první uživatelské testování a získání zpětné vazby.
 
 ## User experience (UX)
 
@@ -123,4 +103,3 @@ Testování použitelnosti může zahrnovat:
 - Sledování pohybu očí (eye-tracking) uživatele při používání produktu:
   - Zjistíme, které části rozhraní upoutají nejvíce pozornosti.
   - Pro eye-tracking je obvykle nutný souhlas uživatele.
-
