@@ -1,9 +1,9 @@
 # Kvalita kódu
 
 1. [Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky](#kvalita-ve-vývoji-softwarových-systémů-atributy-kvality-a-softwarové-metriky)
-2. [Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality](#taktiky-pro-zajištění-kvality-na-úrovni-jednotlivých-atributů-kvality)
+2. [Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality](#taktiky-pro-zajištění-kvality-pro-jednotlivé-atributy)
 3. [Principy Clean Code a SOLID, refaktoring kódu](#principy-clean-code-a-solid-refaktoring-kódu)
-4. [Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy](#testování-kódu-jednotkové-testy-integrační-testy-uživatelské-a-akceptační-testy)
+4. [Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy](#testování)
 5. [Ladění a testování výkonu](#ladění-a-testování-výkonu)
 6. [Proces řízení kvality ve vývoji softwarových systémů](#proces-řízení-kvality-ve-vývoji-softwarových-systémů)
 
@@ -110,7 +110,9 @@ Metriky je ale nebezpečné používat k hodnocení výkonu vývojáře.
     - zlepšení UX
     - použití taktik pro zlepšení výkonnosti/škálovatelnosti (když je to pomalé)
 
-## Clean Code
+## Principy Clean Code a SOLID, refaktoring kódu
+
+### Clean Code
 
 Čitelný, snadno pochopitelný. Kód bývá mnohem více čten než psán, proto je důležité, aby byl srozumitelný, čas vývojářů
 je drahý. Klíčové je:
@@ -152,7 +154,7 @@ Každá informace by měla být v systému jednoznačně definována na jediném
 - Je lepší věc udělat jednoduše a pak ji snadno upravit, než ji udělat univerzálně, abychom pak zjistili, že nás
   nenapadl nějaký edge case a musíme to stejně celé přepsat. Vývoj postupuje po malých krůčcích.
 
-## SOLID
+### SOLID
 
 - **Single responsibility**
     - každá třída by měla mít pouze jednu zodpovědnost, a.k.a. pro každou třídu by měl být pouze jeden důvod, proč by se
@@ -192,7 +194,7 @@ Každá informace by měla být v systému jednoznačně definována na jediném
     - konstruktor by měl přijímat vše, na čem struktura závisí, ne si vytvářet zdroje sám (např. repo si nemá tvořit
       připojení do databáze, ale má být předáno v konstruktoru) = dependency injection konstruktorem
 
-## Refaktoring
+### Refaktoring
 
 Úprava modulu takovým způsobem, aby se nezměnilo jeho externí chování, ale pouze došlo ke zlepšení jeho interní
 struktury/modifikovatelnosti...
