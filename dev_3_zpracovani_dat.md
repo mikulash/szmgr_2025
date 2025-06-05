@@ -275,7 +275,7 @@ JOINy jsou:
     - **Grouping** fáze - děje se automaticky po map fázi, seskupuje data se stejným klíčem (vznikne key-list) a předá data se stejným klíčem jednomu reduceru
     - **Reduce** - agregace dat podle klíče, sumarizace výsledků Map operací. Bere key-list (obsahující všechny hodnoty pro daný klíč) a vrací key-list (obsahující 0-n výstupních záznamů).
       Např. word count - map bere řádek a vrací několik (dle výskytu na řádku) dvojic `(slovo, 1)`. Reduce sečte `1` pro daná slova a vrací `(slovo, součet)`.
-      ![](img/20230612201616.png)
+  ![img.png](img/mapReduce.png)
 
 ### Apache Hive
 
