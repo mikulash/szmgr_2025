@@ -7,7 +7,9 @@
 5. [Ladění a testování výkonu](#ladění-a-testování-výkonu)
 6. [Proces řízení kvality ve vývoji softwarových systémů](#proces-řízení-kvality-ve-vývoji-softwarových-systémů)
 
-## Kvalita ve vývoji softwarových systémů
+## Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky
+
+### Kvalita ve vývoji softwarových systémů
 
 - Důležitý aspekt při vývoji sw systémů
 - Kvalita je často definována jako **schopnost produktu dostát požadavkům** => je důležité si určit, co jsou požadavky
@@ -20,7 +22,7 @@
 - Špatná externí kvalita je často symptomem špatné interní kvality produktu (opravy chyb trvají dlouho, systém je
   pomalý... ale nemusí to být vždy pravda, třeba jen máme slabší UI)
 
-## Atributy kvality
+### Atributy kvality
 
 Za nejdůležitější atributy kvality kódu se považují:
 
@@ -33,7 +35,7 @@ Za nejdůležitější atributy kvality kódu se považují:
 - **Použitelnost** = snadnost používání systému a jednoduchost učení se práce s ním, správná funkcionalita (obvykle samostatný bod)
 
 
-## Softwarové metriky
+### Softwarové metriky
 
 Měřitelné aspekty sw systému (počet řádků kódu, pokrytí testy, cyklomatická složitost…), které nám dávají informace o celkovém obrazu, ale může být netriviální je vhodně interpretovat.
 
