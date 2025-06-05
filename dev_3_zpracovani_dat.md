@@ -8,39 +8,37 @@
 
 ## Základní pojmy a principy datových skladů, datové analytiky a business intelligence
 
-**Business intelligence**
+### Business intelligence
 
 - procesy a nástroje pro sběr, analýzu a prezentaci/vizualizaci dat za účelem asistence při tvorbě informovaných rozhodnutí v podnikovém řízení
 - umožňuje transformaci dat do informací
-- jádrem je datový sklad
+- jádrem je **datový sklad**
 
-**OLTP vs OLAP**
+### OLTP (online transaction processing)
+- způsob ukládání dat v db pro transakční zpracování
+- data v databázi se mění, cílem je zajistit konzistenci a umožnit CRUD
+- nutné zamykání tabulek/řádků pro zajištění konzistence
+- vhodné pro uložení dat v operativním provozu podniku (zajímá nás, co máme na skladě, jaká je aktuální cena produktů...)
+- normalizovaná forma (není datová redundance, používají se public keys pro případné spojování dat)
+- používané queries známe dopředu
 
-- **OLTP (online transaction processing)**
-    - způsob ukládání dat v db pro transakční zpracování
-    - data v databázi se mění, cílem je zajistit konzistenci a umožnit CRUD
-    - nutné zamykání tabulek/řádků pro zajištění konzistence
-    - vhodné pro uložení dat v operativním provozu podniku (zajímá nás, co máme na skladě, jaká je aktuální cena produktů...)
-    - normalizovaná forma (není datová redundance, používají se public keys pro případné spojování dat)
-    - používané queries známe dopředu
-
-- **OLAP (online analytical processing)**
-    - způsob ukládání dat pro analytické zpracování
-    - data v databázi se nemění
-    - zamykání není třeba, data se nemodifikují
-    - pracujeme s mnohem větším objemem dat
-    - vhodné pro dlouhodobé uložení dat, reflektuje historii dat z produkční databáze a jejich vývoj v čase
-    - denormalizovaná forma, hodně indexů, snažíme se minimalizovat nutné joiny, nevadí datová redundance
-    - **hvězdicové schéma/dimenzionální modelování** - středobodem je vždy nějaký subjekt (obsahující fakta např. prodej) s **tabulkou faktů** (obsahující konkrétní záznamy měření), ke které se pomocí referencí (foreign key) vážou **tabulky dimenzí** (často odpovědi na otázky KDO, KDY, KDE, JAK..., obvykle detailní (denormalizované) pro snadnou analytiku, redundance nevadí, např. datum dělíme na den, měsíc, rok, den v týdnu, kvartál... můžeme mít separé date i time dimenze, obvykle 4-15). Čím více dimenzí máme, tím více/konkrétněji se můžeme DW dotazovat (dimenze tvoří kontext). Tabulky dimenzí obvykle předvyplníme (pro datum můžeme použít numerický přepis data, např. 20230621), rozlišujeme dimenze data a času. Jako stěžejní data (to, co nás zajímá) bereme fakta, dimenze jsou popisná data k faktům, podle kterých je možné seskupovat. Reference jsou jen v tabulce faktů. ID pro tabulky (surrogate keys, int) dimenzí si generujeme sami, abychom nebyli limitováni použitými klíči z OLTP.
-      ![](img/20230611150321.png)
-    - typy faktů:
-        - **transakční** - událost spojená s hodnotou (např. nákup)
-        - **snapshot** - zachycující nějakou aktuální hodnotu (např. naplněnost skladu)
-        - **bez hodnoty** - fakt nemá žádnou numerickou hodnotu, obvykle jde o nějakou událost (např. click na určitý prvek)
-          Za fakty se považují i odvozená data (např. kumulativní hodnoty za nějaké období), nebo data kombinovaná z více procesů (např. prodeje a jejich předpovědi pro dané období). Ty obvykle neukládáme do tabulky faktů (ale může to mít své opodstatnění, třeba pro zrychlení dotazů)
-    - nevadí nám drobná neaktuálnost dat
-    - query neznáme dopředu, záleží na tom, co chceme zjistit
-      ![](img/20230610171630.png)
+### OLAP (online analytical processing)
+- způsob ukládání dat pro analytické zpracování
+- data v databázi se nemění
+- zamykání není třeba, data se nemodifikují
+- pracujeme s mnohem větším objemem dat
+- vhodné pro dlouhodobé uložení dat, reflektuje historii dat z produkční databáze a jejich vývoj v čase
+- denormalizovaná forma, hodně indexů, snažíme se minimalizovat nutné joiny, nevadí datová redundance
+- **hvězdicové schéma/dimenzionální modelování** - středobodem je vždy nějaký subjekt (obsahující fakta např. prodej) s **tabulkou faktů** (obsahující konkrétní záznamy měření), ke které se pomocí referencí (foreign key) vážou **tabulky dimenzí** (často odpovědi na otázky KDO, KDY, KDE, JAK..., obvykle detailní (denormalizované) pro snadnou analytiku, redundance nevadí, např. datum dělíme na den, měsíc, rok, den v týdnu, kvartál... můžeme mít separé date i time dimenze, obvykle 4-15). Čím více dimenzí máme, tím více/konkrétněji se můžeme DW dotazovat (dimenze tvoří kontext). Tabulky dimenzí obvykle předvyplníme (pro datum můžeme použít numerický přepis data, např. 20230621), rozlišujeme dimenze data a času. Jako stěžejní data (to, co nás zajímá) bereme fakta, dimenze jsou popisná data k faktům, podle kterých je možné seskupovat. Reference jsou jen v tabulce faktů. ID pro tabulky (surrogate keys, int) dimenzí si generujeme sami, abychom nebyli limitováni použitými klíči z OLTP.
+  ![](img/20230611150321.png)
+- typy faktů:
+    - **transakční** - událost spojená s hodnotou (např. nákup)
+    - **snapshot** - zachycující nějakou aktuální hodnotu (např. naplněnost skladu)
+    - **bez hodnoty** - fakt nemá žádnou numerickou hodnotu, obvykle jde o nějakou událost (např. click na určitý prvek)
+      Za fakty se považují i odvozená data (např. kumulativní hodnoty za nějaké období), nebo data kombinovaná z více procesů (např. prodeje a jejich předpovědi pro dané období). Ty obvykle neukládáme do tabulky faktů (ale může to mít své opodstatnění, třeba pro zrychlení dotazů)
+- nevadí nám drobná neaktuálnost dat
+- query neznáme dopředu, záleží na tom, co chceme zjistit
+  ![](img/20230610171630.png)
 
 **Snowflake schema** - star schema, kde dimenze mají hloubku (obsahují reference na další tabulky, např. obsahující month ID a month name). Způsobují performance problémy, jde o antipattern.
 
