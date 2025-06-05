@@ -173,6 +173,12 @@ Každá informace by měla být v systému jednoznačně definována na jediném
     - problém je, když musíme explicitně ověřovat, o jaký podtyp se jedná - toto by měl řešit polymorfismus
     - pokud dvě třídy sdílí mnoho funkcionality, ale nejsou nahraditelné, je vhodné je upravit na podtřídy nové třídy obsahující sdílené chování
     - nedodržení lsp -> narušení polymorfysmu
+    - follow robustness principle for typesafe variance:
+      - be conservative in what you do, be liberal in what you accept from others
+      - contravariantni parametry metod u podtrit: musi prijmat typ, ktere bere nadtrida nebo obecnější
+      - covariantni navratove typy metod u podtrit: musi vracet typ, ktery vraci nadtrida nebo konkrétnější
+      - nevyhazovat zadne nove vyjimky v podtridach, ktere nejsou v nadtride
+    - [super video k LSP](https://www.youtube.com/watch?v=7hXi0N1oWFU)
 
 - **Interface segregation principle**
     - klienti kódu by neměli být závislí na metodách, které nepoužívají, a.k.a. dělej malá a jednoduchá rozhraní namísto
