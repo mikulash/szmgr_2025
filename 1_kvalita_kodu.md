@@ -30,67 +30,74 @@ Za nejdůležitější atributy kvality kódu se považují:
 - **Testovatelnost** = jak snadno (a co všechno) lze systém testovat
 - **Škálovatelnost** = schopnost systému zpracovat větší množství dat/uživatelů...
 - **Bezpečnost** = jak je systém odolný vůči útokům
-- **Použitelnost** = snadnost používání systému a jednoduchost učení se práce s ním, správná funkcionalita (obvykle
-  samostatný bod)
+- **Použitelnost** = snadnost používání systému a jednoduchost učení se práce s ním, správná funkcionalita (obvykle samostatný bod)
+
 
 ## Softwarové metriky
 
-Měřitelné aspekty sw systému (počet řádků kódu, pokrytí testy, cyklomatická složitost...), které nám dávají informace o
-celkovém obrazu, ale může být netriviální je vhodně interpretovat.
+Měřitelné aspekty sw systému (počet řádků kódu, pokrytí testy, cyklomatická složitost…), které nám dávají informace o celkovém obrazu, ale může být netriviální je vhodně interpretovat.
 
-Např. 100% pokrytí testy nemusí znamenat, že v systému nejsou chyby. Velký počet malých tříd zní dobře, ale třídy mohou
-být naprosto nelogicky strukturované a vzájemně silně závislé...
+Např. 100 % pokrytí testy nemusí znamenat, že v systému nejsou chyby. Velký počet malých tříd zní dobře, ale třídy mohou být naprosto nelogicky strukturované a vzájemně silně závislé…
 
-Mohou být přímé (to co přímo změříme, např. počet defektů) nebo odvozené (vypočítané z přímých, např. hustota defektů;
-počet defektů na velikost produktu)
+Mohou být přímé (to, co přímo změříme, např. počet defektů) nebo odvozené (vypočítané z přímých, např. hustota defektů; počet defektů na velikost produktu).
 
-- **Lines of code**
-- **(Non)Commented lines of code** - řádky (ne)obsahující komentář
+Kromě toho je užitečné rozlišit metriky na **objektivní** a **subjektivní**:
+- **Objektivní metrika**: lze ji změřit přímo číselně nezávisle na vnímání (např. LOC – počet řádků kódu, počet tříd, počet funkcí, počet souborů).
+- **Subjektivní metrika**: závisí na vnímání či dojmu (např. čas, který vývojář či uživatel potřebuje k porozumění nové funkcionalitě, nebo „obtížnost” pochopení datového modelu).
+
+Často nás zajímají spíš poměry/odvozené metriky, např. poměr komentářů k celkovému počtu řádků, průměrná velikost metody, odchylky jednotlivých metrik v rámci projektu nebo mezi různými releasy.  
+Metriky je ale nebezpečné používat k hodnocení výkonu vývojáře.
+
+- **Lines of Code (LOC)**
+- **(Non)Commented lines of code (CLOC)** – řádky obsahující komentář vs. bez komentáře
 - **Počet tříd**
 - **Počet funkcí/metod**
 - **Počet packages**
 - **Počet souborů**
-- **Provázanost tříd** - kolik jiných tříd voláme
-- **Hloubka dědičnosti**
-- **Počet metod na třídu vážený složitostí**
-  ...
-- **Cyklomatická složitost** - počet nezávislých cest ve zkoumané jednotce (obvykle funkce), kterými se může běh vydat
-  `= <počet hran/větví> - <počet vrcholů/nevětvených bloků> + 2<počet vzájemně nepropojených grafů(pro funkci 1)>`
-    - nejnižší je 1 (bez větvení)
+- **Provázanost tříd** – kolik jiných tříd třída A volá (tight coupling)
+- **Hloubka dědičnosti** – počet vrstev v hierarchii pod dědičností
+- **Počet metod na třídu vážený složitostí** (váhovaná komplexita třídy; součet cyklomatických složitostí metod třídy)
+- **Reakce na dotaz (Response for a Class)** – počet metod (vlastních či cizích tříd), které třída zavolá při zpracování jednoho requestu
+- **Nedostatek soudržnosti (Lack of Cohesion)** – míra, jak metody třídy souvisí s jejími instančními proměnnými; nízká soudržnost znamená, že metody dělají často nesouvisející operace
+- **Index udržitelnosti (Maintainability Index)** – vzorec kombinující LOC, cyklomatickou složitost (CC) a konstanta; používá se pro odhad, jak snadné bude kód udržovat
+- **Cyklomatická složitost (CC)** – počet nezávislých cest ve zkoumané jednotce (funkce/metodě), které se mohou v běhu programu projevit. $CC = E - N + 2P$ kde E = počet hran (větví), N = počet vrcholů (nevětvených bloků) a P = počet vzájemně nepropojených grafů (obvykle P = 1 pro jednu funkci). Nejnižší hodnota CC je 1 (bez větvení).
+- **SQALE (Software Quality Assessment Based on Lifecycle Expectations)** – metoda hodnocení technického dluhu na základě charakteristik projektu:
+1. **Level 1**: základní charakteristiky (znovupoužitelnost, udržitelnost, bezpečnost, efektivita, spolehlivost…)</br>
+2. **Level 2**: rozvětvení každé úrovně z Level 1 (např. udržitelnost → čitelnost kódu, pochopitelnost, konzistence názvů, standardy)</br>
+3. **Level 3**: navázání konkrétních požadavků na úrovni kódu (např. „žádné metody delší než 30 řádků”, „žádný vícenásobný dědický cyklus”, „test coverage ≥ 80 %” atp.)  
+   – Výstupem je komplexní index technického dluhu, který se skládá z jednotlivých sub-indexů (např. STI – Testability, SRI – Reliability atd.).
 
-Často nás spíš zajímají poměry/odvozené metriky, např. procento komentářů z celkového počtu řádků, průměrná velikost
-metody, odchylky v rámci projektu/mezi releases...
+Často nás tedy zajímají odvozené metriky (př.: hustota defektů = počet defektů / velikost produktu; procento komentářů z celkového počtu řádků; průměrná velikost třídy či metody; standardní odchylka v rámci projektu/mezi releasy).
 
-Metriky je nebezpečné používat k ohodnocení výkonu vývojáře.
+> **Poznámka:** Nezapomeňte, že výše uvedené metriky jsou pouze číselným odrazem kvality. Například 100 % code coverage neznamená, že testy testují všechny relevantní scénáře ⇒ metrika za 100 % nemusí odrážet skutečné riziko.
 
 ## Taktiky pro zajištění kvality (pro jednotlivé atributy)
 
-- **Udržitelnost (maintainability)** - refaktoring na koherentní jednotky, aby bylo místo nutné změny minimální a snadno
-  lokalizovatelné, separace dat od logiky (aby bylo možné jednotku nahradit jinou), decoupling (závislosti na
-  rozhraních, namísto na implementacích)
+- **Udržitelnost (maintainability)** 
+  - refaktoring na koherentní jednotky, aby bylo místo nutné změny minimální a snadno lokalizovatelné,
+  - separace dat od logiky (aby bylo možné jednotku nahradit jinou),
+  - decoupling (závislosti na rozhraních, namísto na implementacích)
 - **Výkonnost**
     - kešování
     - paralelismus
     - asynchronní komunikace/zpracování
     - detekce a mitigace bottlenecků
-    - odstranění adaptérů, zjednodušení komunikace
-    - separace dat od logiky
+    - používat profiler
 - **Spolehlivost**
     - detekce a náprava zdrojů nespolehlivosti
     - kontrolní mechanismy pro zajištění spolehlivosti
     - vhodné ošetření chyb
     - automatický reporting neočekávaných chyb
     - timeout po requestu
-    - pravidelný ping (iniciuje volající služby)
-    - heartbeat (služba pravidelně reportuje stav)
-    - pravidelné snapshoty a rollback v případě pádu
+    - monitorování, logování, sběr událostí
+    - pravidelné snapshoty a rollback v případě pádu, např. při selhání odeslání formuláře přesměrovat na předvyplněný formulář (předcházet frustraci usera)
     - transakce
     - kontrola vstupů na každé úrovni
     - odstranění single point of failure
 - **Testovatelnost**
-    - refaktoring na závislosti na abstrakcích, decoupling
     - separace dat a logiky
     - odstranění globálního stavu
+    - clean kod, KISS, dependency separation
 - **Škálovatelnost**
     - refaktoring na jednodušší, samostatně nasaditelné jednotky
     - extrakce dat pro umožnění paralelizace jednotek
@@ -162,11 +169,10 @@ Každá informace by měla být v systému jednoznačně definována na jediném
       takže je potřeba ho používat obezřetně a jen tam, kde se často mění/přidává funkcionalita
 
 - **Liskov substitution principle**
-    - instance tříd by měly být nahraditelné jejich podtřídami, aniž by došlo k narušení chování systému - všechny
-      podtřídy by měly dodržovat kontrakty nadtříd a neměly by odstraňovat chování nadtříd
+    - instance tříd by měly být nahraditelné jejich podtřídami, aniž by došlo k narušení chování systému - všechny podtřídy by měly dodržovat kontrakty nadtříd a neměly by odstraňovat chování nadtříd
     - problém je, když musíme explicitně ověřovat, o jaký podtyp se jedná - toto by měl řešit polymorfismus
-    - pokud dvě třídy sdílí mnoho funkcionality, ale nejsou nahraditelné, je vhodné je upravit na podtřídy nové třídy
-      obsahující sdílené chování
+    - pokud dvě třídy sdílí mnoho funkcionality, ale nejsou nahraditelné, je vhodné je upravit na podtřídy nové třídy obsahující sdílené chování
+    - nedodržení lsp -> narušení polymorfysmu
 
 - **Interface segregation principle**
     - klienti kódu by neměli být závislí na metodách, které nepoužívají, a.k.a. dělej malá a jednoduchá rozhraní namísto
