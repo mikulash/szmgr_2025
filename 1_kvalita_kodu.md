@@ -7,6 +7,8 @@
 5. [Ladění a testování výkonu](#ladění-a-testování-výkonu)
 6. [Proces řízení kvality ve vývoji softwarových systémů](#proces-řízení-kvality-ve-vývoji-softwarových-systémů)
 
+[[TOC]]
+
 ## Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky
 
 ### Kvalita ve vývoji softwarových systémů
