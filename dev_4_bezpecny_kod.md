@@ -12,30 +12,22 @@
 
 **Klíčové pojmy**
 
-- **Autentizace/verifikace identity** - verifikace/ověření identity - kombinace identity (např. jména) a důkazu (např.
-  hesla)
-- **Identifikace** - rozpoznání - rozpoznání entity v dané množině entit, subjekt nepředkládá identitu, ale systém se mu
-  ji snaží přiřadit z databáze známých identit, např. otisk prstu na vstupních dveřích
-- **Autorizace** - udělení práv k vykonání určitých akcí (např. autorizace terminálu k platbě vložením karty a pinu,
-  zároveň se uživatel autentizoval pinem vůči kartě)
+- **Autentizace/verifikace identity** - verifikace/ověření identity - kombinace identity (např. jména) a důkazu (např. hesla)
+- **Identifikace** - rozpoznání - rozpoznání entity v dané množině entit, subjekt nepředkládá identitu, ale systém se mu ji snaží přiřadit z databáze známých identit, např. otisk prstu na vstupních dveřích
+- **Autorizace** - udělení práv k vykonání určitých akcí (např. autorizace terminálu k platbě vložením karty a pinu, zároveň se uživatel autentizoval pinem vůči kartě)
 
 **Metody autentizace**
 
 - na základě znalosti (pin/heslo)
-- na základě vlastnictví fyzického tokenu (klíč/čipová karta, řeší se i cena padělání, obvykle velká za kus, ale funguje
-  economies of scale, fungují legislativní postihy)
+- na základě vlastnictví fyzického tokenu (klíč/čipová karta, řeší se i cena padělání, obvykle velká za kus, ale funguje economies of scale, fungují legislativní postihy)
 - na základě biometrie (otisk prstu, který nikdo jiný nemá)
-- na základě fyzické/virtuální lokace (rychlá změna fyzické lokace může být varovný signál, přihlášení z určitého
-  počítače s certifikátem může stačit k autentizaci)
+- na základě fyzické/virtuální lokace (rychlá změna fyzické lokace může být varovný signál, přihlášení z určitého počítače s certifikátem může stačit k autentizaci)
 
-Autentizaci můžeme vyžadovat jednostranně (např. webový server, potřebujeme vědět, že se nejedná o někoho jiného.
-Serveru je jedno, komu odpovídá, pokud jen vrací veřejnou webovou stránku), nebo oboustranně (pro důležité akce potřebuje
-server ujištění, že akci provádí opravdu uživatel).
+Autentizaci můžeme vyžadovat jednostranně (např. webový server, potřebujeme vědět, že se nejedná o někoho jiného. Serveru je jedno, komu odpovídá, pokud jen vrací veřejnou webovou stránku), nebo oboustranně (pro důležité akce potřebuje server ujištění, že akci provádí opravdu uživatel).
 
 Autentizace může proběhnout na základě výzvy, nebo klidně z iniciativy subjektu.
 
-**Zero-knowledge protokoly** - umožňují demonstraci znalosti tajemství, aniž bychom odhalili jakoukoliv informaci
-vedoucí k získání tajemství
+**Zero-knowledge protokoly** - umožňují demonstraci znalosti tajemství, aniž bychom odhalili jakoukoliv informaci vedoucí k získání tajemství
 
 - vlastnosti
   - **úplnost/completeness** - poctiví vždy dosáhnou úspěšného výsledku
@@ -67,21 +59,16 @@ vedoucí k získání tajemství
   - skupinová (více uživatelů sdílí heslo) - mizivá bezpečnost
   - unikátní pro osobu, pomocí hesla se zároveň uživatel identifikuje
   - kombinace s uživatelským jménem
-  - jednorázová - jdou odděleným kanálem, obvykle součástí vícefaktorové autentizace, prokazujeme vlastnictví dalšího
-    tokenu
-- ukládají se [hashovaná](4_databaze.md#hašování) (pokud nepotřebujeme získat původní heslo), ideálně včetně soli a
-  pepře, nebo šifrovaná (problém je, že teď musíme chránit místo hesla šifrovací klíč), nikdy ne v plaintextu
-  - **salt** - náhodně vygenerovaná data, která se ukládají zároveň s hashem a při hashování se přidávají k heslu,
-    efektivně prodlužuje délku hesla a znemožní detekci stejných hesel dle shody hashů
+  - jednorázová - jdou odděleným kanálem, obvykle součástí vícefaktorové autentizace, prokazujeme vlastnictví dalšího tokenu
+- ukládají se [hashovaná](4_databaze.md#hašování) (pokud nepotřebujeme získat původní heslo), ideálně včetně soli a pepře, nebo šifrovaná (problém je, že teď musíme chránit místo hesla šifrovací klíč), nikdy ne v plaintextu
+  - **salt** - náhodně vygenerovaná data, která se ukládají zároveň s hashem a při hashování se přidávají k heslu, efektivně prodlužuje délku hesla a znemožní detekci stejných hesel dle shody hashů
   - **pepper** - data, která se při hashování přidávají ke vstupu, jsou však utajená (neukládáme je vedle hashe)
 - nucená expirace hesla může mít za následek používání obecně slabších hesel
-- dobrý kompromis mezi bezpečností a zapamatovatelností jsou hesla založená na frázích (se zakomponováním speciálních
-  znaků/číslic), nebo lokálním důvěryhodným správcem hesel
+- dobrý kompromis mezi bezpečností a zapamatovatelností jsou hesla založená na frázích (se zakomponováním speciálních znaků/číslic), nebo lokálním důvěryhodným správcem hesel
 
 **Útoky na hesla**
 
-- cílený (snažíme se zjistit heslo konkrétního uživatele) vs plošný (snažíme se zjistit heslo kohokoliv ze skupiny
-  uživatelů)
+- cílený (snažíme se zjistit heslo konkrétního uživatele) vs plošný (snažíme se zjistit heslo kohokoliv ze skupiny uživatelů)
 - online (lze omezit počet pokusů) vs offline (kdy jsme se zmocnili souboru s hashi/šifrovanými daty)
 - odpozorování (vizuálně, phishing, nebo zachycení komunikace, sniffing)
 - slovníkový (máme slovník často používaných hesel)
@@ -90,21 +77,15 @@ vedoucí k získání tajemství
 - analýza zdrojového kódu nebo souborů verzovacího systému (často tam hesla nechávají vývojáři)
 - použití iniciálního hesla z manuálu (např. často u routerů)
 - krádež databáze/databáze, získání obsahu paměti/cache
-- použití rainbow tables (předpočítané hodnoty a jejich hashe), nástroje na prolomení heslem chráněných souborů (john the
-  ripper)
+- použití rainbow tables (předpočítané hodnoty a jejich hashe), nástroje na prolomení heslem chráněných souborů (john the ripper)
 
 **Jednorázová hesla**
 
 - buď náhodně generovaná a zaslaná separátním kanálem (multifactor authentication)
 - nebo **(Lamportův) řetězec hashů**
   - na začátku si uživatel lokálně uloží heslo, které 1000× prožene hash funkcí, výsledek dá serveru
-  - při každé autentizaci uživatel pošle předchozí hash (číslo 999, 998...). Server prožene tento předaný hash 1× hash
-    funkcí a porovná s posledním uloženým hashem. Pokud výsledek sedí, uloží si předaný hash jako poslední uložený a
-    považuje uživatele za autentizovaného. Útočník nemůže použít odposlechnutý hash, protože potřebuje předchozí
-    hodnotu (a originál nezná).
-- nebo přístroj (autentizační kalkulátor) generující náhodná hesla na základě času, princip generování je znám službě,
-  která autentizuje. Je nutná synchronizace hodin/povolení několika hesel kolem předpokládaného okamžiku. (to už je spíš
-  autentizace tokenem). Případně má autentizační kalkulátor klávesnici a používáme ho pro challenge-response
+  - při každé autentizaci uživatel pošle předchozí hash (číslo 999, 998...). Server prožene tento předaný hash 1× hash funkcí a porovná s posledním uloženým hashem. Pokud výsledek sedí, uloží si předaný hash jako poslední uložený a považuje uživatele za autentizovaného. Útočník nemůže použít odposlechnutý hash, protože potřebuje předchozí hodnotu (a originál nezná).
+- nebo přístroj (autentizační kalkulátor) generující náhodná hesla na základě času, princip generování je znám službě, která autentizuje. Je nutná synchronizace hodin/povolení několika hesel kolem předpokládaného okamžiku. (to už je spíš autentizace tokenem). Případně má autentizační kalkulátor klávesnici a používáme ho pro challenge-response
 
 **PINy**
 
@@ -117,8 +98,7 @@ Jak ověřit, že komunikuji s tím, kdo se mnou sdílí klíč?
 - pošlu náhodné číslo (a třeba sekvenční číslo/timestamp pro prevenci útoku), které mi má druhý vrátit zašifrované
 - lze i oboustranně, druhý komunikující ve své odpovědi zahrne zašifrovaný challenge pro mě
 
-Alternativně lze provést výpočetně jednodušší variantu - nepředáváme si šifrovaná data, ale hashe (pro jejichž vytvoření
-byl zahrnut klíč), jinak je to principiálně stejné.
+Alternativně lze provést výpočetně jednodušší variantu - nepředáváme si šifrovaná data, ale hashe (pro jejichž vytvoření byl zahrnut klíč), jinak je to principiálně stejné.
 
 - pokud chceme oboustrannou autentizaci, musí mi druhý poslat challenge i v nehashované podobě, ať ho můžu použít taky
 
@@ -134,9 +114,7 @@ Do zpráv je možné přidat identitu challengera, abychom předešli man in the
 
 Pomocí šifrování: Zašifruju zprávu veřejným klíčem. Jestli jsi majitel soukromého klíče, dešifruj a pošli výsledek zpět.
 
-Alternativně lze pomocí podpisu: Tady máš náhodné číslo, podepiš mi ho (hash a šifrování soukromým klíčem). Server do
-dat přihodí své náhodné číslo (aby předešel zneužití, kdy útočník chce od serveru získat svá podepsaná data), celé
-to podepíše a vrátí.
+Alternativně lze pomocí podpisu: Tady máš náhodné číslo, podepiš mi ho (hash a šifrování soukromým klíčem). Server do dat přihodí své náhodné číslo (aby předešel zneužití, kdy útočník chce od serveru získat svá podepsaná data), celé to podepíše a vrátí.
 
 Lze samozřejmě provádět oboustranně.
 
@@ -146,10 +124,8 @@ Do zpráv je možné přidat identitu challengera, abychom předešli man in the
 
 **Aktualizace klíče**
 
-- Nový klíč lze předat zašifrovaný. Lze opatřit časovým razítkem, nebo spojit s náhodným číslem od parťáka, abychom
-  předešli útoku přehráním.
-- Tady máš náhodné číslo. Náš nový klíč je toto číslo zašifrované starým klíčem (je fajn si poslat kontrolní zprávu s
-  informací šifrovanou novým klíčem)
+- Nový klíč lze předat zašifrovaný. Lze opatřit časovým razítkem, nebo spojit s náhodným číslem od parťáka, abychom předešli útoku přehráním.
+- Tady máš náhodné číslo. Náš nový klíč je toto číslo zašifrované starým klíčem (je fajn si poslat kontrolní zprávu s informací šifrovanou novým klíčem)
 
 **Ustanovení klíče bez předchozího sdíleného tajemství**
 
@@ -157,14 +133,11 @@ Do zpráv je možné přidat identitu challengera, abychom předešli man in the
   - Vyžaduje komutativní šifru, kde platí `E_a( E_b( X ) ) = E_b( E_a( X ) )`
     1. vygeneruju nový klíč X. Ten zašifruju svým klíčem a. `E_a(X)` pošlu kamarádovi
     2. kamarád výsledek zašifruje svým klíčem b a pošle mi `E_b( E_a( X ) )`
-    3. odstraním svůj klíč a, pošlu kamarádovi výsledek `E_b( X )`. Kamarád odstraní klíč b a zjistí nový klíč X, kterým
-       můžeme šifrovat
+    3. odstraním svůj klíč a, pošlu kamarádovi výsledek `E_b( X )`. Kamarád odstraní klíč b a zjistí nový klíč X, kterým můžeme šifrovat
 - **Diffie Hellman protokol**
-  - spolu s kamarádem se dohodneme na společném základu (malé prvočíslo `g` a velké číslo `n`) a každý přidáme svou
-    tajnou ingredienci, já `a`, kamarád `b`, `1 <= a, b <= n` (`x_a = g^a mod n` a `x_b = g^b mod n`)
+  - spolu s kamarádem se dohodneme na společném základu (malé prvočíslo `g` a velké číslo `n`) a každý přidáme svou tajnou ingredienci, já `a`, kamarád `b`, `1 <= a, b <= n` (`x_a = g^a mod n` a `x_b = g^b mod n`)
   - výsledek si vyměníme
-  - přidáme opět svou tajnou ingredienci a využijeme ekvivalence a kongruence modulo n (
-    `(g^a mod n)^b mod n = g^ab mod n = (g^b mod n)^a mod n`)
+  - přidáme opět svou tajnou ingredienci a využijeme ekvivalence a kongruence modulo n (`(g^a mod n)^b mod n = g^ab mod n = (g^b mod n)^a mod n`)
   - výsledek `g^ab mod n` používáme pro šifrování
 
 ### Řízení přístupu
@@ -179,12 +152,9 @@ Pojmy
 
 Politiky řízení přístupu
 
-- volitelný přístup/decentralizovaná správa řízení - vlastník dat/objektu rozhoduje (malá režie, o správu se starají
-  vlastníci/správci, špatné vynucování/koordinace celosystémových pravidel, možnost problému, kdy někdo v souborovém
-  systému tajný soubor zkopíruje a zveřejní ho omylem všem)
+- volitelný přístup/decentralizovaná správa řízení - vlastník dat/objektu rozhoduje (malá režie, o správu se starají vlastníci/správci, špatné vynucování/koordinace celosystémových pravidel, možnost problému, kdy někdo v souborovém systému tajný soubor zkopíruje a zveřejní ho omylem všem)
 - povinný přístup/centralizovaná správa řízení - o přístupu rozhoduje systémová politika
-- povinný a volitelný přístup lze kombinovat, systém je pak flexibilnější, ale stále zaručuje bezpečnost u kritických
-  objektů
+- povinný a volitelný přístup lze kombinovat, systém je pak flexibilnější, ale stále zaručuje bezpečnost u kritických objektů
 
 Základní typy práv (obvykle specifikovatelná pro každou jednotku dat, např. soubory, nebo třeba buňky v tabulkách)
 
@@ -193,37 +163,29 @@ Základní typy práv (obvykle specifikovatelná pro každou jednotku dat, např
 - execute (spouštění programu)
 - pokročilejší příznaky mohou být třeba append only soubor
 
-Práva mohou být specifikována v matici (jedna osa soubory, druhá uživatelé, uprostřed práva), ale může být
-nepřehledná → práva lze ukládat v metadatech daného objektu - **Access Control List (ACL)** (ale těžko se zas hledá, k
-čemu všemu má daný uživatel přístup).
+Práva mohou být specifikována v matici (jedna osa soubory, druhá uživatelé, uprostřed práva), ale může být nepřehledná → práva lze ukládat v metadatech daného objektu - **Access Control List (ACL)** (ale těžko se zas hledá, k čemu všemu má daný uživatel přístup).
 
 Přístup k objektu
 
 - může být omezený časem, místem, intervalem hodnot, typem služby...
 - na základě identity uživatele, jeho role/skupiny, nebo třeba jen hesla
 
-V unixových systémech bývá obvykle nějaký superadmin/root, který má přístup ke všemu. Dobrou politikou je snaha o omezení
-práv tohoto uživatele a vytvoření skupin pro příslušné skupiny dat/objektů - pokud se hacker dostane k rootu, je vše v
-pytli. Moderní unixové systémy (obvykle komerční verze) nabízí jemnější granularitu nad skupinami, právy uživatelů...
+V unixových systémech bývá obvykle nějaký superadmin/root, který má přístup ke všemu. Dobrou politikou je snaha o omezení práv tohoto uživatele a vytvoření skupin pro příslušné skupiny dat/objektů - pokud se hacker dostane k rootu, je vše v pytli. Moderní unixové systémy (obvykle komerční verze) nabízí jemnější granularitu nad skupinami, právy uživatelů...
 
 Good practices řízení přístupu
 
 - separace oprávnění - potvrzení důležité operace více aktéry
 - omezení práv jednotlivce - každý má přístup jen k tomu, co nutně potřebuje = _princip nejnižších privilegií_
-- defaultní akce je zamítnutí - práva přidělujeme explicitním povolením, abychom nepovolili něco jen proto, že jsme
-  zapomněli vzít v potaz určitý scénář, defaultně zamítneme vše a používáme whitelisty (např. firewall)
+- defaultní akce je zamítnutí - práva přidělujeme explicitním povolením, abychom nepovolili něco jen proto, že jsme zapomněli vzít v potaz určitý scénář, defaultně zamítneme vše a používáme whitelisty (např. firewall)
 
 **Multi-level systems (MLS)**
 
-- do systému mají přístup všichni uživatelé, data jim zobrazujeme/umožňujeme používat objekty dle jejich úrovně (nižším
-  úrovním skrýváme to, co mohou vidět vyšší úrovně)
+- do systému mají přístup všichni uživatelé, data jim zobrazujeme/umožňujeme používat objekty dle jejich úrovně (nižším úrovním skrýváme to, co mohou vidět vyšší úrovně)
 - role jsou hierarchické
 - problémem může být **skrytý kanál**
   - mechanismus, který není určen ke komunikaci je využit pro získání informací
   - např. zátěž procesoru, zaplnění disku, čas posledního přístupu k souboru
-  - např. nemožnost vytvořit soubor (indikuje, že soubor se stejným jménem už existuje, jen je nám skrytý)/vložit
-    hodnotu do databáze
-    ⇒ máme automatizované schéma pro pojmenovávání
+  - např. nemožnost vytvořit soubor (indikuje, že soubor se stejným jménem už existuje, jen je nám skrytý)/vložit hodnotu do databáze ⇒ máme automatizované schéma pro pojmenovávání
 
 **Role-based access control (RBAC)**
 
@@ -233,29 +195,23 @@ Good practices řízení přístupu
 
 ## Biometrické metody autentizace, jejich dopady a problémy
 
-> Automatizované metody identifikace nebo ověření identity na základě měřitelných fyziologických nebo behaviorálních (
-> založených na chování) vlastností člověka
+> Automatizované metody identifikace nebo ověření identity na základě měřitelných fyziologických nebo behaviorálních (založených na chování) vlastností člověka
 
-Biometrická data je nejdříve třeba nasnímat (včetně kontroly kvality, extrakce charakteristik) a uložit, potom je možné
-je používat k autentizaci/identifikaci (pomocí srovnání charakteristik).
+Biometrická data je nejdříve třeba nasnímat (včetně kontroly kvality, extrakce charakteristik) a uložit, potom je možné je používat k autentizaci/identifikaci (pomocí srovnání charakteristik).
 
-Na rozdíl od ostatních metod autentizace **musíme řešit variabilitu** uložených dat a nasnímaného vzorku, data nejsou
-nikdy zcela identická.
+Na rozdíl od ostatních metod autentizace **musíme řešit variabilitu** uložených dat a nasnímaného vzorku, data nejsou nikdy zcela identická.
 
-- velmi často závisí na měřících podmínkách, na samotném zařízení, stavu měřeného, schopnosti/motivaci měřeného provést
-  si měření správně...
+- velmi často závisí na měřících podmínkách, na samotném zařízení, stavu měřeného, schopnosti/motivaci měřeného provést si měření správně...
 - 100% shoda může znamenat problém - útočník se dostal k uloženým datům
 - řeší se balance mezi **false acceptance** (bezpečnostní problém) a **false rejection** (nepohodlí uživatelů)
   ![](img/20230613154105.png)
 
-Biometriky jsou vhodné jako doplňkové metody, pro přístup k tajnému klíči, autentizaci uživatele (ne dat/počítače)... ne
-pro použití jako samotný klíč
+Biometriky jsou vhodné jako doplňkové metody, pro přístup k tajnému klíči, autentizaci uživatele (ne dat/počítače)... ne pro použití jako samotný klíč
 
 **Problémy biometrické autentizace**
 
 - nikdy nejsou zcela bezchybné
-- Failure to enroll - není možné získat biometrickou charakteristiku při registraci (např. někdo nemá prst, který chceme
-  snímat)
+- Failure to enroll - není možné získat biometrickou charakteristiku při registraci (např. někdo nemá prst, který chceme snímat)
 - Failure to acquire/capture - není možné získat charakteristiku při autentizaci
 - False positive identification - přijali jsme chybně (bezpečnostní riziko)
 - False negative identification - zamítli jsme chybně (naštvanější uživatelé)
@@ -270,14 +226,11 @@ pro použití jako samotný klíč
 - ochrana soukromí, legislativní omezení
 - kvůli nepřesnostem/možným změnám/netajnosti není vhodné z biometrik generovat kvalitní kryptografické klíče
 
-**Kontinuální autentizace** - subjekt kontinuálně sledujeme a snažíme se detekovat možné odchylky v chování, které by
-naznačovaly, že se jedná o útočníka, např. dynamika psaní na klávesnici
+**Kontinuální autentizace** - subjekt kontinuálně sledujeme a snažíme se detekovat možné odchylky v chování, které by naznačovaly, že se jedná o útočníka, např. dynamika psaní na klávesnici
 
-Forenzní systémy pro biometrickou autentizaci jsou přesnější, spolehlivější, dražší, mohou být pomalejší, vyžadují
-odborníky.
+Forenzní systémy pro biometrickou autentizaci jsou přesnější, spolehlivější, dražší, mohou být pomalejší, vyžadují odborníky.
 
-např. otisk prstu (tam sledujeme markanty), geometrie ruky, sken duhovky, sken sítnice, rozpoznání obličeje, rozpoznání
-hlasu, rozpoznání stylu interakce se zařízením (např. tempo psaní na klávesnici, dynamika podpisu), DNA
+např. otisk prstu (tam sledujeme markanty), geometrie ruky, sken duhovky, sken sítnice, rozpoznání obličeje, rozpoznání hlasu, rozpoznání stylu interakce se zařízením (např. tempo psaní na klávesnici, dynamika podpisu), DNA
 
 ## Elektronický podpis a jeho použití
 
@@ -291,10 +244,8 @@ Některé algoritmy umožňují obnovu dat na základě podpisu (v podpisu jsou 
 
 **Průběh podepisování**
 
-1. vytvořím asymetrické klíče (veřejný, soukromý), veřejný klíč zaregistruju/vystavím, aby mohl být později použit k
-   ověření
-2. (pro každý podepisovaný dokument) - vytvořím hash (např. pomocí SHA-2) podepisovaného dokumentu, který šifruju
-   soukromým klíčem (asymetrické algoritmy bývají pomalé, takže nešifruju celý dokument)
+1. vytvořím asymetrické klíče (veřejný, soukromý), veřejný klíč zaregistruju/vystavím, aby mohl být později použit k ověření
+2. (pro každý podepisovaný dokument) - vytvořím hash (např. pomocí SHA-2) podepisovaného dokumentu, který šifruju soukromým klíčem (asymetrické algoritmy bývají pomalé, takže nešifruju celý dokument)
 3. podepsané dokumenty je možné ověřit pomocí mého vystaveného veřejného klíče
 
 **Certifikát**
@@ -321,9 +272,7 @@ Některé algoritmy umožňují obnovu dat na základě podpisu (v podpisu jsou 
 
 - soukromý klíč bývá ideálně šifrovaný/blokovaný (např. vyžaduje zadání přístupového hesla/pinu)
 
-**Veřejný klíč musí mít zajištěnou integritu** - pokud bychom používali nesprávný veřejný klíč, mohli bychom dojít k
-nesprávným výsledkům
-⇒ vystavuje se certifikát, který spojuje klíč s naší identitou pomocí podpisu certifikační autoritou
+**Veřejný klíč musí mít zajištěnou integritu** - pokud bychom používali nesprávný veřejný klíč, mohli bychom dojít k nesprávným výsledkům ⇒ vystavuje se certifikát, který spojuje klíč s naší identitou pomocí podpisu certifikační autoritou
 
 **Infrastruktura pro správu veřejných klíčů (PKI)**
 
@@ -335,8 +284,7 @@ nesprávným výsledkům
 **Vystavení certifikátu**
 
 - generování klíčových dat (např. key-pair pro asymetrickou kryptografii)
-- doložení a ověření identifikačních informací (např. pro web předáme údaje o identitě a instalujeme *Certbot*, nebo
-  nahrajeme určitý soubor, abychom dokázali, že máme nad serverem kontrolu)
+- doložení a ověření identifikačních informací (např. pro web předáme údaje o identitě a instalujeme *Certbot*, nebo nahrajeme určitý soubor, abychom dokázali, že máme nad serverem kontrolu)
 - vydání certifikátu žadateli (včetně zveřejnění v adresářové službě)
 
 ## Autentizace strojů a aplikací
@@ -349,30 +297,25 @@ nesprávným výsledkům
   - problém může být, že MAC i IP adresy lze změnit, nejsou tajné, je možné uvést cizí IP adresu
 - na základě tajné informace (symetrická/asymetrická kryptografie)
   - heslo/tajný symetrický klíč/soukromý asymetrický klíč
-  - vhodné ukládat zašifrované a při startu zadat heslo (pak to budeme držet v paměti), nebo použít např. HashiCorp
-    Vault (secret manager)
+  - vhodné ukládat zašifrované a při startu zadat heslo (pak to budeme držet v paměti), nebo použít např. HashiCorp Vault (secret manager)
 
 **TLS/SSL** - protokol vyšší úrovně
 
 - SSL je předchůdce TLS
 - autentizuje strany pomocí certifikátu a challenge-response (defaultně povinná pro server, volitelná pro klienta)
-- zajišťuje integritu a autenticitu dat (pomocí Message Authentication Code, MAC, k datům přidáme tajný klíč a celé to
-  hashujeme (na rozdíl od podpisu neprovádíme šifrování hashe dat tajným klíčem))
+- zajišťuje integritu a autenticitu dat (pomocí Message Authentication Code, MAC, k datům přidáme tajný klíč a celé to hashujeme (na rozdíl od podpisu neprovádíme šifrování hashe dat tajným klíčem))
 - zajišťuje důvěrnost
-- Nejprve proběhne iniciální handshake (autentizace pomocí asymetrické kryptografie). Následně se stanoví symetrický
-  kryptografický klíč, kterým je šifrována celá komunikace.
+- Nejprve proběhne iniciální handshake (autentizace pomocí asymetrické kryptografie). Následně se stanoví symetrický kryptografický klíč, kterým je šifrována celá komunikace.
 - je mezi TCP a aplikací, TLS nevidí do přenášených dat
 
 **IPSec** - na síťové vrstvě, přidán do IPv4, v IPv6 už je defaultně
 
 - pro každý IP datagram
-  - zajišťuje autentizaci odesilatele (IP hlavičky (vyjma měněných dat, např. TTL) a data, přidá tajný klíč, hash uloží
-    do autentizační hlavičky)
+  - zajišťuje autentizaci odesilatele (IP hlavičky (vyjma měněných dat, např. TTL) a data, přidá tajný klíč, hash uloží do autentizační hlavičky)
   - zajišťuje integritu dat (nezměněná data, ^^^)
   - zajišťuje důvěrnost dat (symetrický šifrovací klíč známý oběma stranám, data jsou šifrována)
   - zajišťuje ochranu před útokem přehráním (MAC v kombinaci se sekvenčním číslem)
-- umožňuje transportní (end to end, nepodporuje NAT), nebo tunelovací režim (celý datagram beru jako data, přilepím tomu
-  novou IP hlavičku)
+- umožňuje transportní (end to end, nepodporuje NAT), nebo tunelovací režim (celý datagram beru jako data, přilepím tomu novou IP hlavičku)
 
 **Secure Shell Host (SSH)**
 
@@ -390,7 +333,6 @@ nesprávným výsledkům
   - subject (kdo je držitel tokenu, např. user id)
   - auth statement (způsob a čas provedené autentizace)
   - příslušnost ke skupinám, rolím, povolené operace
-    ...
 
 ## Zásady a principy bezpečného kódu
 
@@ -399,115 +341,91 @@ nesprávným výsledkům
 - kód by měl být psán tak, aby byl systém připraven pracovat v prostředí, kde mohou nastávat (nechtěné) chyby
   - důraz na ověřování vstupních dat
   - ošetření i těch situací, které *přece nemůžou nastat*
-  - příprava systému na jednoduché testování (dekompozice, závislosti na abstrakcích) a diagnostiku chyb (logování,
-    explicitní ošetření chyb)
+  - příprava systému na jednoduché testování (dekompozice, závislosti na abstrakcích) a diagnostiku chyb (logování, explicitní ošetření chyb)
   - logování událostí (abychom dokázali detekovat, co se v systému dělo)
 
-Pro zajištění bezpečnosti kódu lze postupovat různými způsoby, přístupy se nevylučují (víceúrovňová ochrana rozhodně
-není na škodu)
+Pro zajištění bezpečnosti kódu lze postupovat různými způsoby, přístupy se nevylučují (víceúrovňová ochrana rozhodně není na škodu)
 
 - použití bezpečnějšího jazyka, který některé chyby neumožňuje, nebo je aspoň dělá těžší na provedení např. Rust
   - případně použití striktnějšího módu překladače
 - spouštění aplikace v sandbox prostředí, třeba kontejneru, aby případný útočník nezískal kontrolu nad celým strojem
 - důkladné testování, statická a dynamická analýza, code reviews...
 - pro kritické věci (kryptografie) je dobré použít osvědčené knihovny
-- závislosti (knihovny) je dobré pravidelně sledovat ohledně výskytu bezpečnostních slabin (např. automatizovaně pomocí
-  dependabot)
+- závislosti (knihovny) je dobré pravidelně sledovat ohledně výskytu bezpečnostních slabin (např. automatizovaně pomocí dependabot)
 - použití bezpečných verzí funkcí (u C/C++ třeba strncpy místo strcpy), nepoužívání funkcí označených *obsolete*
 - kontinuální integrace - automatizované spouštění testů, statické (případně i dynamické) analýzy
 - je klíčové dobře znát použitý jazyk a jeho typické slabiny
 - pokud si můžeme vybrat, je lepší používat whitelisting než blacklisting (deny by default)
 
-Při vývoji kódu je dobré zajistit, aby byly chybové stavy nereprezentovatelné (třeba pomocí builder patternu a různých
-builder tříd).
+Při vývoji kódu je dobré zajistit, aby byly chybové stavy nereprezentovatelné (třeba pomocí builder patternu a různých builder tříd).
 
 ## Typické bezpečnostní chyby na úrovni kódu, souběžnost, ošetření vstupů
 
 Seznamy běžných chyb
 
 - Common Weakness Enumeration (CWE) - obecně časté bezpečnostní chyby v programovacích jazycích
-- OWASP top 10 - nejčastější bezpečnostní díry ve webových aplikacích (ale OWASP mají i jiné zajímavé projekty zaměřené
-  na bezpečnost)
+- OWASP top 10 - nejčastější bezpečnostní díry ve webových aplikacích (ale OWASP mají i jiné zajímavé projekty zaměřené na bezpečnost)
 
 Typické chyby
 
 - **Injection** - vložení vlastních instrukcí do dat, která jsou bez dostatečné kontroly vyhodnocována interpretem
   - např. SQL injection
 - absence logování/monitorování
-- **Race condition** - simultánní zápisy (nebo zápis a čtení) do sdílené paměti (ze stejného paměťového místa, ale i
-  třeba ze dvou různých logicky závislých míst) - řešením je sekvenční zpracování nebo zamykání
-- **Buffer overflow** - v paměti máme pole a za ním data. Pokud provedeme zápis do pole a zapisovaná data jsou delší než
-  pole (a neohlídáme si délku), mohou nám zapisovaná data přepsat i data za polem. Ovlivňuje hlavně C/C++.
+- **Race condition** - simultánní zápisy (nebo zápis a čtení) do sdílené paměti (ze stejného paměťového místa, ale i třeba ze dvou různých logicky závislých míst) - řešením je sekvenční zpracování nebo zamykání
+- **Buffer overflow** - v paměti máme pole a za ním data. Pokud provedeme zápis do pole a zapisovaná data jsou delší než pole (a neohlídáme si délku), mohou nám zapisovaná data přepsat i data za polem. Ovlivňuje hlavně C/C++.
 - **Buffer overread** - jako buffer overflow, ale se čtením - jsme schopni číst i data za polem
 - použití neinicializované paměti (po malloc), nebo uvolněného ukazatele (po free)
 - **Stack exhaustion** - vyplýtvání místa na zásobníku, typicky kvůli velké rekurzi
-- **Heap exhaustion** - vyplýtvání místa na haldě, není možné alokovat další paměť (může být způsobeno memory leaky,
-  nebo velkou paměťovou náročností programu)
-- **Type overflow** - přetečení hodnoty. Např. int overflow; způsobeno `i64::MAX + 1`, výsledek je 0
-  ⇒ kontrola hodnot, nebo speciální operace (např. hodí výjimku při přetečení)
-- **Floating point reprezentace** - `0.1 + 0.2 == 0.3000000001` ⇒ použít decimal/bigdecimal, což jsou inty s
-  fixed-point desetinnou čárkou
+- **Heap exhaustion** - vyplýtvání místa na haldě, není možné alokovat další paměť (může být způsobeno memory leaky, nebo velkou paměťovou náročností programu)
+- **Type overflow** - přetečení hodnoty. Např. int overflow; způsobeno `i64::MAX + 1`, výsledek je 0 ⇒ kontrola hodnot, nebo speciální operace (např. hodí výjimku při přetečení)
+- **Floating point reprezentace** - `0.1 + 0.2 == 0.3000000001` ⇒ použít decimal/bigdecimal, což jsou inty s fixed-point desetinnou čárkou
 - **Off-by-one error**
 
 **Souběžnost** a.k.a. race condition
 
 - špatné načasování operací (nebo jejich pořadí) způsobí nečekané stavy systému
 - např. máme současně běžící programy, každý chce přečíst hodnotu ze sdílené paměti a zvýšit ji o 1.
-    ```
-    Procesy A a B chtějí inkrementovat sdílený čítač, každý o 1
-    A čte hodnotu 5
-    B čte hodnotu 5
-    A inkrementuje načtenou hodnotu 5+1=6
-    B inkrementuje načtenou hodnotu 5+1=6
-    A zapíše 6
-    B zapíše 6
-    Oba procesy inkrementovaly čítač, který se reálně zvedl pouze o 1
-    ```
-- řešením je vyznačení problematické části jako kritické sekce. Pro kritickou sekci se musí vynutit přístupová pravidla
-  čtenářů a písařů:
+
+```
+Procesy A a B chtějí inkrementovat sdílený čítač, každý o 1
+A čte hodnotu 5
+B čte hodnotu 5
+A inkrementuje načtenou hodnotu 5+1=6
+B inkrementuje načtenou hodnotu 5+1=6
+A zapíše 6
+B zapíše 6
+Oba procesy inkrementovaly čítač, který se reálně zvedl pouze o 1
+```
+
+- řešením je vyznačení problematické části jako kritické sekce. Pro kritickou sekci se musí vynutit přístupová pravidla čtenářů a písařů:
   - pokud existuje písař, musí být jediný a nesmí existovat žádní čtenáři
   - pokud neexistuje písař, může existovat libovolný počet čtenářů
 - striktnějším řešením je uzamčení celé kritické sekce, aby k nim měl přístup vždy jen 1 proces
-- pokud máme více kritických sekcí a používáme zámky, je třeba dávat pozor na uváznutí (deadlock). Ten nastane, když
-  každý proces z množiny procesů vlastní nějaký zdroj a pro dokončení své práce (a uvolnění vlastněného zdroje) vyžaduje
-  zdroj vlastněný jiným procesem. Všichni tak čekají
+- pokud máme více kritických sekcí a používáme zámky, je třeba dávat pozor na uváznutí (deadlock). Ten nastane, když každý proces z množiny procesů vlastní nějaký zdroj a pro dokončení své práce (a uvolnění vlastněného zdroje) vyžaduje zdroj vlastněný jiným procesem. Všichni tak čekají
 
 Některé chyby bývají specifické pro určité programovací jazyky (buffer overflow pro C/C++)
 
 *Zero-day exploit* - využití bezpečnostní chyby, která ještě není obecně známá/neexistuje proti ní obrana
 
-Zdrojový kód se může od výsledné binárky značně lišit (optimalizace, debug-only sekce kódu). Při vývoji se hodí mít
-dodatečné informace pro debugging (umožňující třeba detailní stack trace). V release verzi však tyto informace mohou
-pomoct útočníkovi.
+Zdrojový kód se může od výsledné binárky značně lišit (optimalizace, debug-only sekce kódu). Při vývoji se hodí mít dodatečné informace pro debugging (umožňující třeba detailní stack trace). V release verzi však tyto informace mohou pomoct útočníkovi.
 
 Pro explicitní řízení přechodů mezi stavy programu lze použít **automata-based modelling**.
 
-- Stavy a přechody programu modelujeme jako stavový automat; pomocí dat reprezentujeme stav a na základě něj můžeme
-  explicitně definovat validní přechody (např. switch/match statement, případně transformace objektů (pokročilejší
-  builder pattern)). Minimalizujeme tak místa, ve kterých se mění stav, díky čemuž je kód přehlednější a bezpečnější.
+- Stavy a přechody programu modelujeme jako stavový automat; pomocí dat reprezentujeme stav a na základě něj můžeme explicitně definovat validní přechody (např. switch/match statement, případně transformace objektů (pokročilejší builder pattern)). Minimalizujeme tak místa, ve kterých se mění stav, díky čemuž je kód přehlednější a bezpečnější.
 
-Pro **ošetřování vstupů** je vhodné použít fail-fast přístup. Jakmile zjistíme, že pracujeme s chybnými daty, měli
-bychom přerušit standardní průchod funkcí a zpracovat chybu. Koncovému uživateli sdělujeme jen nutné minimum nutné pro
-identifikaci důvodu chyby (nadbytečné informace, jako třeba názvy tříd, by mu mohly odhalit interní strukturu aplikace,
-což by mohlo být bezpečnostní riziko).
+Pro **ošetřování vstupů** je vhodné použít fail-fast přístup. Jakmile zjistíme, že pracujeme s chybnými daty, měli bychom přerušit standardní průchod funkcí a zpracovat chybu. Koncovému uživateli sdělujeme jen nutné minimum nutné pro identifikaci důvodu chyby (nadbytečné informace, jako třeba názvy tříd, by mu mohly odhalit interní strukturu aplikace, což by mohlo být bezpečnostní riziko).
 
 - pro jednodušší ověřování je vhodné omezit počet validních vstupů (např. jen čísla)
 - vstupní data mapujeme na interní data (např. používáme enumy)
-- maximální délku vstupu je důležité brát v potaz zvlášť u zpracování souborů (navíc je dobré použít bufferované čtení a
-  zpracovávat soubor po řádcích)
+- maximální délku vstupu je důležité brát v potaz zvlášť u zpracování souborů (navíc je dobré použít bufferované čtení a zpracovávat soubor po řádcích)
 - problém může dělat třeba UTF-8 řetězce, kde jeden znak může mít různou délku
 - pro ošetření vstupů je navíc fajn používat validační knihovny (např. zod pro js, clap pro rust)
 - Pro průzkum toho, co všechno v našem systému závisí na uživatelském vstupu, je možné použít **taint analýzu**
-- Jednotky systému mohou
-  používat [kontrakty](dev_2_analyza_a_navrh.md#rozhraní-komponent-kontrakty-na-úrovni-rozhraní-ocl) (preconditions,
-  postconditions, invariants) jako pojistku v případě nedostatečného ošetření vstupů
+- Jednotky systému mohou používat [kontrakty](dev_2_analyza_a_navrh.md#rozhraní-komponent-kontrakty-na-úrovni-rozhraní-ocl) (preconditions, postconditions, invariants) jako pojistku v případě nedostatečného ošetření vstupů
 - Pro kontrolu dostatečného ošetření vstupů je možné použít **fuzzing** (viz další sekce)
 - Pro jednoduché zpracování sekvence vstupů (příkazů) je vhodné použít **automata-based modelling**
-  - v ideálním případě se chceme nutnosti udržovat stav mezi příkazy vyhnout, bezstavová komunikace je méně náchylná
-    na chyby a je možné systém jednoduššeji škálovat
+  - v ideálním případě se chceme nutnosti udržovat stav mezi příkazy vyhnout, bezstavová komunikace je méně náchylná na chyby a je možné systém jednoduššeji škálovat
 - důležité je samozřejmě nikdy nevěřit uživatelským vstupům
-
-**Souběžnost**
 
 ## Detekce bezpečnostních zranitelností, penetrační testování
 
@@ -519,15 +437,11 @@ Pro detekci (nejen) bezpečnostních zranitelností je možné použít více p�
 - penetrační testování
 - security review
 
-Pro detekci buffer overflow lze pomocí překladače použít tzv. canary - data za každým polem. Pokud dojde k přetečení
-pole, bude canary přepsán, což je signál problému. Problém přetrvá, pokud útočník zná hodnotu canary. Alternativně (
-režijně náročnější) lze kontrolovat délku pole a zapisovaných dat.
+Pro detekci buffer overflow lze pomocí překladače použít tzv. canary - data za každým polem. Pokud dojde k přetečení pole, bude canary přepsán, což je signál problému. Problém přetrvá, pokud útočník zná hodnotu canary. Alternativně (režijně náročnější) lze kontrolovat délku pole a zapisovaných dat.
 
 Prevencí změny návratové adresy funkce útočníkem (důsledek buffer overflow) je randomizace adres funkcí v kódu.
 
-Prevencí code injection může být data execution prevention - paměť dělíme na datovou a spustitelnou, není možné spouštět
-kód z datové části. SQL injection (zprávy jsou obvykle interpretované) se řeší pomocí prepared statements, čímž
-efektivně dělíme části příkazu na datovou a příkazovou.
+Prevencí code injection může být data execution prevention - paměť dělíme na datovou a spustitelnou, není možné spouštět kód z datové části. SQL injection (zprávy jsou obvykle interpretované) se řeší pomocí prepared statements, čímž efektivně dělíme části příkazu na datovou a příkazovou.
 
 **Statická analýza**
 
@@ -536,10 +450,8 @@ efektivně dělíme části příkazu na datovou a příkazovou.
 - lze aplikovat i na nedokončený kód
 - lze využít i pro vynucení jednotného stylu kódu
 - důležitou (ale špatně automatizovatelnou a škálovatelnou) variantou je code review
-- statickou analýzu provádí i samotný překladač (type checking) - ten si ale nemůže dovolit považovat za chybu něco, co
-  chybou ve skutečnosti není
-- lze využít automatizované nástroje, kterým stačí zdrojový kód (např. cargo check, cargo clippy, pro více jazyků třeba
-  sonarqube)
+- statickou analýzu provádí i samotný překladač (type checking) - ten si ale nemůže dovolit považovat za chybu něco, co chybou ve skutečnosti není
+- lze využít automatizované nástroje, kterým stačí zdrojový kód (např. cargo check, cargo clippy, pro více jazyků třeba sonarqube)
 - běžně bývá součástí CI - důraz na rychlost
 - snadno odhalí i časté chyby jako ponechání hardcoded api klíče
 
@@ -550,32 +462,27 @@ efektivně dělíme části příkazu na datovou a příkazovou.
 - lze vynutit omezené prostředí (málo paměti, omezená práva, omezení v souborovém systému)
 - lze sledovat data a jejich změny v programu
 - lze vložit logovací instrukce
-- např. Valgrind (nahrazuje standardní alokátor a poskytuje vlastní, což mu umožňuje sledovat dění v paměti), miri (
-  interpret pro rust, používá se pro detekci undefined behavior při práci s unsafe kódem)
+- např. Valgrind (nahrazuje standardní alokátor a poskytuje vlastní, což mu umožňuje sledovat dění v paměti), miri (interpret pro rust, používá se pro detekci undefined behavior při práci s unsafe kódem)
 - **Fuzzing** - program spouštíme s *náhodnými* generovanými vstupy a sledujeme výstupy
   - vhodné pro blackbox
-  - vstupy mohou být zcela náhodné, v praxi chceme poskytnout několik vhodných vstupů (jako základ), které fuzzer
-    modifikuje různými způsoby (zcela náhodně, nebo pomocí nějaké inteligentní strategie)
+  - vstupy mohou být zcela náhodné, v praxi chceme poskytnout několik vhodných vstupů (jako základ), které fuzzer modifikuje různými způsoby (zcela náhodně, nebo pomocí nějaké inteligentní strategie)
   - klíčové je, aby vstupů bylo velké množství, proces je možné snadno automatizovat a opakovat
   - během fuzzingu sledujeme chování aplikace (zamrzla? běží v cajku?)
   - po skončení fuzzingu máme množinu problematických vstupů, jejichž ošetřování se můžeme věnovat
   - obvykle se takto najdou jen poměrně jednoduché chyby, nebo chyby validace (ale záleží na programu)
   - některé fuzzery generují vstupy ze zdrojového kódu, cílem je vysoká code coverage (např. American Fuzzy Lop)
   - např. MiniFuzz (input file fuzzer)
-- **Taint analýza** - data, které nějakým způsobem závisí na nedůvěryhodném vstupu, jsou označena. Pokud se označení dostane
-  i ke kritickým částem kódu, vyskočí nám upozornění
+- **Taint analýza** - data, které nějakým způsobem závisí na nedůvěryhodném vstupu, jsou označena. Pokud se označení dostane i ke kritickým částem kódu, vyskočí nám upozornění
 
 **Security review**
 
 - provádí se top-down, bottom up (vhodnější při nejasné architektuře, ale náročnější na provedení) či hybridně
 - začíná u architektury a dokumentace, snaha o detekci návrhových chyb, stanovují se možná rizika a zranitelnosti
-- u kódu se sleduje, jak dobře implementuje architekturu (často existují rozdíly), hledají se možné zranitelnosti v
-  high-level logice, pak i v samotném kódu
+- u kódu se sleduje, jak dobře implementuje architekturu (často existují rozdíly), hledají se možné zranitelnosti v high-level logice, pak i v samotném kódu
 - hodnotí se dodržování bezpečnostních standardů
 - prakticky se testuje zabezpečení (penetrační testování, DDoS útoky, statická analýza)
 - sleduje se vliv nedůvěryhodných dat (taint analýza)
-- lze analyzovat přímo kód (řádek po řádku, nebo podle pořadí volaných funkcí), případně si můžeme udělat seznam
-  potenciálních slabin a na ty se zaměřit
+- lze analyzovat přímo kód (řádek po řádku, nebo podle pořadí volaných funkcí), případně si můžeme udělat seznam potenciálních slabin a na ty se zaměřit
 - analyzuje se kontrola přístupu a správa oprávnění
 - hodnotí se bezpečnostní opatření, monitoring
 - hodnotí se ochrana dat, správa klíčů, šifrování
@@ -583,8 +490,7 @@ efektivně dělíme části příkazu na datovou a příkazovou.
 
 **Penetrační testování**
 
-- obecné penetrační testování je náročné, obvykle je dobré si vytipovat/doporučit slabá místa, zaměřit útoky jen na
-  některé části systému
+- obecné penetrační testování je náročné, obvykle je dobré si vytipovat/doporučit slabá místa, zaměřit útoky jen na některé části systému
 - interně - týmem v rámci organizace
   - lze využít znalosti zdrojového kódu
   - vyžaduje udržování specializovaného odborného týmu
@@ -612,23 +518,14 @@ efektivně dělíme části příkazu na datovou a příkazovou.
 - **klíče** - rozsáhlé řetězce bitů, náhodná čísla, prvočísla...
 - **šifrování** - zajišťuje důvěrnost (transformace zprávy za účelem skrytí jejího obsahu před nepovolanými aktéry)
 - kódování není šifrování (např. zakódované heslo v base64 lze snadno převést do původního tvaru bez jakéhokoliv klíče)
-- základním principem kryptografie je **veřejný algoritmus** (dobře otestovaný, vytvořený bezpečnostními experty) a
-  zajištění bezpečnosti pomocí **tajného klíče**. Spoléhat na bezpečnost algoritmu jen jeho (algoritmu) utajením není
-  dobrý nápad.
-- **symetrická kryptografie** - komunikující strany sdílí identický klíč, kterým se šifruje i dešifruje. Je to
-  rychlejší, než asymetrická kryptografie, ale hůře se využívají, když vyžadujeme autentizaci (např. server by si musel
-  bezpečně uchovávat klíč u každého klienta, zároveň je potřeba se na klíči nějak dohodnout, což může být
-  odposloucháváno)
+- základním principem kryptografie je **veřejný algoritmus** (dobře otestovaný, vytvořený bezpečnostními experty) a zajištění bezpečnosti pomocí **tajného klíče**. Spoléhat na bezpečnost algoritmu jen jeho (algoritmu) utajením není dobrý nápad.
+- **symetrická kryptografie** - komunikující strany sdílí identický klíč, kterým se šifruje i dešifruje. Je to rychlejší, než asymetrická kryptografie, ale hůře se využívají, když vyžadujeme autentizaci (např. server by si musel bezpečně uchovávat klíč u každého klienta, zároveň je potřeba se na klíči nějak dohodnout, což může být odposloucháváno)
   - např. **AES** (advanced encryption standard), **DES** (data encryption standard)
-- **asymetrická kryptografie** - existují 2 druhy klíčů, veřejný (pro šifrování/ověření podpisu) a soukromý (pro
-  dešifrování/tvorbu podpisu). Pokud chtějí 2 strany plně komunikovat (full duplex), pak každá potřebuje znát svůj
-  soukromý klíč a veřejný klíč druhé strany. Pokud někomu prozradím svůj soukromý klíč, může se vydávat za mě.
+- **asymetrická kryptografie** - existují 2 druhy klíčů, veřejný (pro šifrování/ověření podpisu) a soukromý (pro dešifrování/tvorbu podpisu). Pokud chtějí 2 strany plně komunikovat (full duplex), pak každá potřebuje znát svůj soukromý klíč a veřejný klíč druhé strany. Pokud někomu prozradím svůj soukromý klíč, může se vydávat za mě.
   - např. **RSA, DSA**
-  - pro šifrování a podepisování používáme rozdílné páry klíčů, abychom nemuseli čelit problémům, kdy zaměstnanec
-    odejde z firmy (a stále zná soukromý klíč)
+  - pro šifrování a podepisování používáme rozdílné páry klíčů, abychom nemuseli čelit problémům, kdy zaměstnanec odejde z firmy (a stále zná soukromý klíč)
 - **šifrování v praxi** - kombinace symetrické a asymetrické kryptografie
-  - pro komunikaci proběhne ustanovení symetrického klíče náhodným vygenerováním, klíč se bezpečně předá pomocí
-    asymetrické kryptografie. Následně probíhá komunikace šifrovaná symetricky.
+  - pro komunikaci proběhne ustanovení symetrického klíče náhodným vygenerováním, klíč se bezpečně předá pomocí asymetrické kryptografie. Následně probíhá komunikace šifrovaná symetricky.
 
 **SHA**
 
@@ -636,20 +533,11 @@ efektivně dělíme části příkazu na datovou a příkazovou.
 - SHA-0 a SHA-1 jsou zastaralé a nepovažují se za bezpečné
 - rodina hashovacích funkcí SHA-2, zahrnuje SHA-224, SHA-256, SHA-384 a SHA-512 (jména podle jejich délky v bitech)
 
-**RSA** - asymetrická kryptografie, funguje na principu faktorizace velkých čísel (a modulo) - faktorizace je lehká na
-výpočet, těžká na reverzní výpočet
+**RSA** - asymetrická kryptografie, funguje na principu faktorizace velkých čísel (a modulo) - faktorizace je lehká na výpočet, těžká na reverzní výpočet
 
-**Bloková šifra** - symetrická, vstupní data jsou rozdělena na bloky fixní délky, které jsou šifrovány stejným způsobem.
-Pro větší bezpečnost se nešifrují všechny bloky stejně, ale může se použít např. Cipher Block Chaining (CBC), kdy je mezi
-bloky vytvořena závislost (každý další blok je xorován zašifrovaným předchozím blokem). Změna bitu zašifrovaných dat
-znemožní dešifrování zprávy. Např. AES, DES
+**Bloková šifra** - symetrická, vstupní data jsou rozdělena na bloky fixní délky, které jsou šifrovány stejným způsobem. Pro větší bezpečnost se nešifrují všechny bloky stejně, ale může se použít např. Cipher Block Chaining (CBC), kdy je mezi bloky vytvořena závislost (každý další blok je xorován zašifrovaným předchozím blokem). Změna bitu zašifrovaných dat znemožní dešifrování zprávy. Např. AES, DES
 
-**Proudová šifra** - symetrická, z klíče vygenerujeme posloupnost a na jejím základě šifrujeme jednotlivé bity dat (⇒
-každý jinak). Díky tomu není nutné dešifrovat všechno (jako u blokových šifer v režimu Cipher Block Chaining), ale
-můžeme jít *od prostředka*. Fungují rychle (třeba pomocí XOR dat s klíčem). Změna bitu zašifrované zprávy pozmění
-původní zprávu ⇒ je vhodné přidat nějakou formu hashování.
-
-[https://www.youtube.com/watch?v=wlSG3pEiQdc&t=1s](https://www.youtube.com/watch?v=wlSG3pEiQdc&t=1s)
+**Proudová šifra** - symetrická, z klíče vygenerujeme posloupnost a na jejím základě šifrujeme jednotlivé bity dat (⇒ každý jinak). Díky tomu není nutné dešifrovat všechno (jako u blokových šifer v režimu Cipher Block Chaining), ale můžeme jít *od prostředka*. Fungují rychle (třeba pomocí XOR dat s klíčem). Změna bitu zašifrované zprávy pozmění původní zprávu ⇒ je vhodné přidat nějakou formu hashování. [https://www.youtube.com/watch?v=wlSG3pEiQdc&t=1s](https://www.youtube.com/watch?v=wlSG3pEiQdc&t=1s)
 
 **Cyclic Redundancy Check (CRC)**
 
@@ -657,27 +545,21 @@ původní zprávu ⇒ je vhodné přidat nějakou formu hashování.
 - je snadné vytvořit vstup odpovídající součtu, takže neposkytuje ochranu před úmyslnou změnou
 - např. xor, modulo
 
-Pro zajištění důvěrnosti dat bez šifrování lze použít **Chaffing and winnowing** - data rozdělíme na bity (lze i větší
-části). Pro každý bit budeme v náhodném pořadí posílat dvě zprávy, jednu s validním MAC a jednu (obsahující inverzi
-bitu) s nevalidním MAC.
+Pro zajištění důvěrnosti dat bez šifrování lze použít **Chaffing and winnowing** - data rozdělíme na bity (lze i větší části). Pro každý bit budeme v náhodném pořadí posílat dvě zprávy, jednu s validním MAC a jednu (obsahující inverzi bitu) s nevalidním MAC.
 
 **Čipové karty**
 
 - součástí je paměť (RAM, ROM, EEPROM), procesor
-- data se na kartě ukládají ve formě souborů, každému lze nastavit přístupová práva (volný přístup/přístup jen s
-  pinem/zakázaný přístup)
+- data se na kartě ukládají ve formě souborů, každému lze nastavit přístupová práva (volný přístup/přístup jen s pinem/zakázaný přístup)
 - karta je schopná pracovat s kryptografickými algoritmy/protokoly
 - lze provádět
-  - fyzické útoky (preparace čipu, čtení paměti, využití záření/elektromagnetických polí), obvykle zanechávají
-    viditelné známky útoku
+  - fyzické útoky (preparace čipu, čtení paměti, využití záření/elektromagnetických polí), obvykle zanechávají viditelné známky útoku
   - logické útoky, vyžadují detailní znalosti o struktuře karty
     - časová analýza - sledujeme odezvu dle vstupu,
       - jako prevenci se snažíme odstranit závislost délky zpracování na vstupu (např. vložíme fejkové instrukce)
     - výkonová analýza - odběrová, memory operace jsou levnější, než výpočty
     - indukce chyb - pomocí náhlých změn podmínek (napětí, teplota...) se snažíme změnit operační podmínky
     - útoky přes api - snažíme se využít možné chyby programátora
-      - např. počítadlo pokusů by mělo nejdřív snížit počet pokusů, pak ověřit pin a v případě úspěchu resetovat
-        počítadlo pokusů... jinak lze po zadání pinu a detekci neúspěchu rychle odpojit zdroj
+      - např. počítadlo pokusů by mělo nejdřív snížit počet pokusů, pak ověřit pin a v případě úspěchu resetovat počítadlo pokusů... jinak lze po zadání pinu a detekci neúspěchu rychle odpojit zdroj
 
-**Honeypotting** - pro útočníka připravíme izolovaný subsystém, do kterého ho pustíme a sledujeme jeho chování, čímž se
-učíme o jeho způsobu práce
+**Honeypotting** - pro útočníka připravíme izolovaný subsystém, do kterého ho pustíme a sledujeme jeho chování, čímž se učíme o jeho způsobu práce
