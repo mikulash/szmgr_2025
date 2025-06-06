@@ -30,15 +30,15 @@ UI se obvykle vyvíjí jako monolit, ale je možné dělat i microfrontendy.
 Je fajn brát v potaz
 
 - Uživatelskou přívětivost (např. složité formuláře je lepší rozdělit na více částí, pole uspořádat top-down namísto v tabulce)
-- Bezpečnost – u aplikací, na které mohou cílit útočníci, je vhodné stránku uživateli přizpůsobit (např. zobrazit jeho fotku),  aby bylo těžké stránku napodobit
+- Bezpečnost – u aplikací, na které mohou cílit útočníci, je vhodné stránku uživateli přizpůsobit (např. zobrazit jeho fotku), aby bylo těžké stránku napodobit
 - Skrývání hesel (změna viditelnosti textu ve vstupním poli)
 - Používání vhodných vstupních polí (např. `<input type="email">` pro e-mail, `<input type="tel">` pro telefonní číslo)
 - Rozhraní by mělo být jednotné (konzistentní – jednotné barvy, fonty, styl tlačítek apod.)
 - Responsivita – fungování aplikace na různě velkých obrazovkách (desktop, tablet, mobil)
 
-V současnosti je nejuniverzálnějším způsobem tvorby UI HTML + CSS + JS. Aktuálně jsou populární frontendové JS frameworky (React, Vue, Solid, Svelte, Angular …). Lze je použít v prohlížeči, jako desktopovou aplikaci (Electron – přibalí se k aplikaci Chromium, nebo s využitím nativního WebView, např. Tauri), pro mobilní aplikace (Progressive Web App, není nutné instalovat z App Store),  případně mají vlastní verze pro nativní mobilní zařízení (React Native, Svelte Native …). Tyto technologie mají obvykle dobře řešené věci jako accessibility či lokalizaci, existují pro ně solidní komponentové knihovny.
+V současnosti je nejuniverzálnějším způsobem tvorby UI HTML + CSS + JS. Aktuálně jsou populární frontendové JS frameworky (React, Vue, Solid, Svelte, Angular …). Lze je použít v prohlížeči, jako desktopovou aplikaci (Electron – přibalí se k aplikaci Chromium, nebo s využitím nativního WebView, např. Tauri), pro mobilní aplikace (Progressive Web App, není nutné instalovat z App Store), případně mají vlastní verze pro nativní mobilní zařízení (React Native, Svelte Native …). Tyto technologie mají obvykle dobře řešené věci jako accessibility či lokalizaci, existují pro ně solidní komponentové knihovny.
 
-Aktuálním trendem s interesantním potenciálem je WebAssembly, které umožňuje použití kompilovaného jazyka (C/C++, Rust …). Výsledná aplikace je spustitelná v prohlížeči a zpravidla rychlejší než čistý JS. WASM podporuje dva režimy – práci s DOM,  nebo přímé vykreslování na `<canvas>` (používá třeba Figma).
+Aktuálním trendem s interesantním potenciálem je WebAssembly, které umožňuje použití kompilovaného jazyka (C/C++, Rust …). Výsledná aplikace je spustitelná v prohlížeči a zpravidla rychlejší než čistý JS. WASM podporuje dva režimy – práci s DOM, nebo přímé vykreslování na `<canvas>` (používá třeba Figma).
 
 Alternativou může být použití multiplatformního frameworku Flutter (používá jazyk Dart, podporuje Android, iOS, web), který umožňuje vývoj pro více platforem z jednoho kódu.
 
