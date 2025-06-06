@@ -1,14 +1,13 @@
 # Kvalita kódu
 
-1. [Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky](#kvalita-ve-vývoji-softwarových-systémů-atributy-kvality-a-softwarové-metriky)
-2. [Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality](#taktiky-pro-zajištění-kvality-na-úrovni-jednotlivých-atributů-kvality)
-3. [Principy Clean Code a SOLID, refaktoring kódu](#principy-clean-code-a-solid-refaktoring-kódu)
-4. [Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy](#testování-kódu-jednotkové-testy-integrační-testy-uživatelské-a-akceptační-testy)
-5. [Ladění a testování výkonu](#ladění-a-testování-výkonu)
-6. [Proces řízení kvality ve vývoji softwarových systémů](#proces-řízení-kvality-ve-vývoji-softwarových-systémů)
+1. [Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky (1/6)](#kvalita-ve-vývoji-softwarových-systémů-atributy-kvality-a-softwarové-metriky-16)
+2. [Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality (2/6)](#taktiky-pro-zajištění-kvality-na-úrovni-jednotlivých-atributů-kvality-26)
+3. [Principy Clean Code a SOLID, refaktoring kódu (3/6)](#principy-clean-code-a-solid-refaktoring-kódu-36)
+4. [Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy (4/6)](#testování-kódu-jednotkové-testy-integrační-testy-uživatelské-a-akceptační-testy-46)
+5. [Ladění a testování výkonu (5/6)](#ladění-a-testování-výkonu-56)
+6. [Proces řízení kvality ve vývoji softwarových systémů (6/6)](#proces-řízení-kvality-ve-vývoji-softwarových-systémů-66)
 
-## Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky
-
+## Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky (1/6)
 
 ### Kvalita ve vývoji softwarových systémů
 
@@ -60,14 +59,14 @@ Metriky je ale nebezpečné používat k hodnocení výkonu vývojáře.
 - **Hloubka dědičnosti** – počet vrstev v hierarchii pod dědičností
 - **Cyklomatická složitost (CC)** – počet nezávislých cest ve zkoumané jednotce (funkce/metodě), které se mohou v běhu programu projevit. $CC = E - N + 2P$ kde E = počet hran (větví), N = počet vrcholů (nevětvených bloků) a P = počet vzájemně nepropojených grafů (obvykle P = 1 pro jednu funkci). Nejnižší hodnota CC je 1 (bez větvení).
 
-#### **SQALE (Software Quality Assessment Based on Lifecycle Expectations)** 
+#### **SQALE (Software Quality Assessment Based on Lifecycle Expectations)**
 – metoda hodnocení technického dluhu na základě charakteristik projektu:
 1. **Level 1**: základní charakteristiky (znovupoužitelnost, udržitelnost, bezpečnost, efektivita, spolehlivost…)</br>
 2. **Level 2**: rozvětvení každé úrovně z Level 1 (např. udržitelnost → čitelnost kódu, pochopitelnost, konzistence názvů, standardy)</br>
 3. **Level 3**: navázání konkrétních požadavků na úrovni kódu (např. „žádné metody delší než 30 řádků", „žádný vícenásobný dědický cyklus", „test coverage ≥ 80 %" atp.)  
    – Výstupem je komplexní index technického dluhu, který se skládá z jednotlivých sub-indexů (např. STI – Testability, SRI – Reliability atd.).
 
-## Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality
+## Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality (2/6)
 
 ### Udržitelnost (maintainability)
 - refaktoring na koherentní jednotky, aby bylo místo nutné změny minimální a snadno lokalizovatelné,
@@ -112,7 +111,7 @@ Metriky je ale nebezpečné používat k hodnocení výkonu vývojáře.
 - zlepšení UX
 - použití taktik pro zlepšení výkonnosti/škálovatelnosti (když je to pomalé)
 
-## Principy Clean Code a SOLID, refaktoring kódu
+## Principy Clean Code a SOLID, refaktoring kódu (3/6)
 
 ### Clean Code
 
@@ -176,7 +175,7 @@ automatizovat)
 - nedodržení lsp -> narušení polymorfysmu
 - držet se robustness principu pro typesafe variance:
   - _"be conservative in what you do, be liberal in what you accept from others"_
-  - contravariantni parametry metod u podtrid: musi prijmat typ, ktere bere nadtrida nebo obecnější 
+  - contravariantni parametry metod u podtrid: musi prijmat typ, ktere bere nadtrida nebo obecnější
   - covariantni navratove typy metod u podtrid: musi vracet typ, ktery vraci nadtrida nebo konkrétnější
   - nevyhazovat zadne nove vyjimky v podtridach, ktere nejsou v nadtride
 - [super video k LSP](https://www.youtube.com/watch?v=7hXi0N1oWFU)
@@ -217,7 +216,7 @@ struktury/modifikovatelnosti...
 Kód, který se dobře čte a udržuje nemusí být ten nejrychlejší/nejefektivnější (abstrakce mohou něco stát). Obvykle nám
 mírné snížení výkonu za vyšší čitelnost nevadí, ale nemusí to být vždy pravda.
 
-## Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy
+## Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy (4/6)
 
 = proces evaluace, zda systém splňuje specifikované požadavky... což se snadněji řekne, než dělá
 
@@ -330,7 +329,7 @@ a ničeho jiného, holt počkáme do další fáze):
 - Např. gherkin, cucumber - konstrukty given, when a then (jako AAA) se používají pro definici scénářů v english-like
   jazyce srozumitelném zákazníkovi, tyto scénáře se pak objevují i v testech
 
-## Ladění a testování výkonu
+## Ladění a testování výkonu (5/6)
 
 Cílem je identifikace a řešení případných problémů týkajících se rychlosti, odezvy a propustnosti systému, nalezení
 hranic:
@@ -348,7 +347,7 @@ náš případ.
 
 Např. Gatling, Siege, LoadRunner
 
-## Proces řízení kvality ve vývoji softwarových systémů
+## Proces řízení kvality ve vývoji softwarových systémů (6/6)
 
 Skládá se z:
 
