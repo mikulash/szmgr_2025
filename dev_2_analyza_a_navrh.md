@@ -90,8 +90,7 @@ Návrhový vzor je obecné řešení k často se opakujícímu problému řešen
 
 #### Singleton
 
-Zajišťuje, že daný objekt existuje v systému jen jednou (globální stav). V OO jazycích se řeší pomocí třídy s private constructorem a se statickou metodou `instance()` poskytující přístup k objektu drženému ve statickém atributu.
-*Metoda `instance()` se obvykle stará i o inicializaci statického atributu*
+Zajišťuje, že daný objekt existuje v systému jen jednou (globální stav). V OO jazycích se řeší pomocí třídy s private constructorem a se statickou metodou `instance()` poskytující přístup k objektu drženému ve statickém atributu. *Metoda `instance()` se obvykle stará i o inicializaci statického atributu*
 
 Singleton je mnohdy považován za antivzor, protože vytváří globální stav (namísto předávání stavu parametry) - blbě se to testuje, může být nutné zamykání globálního stavu pro thread safety, narušuje se single responsibility principle (singleton třída ovládá svou tvorbu).
 
@@ -370,8 +369,7 @@ Komunikační rozhraní komponentů se nazývají porty, přímé spoje connecto
 
 **Motivace objektových metod/návrhových vzorů**
 
-- Systémy bývají složité, špatně se udržují a je náročné měřit/zajistit kvalitu, často se mění nároky
-  => pomůže dekompozice systému do menších koherentních částí, které se lépe udržují/mění, snadněji se měří kvalita
+- Systémy bývají složité, špatně se udržují a je náročné měřit/zajistit kvalitu, často se mění nároky => pomůže dekompozice systému do menších koherentních částí, které se lépe udržují/mění, snadněji se měří kvalita
 
 Dekompozice podle [SOLID](1_kvalita_kodu.md#solid-principy)
 
