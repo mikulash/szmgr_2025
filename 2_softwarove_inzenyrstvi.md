@@ -20,11 +20,9 @@ Skládá se z:
 - **Analýza**
     - sběr požadavků klienta
     - Je důležité rozlišovat mezi tím, co říká že potřebuje, a co skutečně potřebuje. Pro lepší představu můžeme sledovat, jak koncový uživatel pracuje se současným řešením.
-    - zajímá nás **co** a **proč**, často ale klient zmiňuje **jak**. V takových případech je důležité se ptát **proč**. Může jít o legitimní důvod, ale také třeba o nevědomost.
-      => studie proveditelnosti, dokument požadavků...
+    - zajímá nás **co** a **proč**, často ale klient zmiňuje **jak**. V takových případech je důležité se ptát **proč**. Může jít o legitimní důvod, ale také třeba o nevědomost. => studie proveditelnosti, dokument požadavků...
 - **Návrh**
-    - návrh architektury, jednotek, výběr technologií, plán testování
-      => diagramy (uml), wireframy, prototypy
+    - návrh architektury, jednotek, výběr technologií, plán testování => diagramy (uml), wireframy, prototypy
 - **Implementace**
     - tvorba systému dle návrhu
 - **Testování**
@@ -130,8 +128,7 @@ Iterace jsou seskupovány do fází:
 - na konci známe cíle, hrubou architekturu
 - co se používá pro podobné systémy? s čím máme zkušenosti?
 - určení použitých technologií
-- určení orientační ceny, časového plánu a rizik
-  => **Project brief**
+- určení orientační ceny, časového plánu a rizik => **Project brief**
 
 #### Elaboration (2 iterace)
 - řešíme požadavky, architekturu, hrajeme si s UML diagramy
@@ -169,8 +166,7 @@ RUP je konkrétní metodika stavějící na UP (přidává třeba jednotlivé ro
 - flexibilní, důraz na lidi
 - radši budeme reagovat na změnu, než se pevně držet plánu
 - snažíme se fixovat čas a zdroje, proměnlivá může být funkcionalita (*Postavili jsme dům a plot, v rozpočtu zbývají zdroje na garáž, nebo bazén. Co z toho chcete?*)
-- vhodná, pokud se požadavky mění, není jasná kýžená výsledná podoba systému, nebo zákazník požaduje něco hmatatelného relativně brzo
-  => není přesné datum dokončení
+- vhodná, pokud se požadavky mění, není jasná kýžená výsledná podoba systému, nebo zákazník požaduje něco hmatatelného relativně brzo => není přesné datum dokončení
 - vyžaduje minimální plánování předem
 - klíčová je dobrá komunikace a spolupráce týmu
 - automatizované testování
