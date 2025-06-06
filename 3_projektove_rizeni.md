@@ -87,8 +87,7 @@ Prevence:
 
 ## Role modelů v projektovém řízení
 
-Těžko říct, co se tím myslí; v přednáškách PA179 žádná významná zmínka o modelech nebyla :thinking:
-Datové modely? Modelování komunikace, financí, rizik?
+Těžko říct, co se tím myslí; v přednáškách PA179 žádná významná zmínka o modelech nebyla :thinking: Datové modely? Modelování komunikace, financí, rizik?
 
 V řízení lze modely použít při plánování projektů pomocí [síťové analýzy](3_projektove_rizeni.md#síťová-analýza), [metody kritické cesty](3_projektove_rizeni.md#metoda-kritické-cesty-cpm).
 

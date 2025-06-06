@@ -88,13 +88,13 @@ Tvorba tabulky:
 /* Blokový komentář */
 -- Inline komentář
 CREATE TABLE Products (
-    id          INT PRIMARY KEY, --třeba u pg je možné použít SERIAL, abychom si nemuseli dělat sekvence
-    cost        INT NOT NULL,
-    ean         INT UNIQUE NOT NULL,
-    name        TEXT NOT NULL,
-    description TEXT,
-    created_by  INT NOT NULL REFERENCES User(id)
-    updated_at  DATETIME,
+                        id          INT PRIMARY KEY, --třeba u pg je možné použít SERIAL, abychom si nemuseli dělat sekvence
+                        cost        INT NOT NULL,
+                        ean         INT UNIQUE NOT NULL,
+                        name        TEXT NOT NULL,
+                        description TEXT,
+                        created_by  INT NOT NULL REFERENCES User(id)
+                          updated_at  DATETIME,
 );
 ```
 
@@ -125,7 +125,7 @@ V produkci použijeme migrační schéma obsahující UP a DOWN skripty, abychom
 **Insert**
 
 ```sql
-INSERT INTO Tabulka(sloupec_a, sloupec_b) 
+INSERT INTO Tabulka(sloupec_a, sloupec_b)
 VALUES (hodnota_a, hodnota_b);
 ```
 
@@ -134,7 +134,7 @@ Kontrolují se integritní omezení, v případě autoincrement/serial klíče h
 **Update**
 
 ```sql
-UPDATE Tabulka 
+UPDATE Tabulka
 SET sloupec_a = hodnota_a
 WHERE ... --často klíč
 ```
@@ -155,7 +155,7 @@ Trochu nabušený select:
 
 ```sql
 SELECT DISTINCT Tabulka.sloupec, B.sloupec FROM Tabulka
-JOIN TabulkaB AS B ON Tabulka.cizi_id = B.id
+                                                  JOIN TabulkaB AS B ON Tabulka.cizi_id = B.id
 WHERE price > 0
 ORDER BY sloupec ASC
 ```
@@ -171,8 +171,7 @@ U `WHERE` můžeme používat i příslušnost v množině hodnot `IN`, rozsahu 
 **Pohled/View**
 
 - Uložený a pojmenovaný select, který se vykoná s provedením dotazu
-- view mají omezenou modifikaci dat (například nelze, pokud obsahuje agregaci, distinct, union...)
-  => je lepší použít zdrojové tabulky
+- view mají omezenou modifikaci dat (například nelze, pokud obsahuje agregaci, distinct, union...) => je lepší použít zdrojové tabulky
 
 **Materializovaný pohled/view**
 
