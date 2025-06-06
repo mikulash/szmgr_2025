@@ -1,5 +1,7 @@
 # Kvalita kódu
 
+> Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky. Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality. Principy Clean Code a SOLID, refaktoring kódu. Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy. Ladění a testování výkonu. Proces řízení kvality ve vývoji softwarových systémů. Příklady z praxe pro vše výše uvedené. (PV260, PA017, PA103)
+
 1. [Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky (1/6)](#kvalita-ve-vývoji-softwarových-systémů-atributy-kvality-a-softwarové-metriky-16)
 2. [Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality (2/6)](#taktiky-pro-zajištění-kvality-na-úrovni-jednotlivých-atributů-kvality-26)
 3. [Principy Clean Code a SOLID, refaktoring kódu (3/6)](#principy-clean-code-a-solid-refaktoring-kódu-36)
@@ -13,6 +15,10 @@
 
 - Důležitý aspekt při vývoji sw systémů
 - Kvalita je často definována jako **schopnost produktu dostát požadavkům** => je důležité si určit, co jsou požadavky
+- Kvalita se může lišit podle hlediska:
+  - **Uživatelské hledisko** - použitelnost, spolehlivost, výkon, přesnost, bezpečnost
+  - **Z pohledu vývojáře** - modularita, komplexita, pochopitelnost, testovatelnost
+  - **Z pohledu managera (long term)** - schopnost sw se adaptovat na změny, znovupoužitelnost, udržitelnost, škálovatelnost
   - **Zákaznické požadavky** a.k.a. externí kvalita (použitelnost, přesnost/správnost, spolehlivost, bezpečnost,
     výkon...)
   - Abychom dostáli těmto ^, je třeba, aby šel vývoj snadno, aby se produkt dal jednoduše dlouhodobě udržovat (byl
@@ -49,15 +55,19 @@ Kromě toho je užitečné rozlišit metriky na **objektivní** a **subjektivní
 Často nás zajímají spíš poměry/odvozené metriky, např. poměr komentářů k celkovému počtu řádků, průměrná velikost metody, odchylky jednotlivých metrik v rámci projektu nebo mezi různými releasy,  hustota defektů, atd.
 Metriky je ale nebezpečné používat k hodnocení výkonu vývojáře.
 
-- **Lines of Code (LOC)**
+**Konkrétní metriky:**
+- **Lines of Code (LOC)** - může být hrubým odhadem úsilí, užitečné pro porovnání napříč releasy
 - **(Non)Commented lines of code (CLOC)** – řádky obsahující komentář vs. bez komentáře
 - **Počet tříd**
 - **Počet funkcí/metod**
 - **Počet packages**
 - **Počet souborů**
-- **Provázanost tříd** – kolik jiných tříd třída A volá (tight coupling)
-- **Hloubka dědičnosti** – počet vrstev v hierarchii pod dědičností
-- **Cyklomatická složitost (CC)** – počet nezávislých cest ve zkoumané jednotce (funkce/metodě), které se mohou v běhu programu projevit. $CC = E - N + 2P$ kde E = počet hran (větví), N = počet vrcholů (nevětvených bloků) a P = počet vzájemně nepropojených grafů (obvykle P = 1 pro jednu funkci). Nejnižší hodnota CC je 1 (bez větvení).
+- **Provázanost tříd** – kolik jiných tříd třída A volá (tight coupling), třídy jsou závislé, pokud metoda A používá metody třídy B
+- **Hloubka dědičnosti** – počet vrstev v hierarchii pod dědičností, čím hlouběji je třída ve stromu dědičnosti, tím komplexnější nejspíše je
+- **Cyklomatická složitost (CC)** – počet nezávislých cest ve zkoumané jednotce (funkce/metodě), které se mohou v běhu programu projevit. $CC = E - N + 2P$ kde E = počet hran (větví), N = počet vrcholů (nevětvených bloků) a P = počet vzájemně nepropojených grafů (obvykle P = 1 pro jednu funkci). Nejnižší hodnota CC je 1 (bez větvení). Čím větší komplexita, tím obtížnější testovatelnost.
+- **Váhovaná komplexita třídy** - součet cyklomatických složitostí metod třídy
+- **Reakce na dotaz** - kolik metod (cizích nebo svých tříd) bude třída A volat při zpracování requestu
+- **Nedostatek soudržnosti** - jak souvisí metody třídy s jejíma instančníma proměnnýma
 
 #### **SQALE (Software Quality Assessment Based on Lifecycle Expectations)**
 – metoda hodnocení technického dluhu na základě charakteristik projektu:
@@ -67,6 +77,32 @@ Metriky je ale nebezpečné používat k hodnocení výkonu vývojáře.
    – Výstupem je komplexní index technického dluhu, který se skládá z jednotlivých sub-indexů (např. STI – Testability, SRI – Reliability atd.).
 
 ## Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality (2/6)
+
+Problémy s kvalitou a jejich zpracování můžeme rozlišit na různých úrovních:
+
+**Prevence:**
+- Best practices pro programování - clean code, SOLID, návrhové vzory, párové programování, konvence
+- Zajištění kvality procesy - V-model, TDD
+
+**Detekce:**
+- Testování požadavků (manual, automatic)
+- Nefunkční požadavky a testy (výkon - perf testing, bezpečnost - penetrační testing)
+- Inspekce kódu, code reviews
+- Statická analýza (SonarQube)
+
+**Náprava:**
+- Funkční požadavky → bug fixing
+- Spolehlivost → fault-tolerance - mechanismy pro odolnost proti selhání
+- Výkon → paralelizace, využití zdrojů, odstranění "bottlenecků"
+- Bezpečnost → odstranění jediných bodů selhání, známých závislostí s bezpečnostními nedostatky
+- Udržitelnost → refaktoring, návrhové vzory
+
+**Trackování:**
+- Trackování problémů
+- Verzování, release management
+- Sledování technického dluhu, zastaralých komponent
+
+**Poznámka:** Některé z uvedených taktik jsou konfliktní - nemůžeme mít všechno (např. lepší bezpečnost může ohrozit použitelnost).
 
 ### Udržitelnost (maintainability)
 - refaktoring na koherentní jednotky, aby bylo místo nutné změny minimální a snadno lokalizovatelné,
@@ -120,7 +156,14 @@ je drahý. Klíčové je:
 
 - **Jasné pojmenovávání** reflektující doménu problému, dostatečně výstižné (a ne příliš dlouhé či generické, viz Java).
   V ideálním případě by mělo být sebevysvětlující a komentáře by neměly být potřeba, ALE i tak jsou komentáře fajn. hlavně konzistence v codebase
-  - pokud vrací bool, pojmenuj to `has*()` nebo `is*()`
+  - **Třídy**: dodržovat SRP, pojmenovat dle účelu, vyhnout se generickým pojmenováním → vede ke kompaktním specifickým třídám
+  - **Metody**:
+    - pokud vrací bool, pojmenuj to `has*()` nebo `is*()`
+    - používat slovesa, dodržet konvenci pro getters/setters, žádné side-effects
+    - boolean parametry metod jsou bad practice (`setAdminStatus(true/false)` → `[grant/revoke]AdminRights()`)
+    - nepoužívat synonyma pro rozdílné akce (add/append → jaký je rozdíl? nikdo neví)
+    - krátké názvy public metod, dlouhé private
+  - **Proměnné**: velký scope → dlouhé jméno, malý scope → krátké
   - struktury jsou podstatná jména, metody začínají slovesem (nebo se jedná o getter v rustu)
   - veřejné API (public) jednotky by mělo být jasné a jednoduché, interně (private) se mohou používat delší názvy
     metod, když je díky tomu jasnější, k čemu slouží
@@ -171,7 +214,12 @@ automatizovat)
 
 #### Liskov substitution principle
 - instance tříd by měly být nahraditelné jejich podtřídami, aniž by došlo k narušení chování systému - všechny podtřídy by měly dodržovat kontrakty nadtříd a neměly by odstraňovat chování nadtříd
-- problém je, když musíme explicitně ověřovat, o jaký podtyp se jedná - toto by měl řešit polymorfismus
+- potomci nesmějí:
+  - "odstraňovat" nebo omezovat chování jejich rodičů
+  - porušovat základní invarianty třídy - neměnné vlastnosti
+  - požadovat volání specifických funkcí pro zjištění, zda-li se jedná o potomka nebo rodiče
+  - porušovat jakékoliv předem stanovené kontrakty jejich rodičovskou třídou
+- problém je, když musíme explicitně ověřovat, o jaký podtyp se jedná (`if instanceOf - then` → maintenance nightmare) - toto by měl řešit polymorfismus
 - nedodržení lsp -> narušení polymorfysmu
 - držet se robustness principu pro typesafe variance:
   - _"be conservative in what you do, be liberal in what you accept from others"_
@@ -183,6 +231,9 @@ automatizovat)
 #### Interface segregation principle
 - klienti kódu by neměli být závislí na metodách, které nepoužívají, a.k.a. dělej malá a jednoduchá rozhraní namísto
   velkých
+- rozhraní třídy by mělo mít jen ty metody, které její klienti nejspíš budou používat v jednotných kontextech
+- psát malé a soudržné rozhraní
+- nedodržení → klienti používají jen zlomek třídy, při rozšíření/dědění musí implementovat spoustu "zbytečných" metod
 - např. chci v rustu převést strukturu na string. Jediné co proto musím udělat je zajistit implementaci Display
   traitu (a ničeho jiného).
 
@@ -199,6 +250,8 @@ struktury/modifikovatelnosti...
 
 - Před refaktoringem je důležité mít chování solidně pokryto testy, abychom nezpůsobili nechtěnou změnu
 - Během refaktoringu neděláme nic jiného (žádná nová funkcionalita)
+- **Kdy refaktorovat?** Když nevyvíjím → oddělit refactoring od developmentu, součást rutiny při TDD, při opravě bugu, po zavedené nové funkcionality, dlouhodobé plánované refaktorování
+- **GRASP** - General Responsibility Assignment Software Principles → principy pro lepší design OOP kódu
 - Techniky (některé editory je podporují, což usnadňuje práci a je pravděpodobně spolehlivější):
   - **Extrakce funkce** - kus kódu funguje jako jednotka/potřeboval by komentář => vytáhni ho do funkce, dej tomu
     přiléhající jméno, bude možné to použít na více místech
@@ -212,18 +265,42 @@ struktury/modifikovatelnosti...
     `if return`
   - **Rename** cokoliv
   - **Seskupení mnoha parametrů do struktury**
+  - **Udělat final parametry metod**
+  - **Dlouhá složitá metoda** → vlastní objekt (třída)
+  - **Odstranění prostředníka**
+  - **Odstranit magické čísla**
+  - **Zapouzdření vlastností**
+  - **Guard clauses** → redukovat nesting
 
 Kód, který se dobře čte a udržuje nemusí být ten nejrychlejší/nejefektivnější (abstrakce mohou něco stát). Obvykle nám
 mírné snížení výkonu za vyšší čitelnost nevadí, ale nemusí to být vždy pravda.
 
 ## Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy (4/6)
 
-= proces evaluace, zda systém splňuje specifikované požadavky... což se snadněji řekne, než dělá
+= proces evaluace, zda systém splňuje specifikované požadavky (IEEE: "Testing is the process of exercising or evaluating a system or system component by manual or automated means to verify that it satisfies specified requirements.")
+
+**Terminologie:**
+- **Defekt (defect)** - nedokonalost nebo porucha sw, kvůli které produkt nesplňuje požadavky
+- **Error** - lidská chyba produkující nesprávný výsledek
+- **Selhání (failure)** - náhlá neschopnost produktu provádět požadovanou funkci
+- **Chyba (fault)** - projev erroru v software
+- **Bug** - synonymum pro defekt
+
+**Principy testování:**
+- **Sensitivita** - testy musí odhalit chybu/nedostatek vždy
+- **Zvolit spolehlivá kritéria** - fail fast
+- **Machine independent** - nezávislé na prostředí
+- **Redundance** - jasně stanovit záměr
+- **Omezení (restriction)** - usnadnění problému
+- **Rozděl a panuj** - složité testovací problémy jdou usnadnit rozdělením prostoru vstupů
+- **Viditelnost** - schopnost něco změřit, abychom něco testovali, musíme vědět, jak to má ideálně dopadnout
+- **Zpětná vazba** - ladění procesu vývoje, poučit se z chyb
 
 - V praxi je testování z pravidla nekompletní. Testováním odhalujeme chyby, ale nedokazujeme bezchybnost.
 - Každý test by měl testovat pouze jednu věc/vlastnost/feature, ideální je spousta malých testů, díky čemuž můžeme
   snadno identifikovat zdroj problému.
 - Ideálně by měl testování provádět někdo jiný, než autor testovaného kódu
+- **Prioritizace testování na základě rizik** - nemůžeme otestovat všechno, prioritizace testování rizikových funkcionalit (risk = dopad + pravděpodobnost)
 
 ### Typy testování podle přístupu
 
@@ -248,6 +325,7 @@ mírné snížení výkonu za vyšší čitelnost nevadí, ale nemusí to být v
 - Kvalita testů lze ověřit mutačním testováním. Do aplikace zavedeme defekty (mutací zdrojového kódu, lze automatizovat
   třeba negací operátoru, off-by-one, vynechání volání...) a sledujeme, kolik jich bylo odhaleno testy => pokud něco
   prošlo, může jít o kandidáta na další testy
+- **Mutační testování:** zanesení (malých) chyb do sw a testování kvality testovací suity. Předpoklad že testy, které najdou mutanty, najdou i opravdové chyby. Mscore = Mkilled / (Mtotal - Meq) kde Meq jsou ekvivalentní mutanti (mutace oproti původnímu programu nezpůsobí chybu)
 - Některé situace jsou pro náš produkt rizikovější (lze odhadnout při analýze), než ostatní - na ty bychom se měli
   zaměřit při testování
 - Vstupy testů vhodně rozdělujeme na kategorie (např. <0, 0, >0), z každé vybereme pár reprezentantů (abychom nemuseli
@@ -332,48 +410,83 @@ a ničeho jiného, holt počkáme do další fáze):
 ## Ladění a testování výkonu (5/6)
 
 Cílem je identifikace a řešení případných problémů týkajících se rychlosti, odezvy a propustnosti systému, nalezení
-hranic:
+hranic. Dynamické testování sw za cílem zjištění, jak se chová pod zátěží, jaké operace trvají nejdéle, jak by je šlo optimalizovat, co bere nejvíce výpočetního výkonu atp.
+
+**Performance testing zahrnuje:**
 
 ### Load testing
 - zátěžové testy, sledujeme jak systém zvládá dlouhodobější zátěž
+- jak se bude systém chovat s předpokládaným počtem dotazů/uživatelů během určitého časového úseku
+- verifikuje schopnost systému zvládat očekávanou zátěž
 
 ### Stress testing
 - sledujeme, jak se systém vypořádává s krátkodobými výkyvy v zátěži (když najednou přijde spousta požadavků)
+- jaký je horní limit systému, kolik toho zvládne, než začne odmítat požadavky atp, pomocí postupného zvyšování zátěže až po selhání
+- hledáme potentiální ddos, security issues, korupci dat
+- jak rychle se zvládne systém vrátit do normálu, identifikace bottlenecků v hw
+- **Spike testing** - testování rychlého krátkého nárůstu na limitní kapacitu
+
+### Soak/endurance testing
+- narůstající počet uživatelů a požadavků v průběhu dlouhého časového úseku
+- nejčastěji má za cíl odhalit memory leaks atp
+
+### Škálovatelnost testing
+- sledování narůstajícího využití resources s narůstajícím počtem požadavků
+- měli bychom pozorovat +- přímou úměru
 
 Běžící systém je také vhodné dlouhodobě monitorovat, abychom odhalili další slabá místa.
 
 Výkon lze obecně zvýšit za cenu dalších atributů (například maintainability), proto je nutné volit správný kompromis pro
 náš případ.
 
-Např. Gatling, Siege, LoadRunner
+**Nástroje:** jProfiler, jMeter, Gatling, Siege, LoadRunner, BlazeMeter
 
 ## Proces řízení kvality ve vývoji softwarových systémů (6/6)
 
+**Software Quality Management (SQM)** je kolekce všech procesů, které zajišťují, že implementace produktů, služby a životního cyklu splňuje standardy kvality organizace a ostatních zúčastněných stran.
+
+**Různé pohledy na kvalitu:**
+- **Kvalita použití** - user experience
+- **Externí kvalita** - projde to všemi testy a požadavky
+- **Interní kvalita** - kvalita návrhu, udržovatelnost atp
+- **Procesní kvalita** - je při vývoji správně postupováno?
+
+**Proces řízení SQM zahrnuje:** procesy a jejich vlastníky, požadavky na procesy, metriky procesů, výstupy procesů a zpětná vazba.
+
 Skládá se z:
 
-### Definice požadavků na sw kvalitu a plánování
+### Definice požadavků na sw kvalitu a plánování (SQP)
 - specifikace funkčních i nefunkčních požadavků, stanovení hodnotících kritérií, rizik, určení metrik, podrobný popis a rozvržení aktivit k zajištění kvality
+- použití standardů, požadavky kvality, odhady a plánování aktivit, požadavky, scope, zdroje, risky, časový plán
 
-### Zajištění (assurance) sw kvality
+### Zajištění (assurance) sw kvality (SQA)
 - definice a kontrola procesů, které povedou k zajištění sw kvality a prevenci defektů (mimo jiné nastavení CI/CD)
+- zajišťuje adekvátnost a průkaznost procesů, IEEE standardy
 
-### Kontrola sw kvality
+### Kontrola sw kvality (SQC)
 - kontrola, zda produkt/jeho části splňují požadavky (včetně požadavků na kvalitu) a jejich vývoj se řídí definovanými procesy, monitoring zda se držíme procesů a vytyčených cílů
+- procházení artefaktů procesů a kontrola, že odpovídají standardu v nejrůznějších rovinách (design, požadavky, omezení, ...), monitorování, plan-do-check-act
 
-### Zlepšení kvality
+### Zlepšení kvality (SPI)
 - snaha zlepšit procesy, abychom docílili zlepšení kvality
+- zpětná vazba, zlepšení procesů a tím i dalších výstupů, zlepšit efektivitu, efektivnost, praktiky
 
 ## Notes
 
 ### Capability Maturity Model
 Definuje úrovně vyspělosti organizace v kontextu zajištění kvality:
 
-- **Level 1 Výchozí** - chaos, nepředvídatelná cena, plán
-- **Level 2 Opakovatelný** - intuitivní, cena a kvalita jsou proměnlivé, plán je pod vědomou kontrolou, neformální
+- **Level 1 Výchozí (ad hoc)** - chaos, nepředvídatelná cena, plán
+- **Level 2 Opakovatelný (doing agile)** - intuitivní, cena a kvalita jsou proměnlivé, plán je pod vědomou kontrolou, neformální
   metody & procedury
-- **Level 3 Definovaný** - orientace na kvalitu, spolehlivé ceny a plány, stále nepředvídatelný výkon systému kvality
-- **Level 4 Řízený** - měření, promyšlená a statisticky řízená kvalita produktu
-- **Level 5 Optimalizující** - automatizace a zlepšení výrobního procesu, prevence chyb, inovace technologie
+- **Level 3 Definovaný (being agile)** - orientace na kvalitu, spolehlivé ceny a plány, stále nepředvídatelný výkon systému kvality
+- **Level 4 Řízený (thinking agile)** - měření, promyšlená a statisticky řízená kvalita produktu
+- **Level 5 Optimalizující (agile culture)** - automatizace a zlepšení výrobního procesu, prevence chyb, inovace technologie
+
+**Další modely:**
+- **SPICE** (Software Process Improvement and Capability Determination) - 5 kategorií, 24 procesů, 201 praktik
+- **CMMI** - pokročilejší model
+- **Six Sigma** - data based, eliminace defektů (definuj, měř, analyzuj, zlepši, kontroluj)
 
 ### Prevence problémů kvality
 
@@ -462,3 +575,4 @@ výkon)
 
 - Issue tracking
 - Správa technického dluhu (tracking, vyhrazení času na jeho nápravu)
+
