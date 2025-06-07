@@ -2,7 +2,16 @@
 
 > Plánování, řízení rizik, role modelů v projektovém řízení. Ganttovy diagramy, síťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT). Mezinárodní standardy a metodiky projektového řízení (PMI Project Management Body of Knowledge, PRINCE 2). Příklady z praxe pro vše výše uvedené. [PA179](https://is.muni.cz/auth/el/fi/jaro2022/PA179/um/)
 
-## Plánování
+1. [Plánování (1/8)](#plánování-18)
+2. [Řízení rizik (2/8)](#řízení-rizik-28)
+3. [Role modelů v projektovém řízení (3/8)](#role-modelů-v-projektovém-řízení-38)
+4. [Ganttovy diagramy (4/8)](#ganttovy-diagramy-48)
+5. [Síťová analýza (5/8)](#síťová-analýza-58)
+6. [Metoda kritické cesty (CPM) (6/8)](#metoda-kritické-cesty-cpm-68)
+7. [Program Evaluation and Review Technique (PERT) (7/8)](#program-evaluation-and-review-technique-pert-78)
+8. [Mezinárodní standardy a metodiky projektového řízení (8/8)](#mezinárodní-standardy-a-metodiky-projektového-řízení-88)
+
+## Plánování (1/8)
 
 Je třeba rozlišovat mezi:
 
@@ -46,7 +55,7 @@ Dělá se **projektový plán** (proč, co, kdo, kdy, jak, za kolik...) - **Work
 
 ![](img/20230526000518.png)
 
-## Řízení rizik
+## Řízení rizik (2/8)
 
 Postup:
 
@@ -85,7 +94,7 @@ Prevence:
 - **Jasná definice, co znamená "hotovo"**
 - **Krátké iterace** - brzo zjistíme, co je případně blbě
 
-## Role modelů v projektovém řízení
+## Role modelů v projektovém řízení (3/8)
 
 Těžko říct, co se tím myslí; v přednáškách PA179 žádná významná zmínka o modelech nebyla :thinking: Datové modely? Modelování komunikace, financí, rizik?
 
@@ -93,7 +102,7 @@ V řízení lze modely použít při plánování projektů pomocí [síťové a
 
 Dále je možné modelovat procesy (komunikace), finance, rizika... a na těchto modelech hledat kritická místa, zkoumat co by kdyby...
 
-## Ganttovy diagramy
+## Ganttovy diagramy (4/8)
 
 - nástroj pro plánování (nejen) projektů
 
@@ -115,7 +124,7 @@ ale lze rozšířit...
 
 ![](img/20230525195955.png)
 
-## Síťová analýza
+## Síťová analýza (5/8)
 
 Metody pro modelování souboru činností vedoucích k dosažení nějakého cíle (tj. projektů).
 
@@ -123,7 +132,7 @@ Cílem je projekt naplánovat, minimalizovat prostoje a náklady, určit termín
 
 Používá se pro to síťový graf hranově/uzlově orientovaný - úlohy jsou na hranách/uzlech. Uzlově orientovaný umožňuje snadno modelovat precedenční podmínky, lze snadno použít pro metodu kritické cesty.
 
-## Metoda kritické cesty (CPM)
+## Metoda kritické cesty (CPM) (6/8)
 
 Metoda pro identifikaci vzájemně závislých aktivit, které mají vliv (jsou kritické) na dobu dokončení projektu a nemohou být opožděny bez prodloužení dokončení projektu.
 
@@ -137,7 +146,7 @@ Metoda pro identifikaci vzájemně závislých aktivit, které mají vliv (jsou 
 
 ![](img/20230526101347.png)
 
-## Program Evaluation and Review Technique (PERT)
+## Program Evaluation and Review Technique (PERT) (7/8)
 
 Technika k odhadu času k dokončení tasku. Bereme **optimistický** odhad, **pesimistický** odhad a **nejpravděpodobnější** odhad:
 
@@ -145,7 +154,7 @@ Technika k odhadu času k dokončení tasku. Bereme **optimistický** odhad, **p
 
 Pokud máme informace o úrovni platů implementátorů tasků, můžeme dopočítat odhadovanou cenu.
 
-## Mezinárodní standardy a metodiky projektového řízení
+## Mezinárodní standardy a metodiky projektového řízení (8/8)
 
 - standardy projektového řízení PRINCE2, PMBOK, IPMA ICB popisují obecnější způsob řízení
 - metodiky sw vývoje (RUP, SCRUM) řeší řízení v rámci vývojového týmu, jsou specifické pro vývoj SW
