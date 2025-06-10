@@ -1,35 +1,41 @@
-# 1. Programování a softwarový vývoj
+# Programování a softwarový vývoj
 
-- [Nástroje a prostředí pro softwarový vývoj rozsáhlých systémů](#Nástroje-a-prostředí-pro-softwarový-vývoj-rozsáhlých-systémů)
-- [Základní koncepty softwarových architektur z pohledu implementace](#základní-koncepty-softwarových-architektur-z-pohledu-implementace)
-- [Vícevrstvá architektura moderních informačních systémů, architektura model-view-controller](#vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller)
-- [Persistence, ORM](#persistence-ORM)
+> (PA165 || PV179, volba Programování, SA200)
 
-[PA165 Enterprise Java](https://is.muni.cz/auth/el/fi/jaro2021/PA165/um/)
+1. [Nástroje a prostředí pro softwarový vývoj rozsáhlých systémů (1/6)](#nástroje-a-prostředí-pro-softwarový-vývoj-rozsáhlých-systémů-16)
+2. [Základní koncepty softwarových architektur z pohledu implementace (2/6)](#základní-koncepty-softwarových-architektur-z-pohledu-implementace-26)
+3. [Vícevrstvá architektura moderních informačních systémů, architektura model-view-controller (3/6)](#vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller-36)
+4. [Technologie a jazyky vhodné pro frontend a backend vývoj (4/6)](#technologie-a-jazyky-vhodné-pro-frontend-a-backend-vývoj-46)
+5. [Persistence, ORM (5/6)](#persistence-orm-56)
+6. [Příklady z praxe pro vše výše uvedené (6/6)](#příklady-z-praxe-pro-vše-výše-uvedené-66)
 
-[PV179 Systémy v .NET](https://is.muni.cz/auth/el/fi/podzim2022/PV179/)
+## Nástroje a prostředí pro softwarový vývoj rozsáhlých systémů (1/6)
 
-## Vývoj softwarových řešení
+Vývoj sw řešení se obvykle skládá z kroků: Analýza, Návrh, Implementace, Testování, Nasazení. Více v otázce [Softwarové inženýrství](2_softwarove_inzenyrstvi.md)
 
-Vývoj sw řešení se obvykle skládá z kroků:
+- **Komunikace a ubiquitous language** - klíčové je zajistit pravidelnou a dobře definovanou komunikaci mezi stakeholdery (nejen na začátku, ale i v průběhu vývoje), definovat ubiquitous language (univerzální jazyk domény) a vynucovat jeho používání, aby v rámci úzce spolupracujících skupin nedocházelo k vytváření vlastních výrazů a následnému neporozumění mezi skupinami.
 
-- Analýza
-- Návrh
-- Implementace
-- Testování
-- Nasazení
+- **Kontinuální integrace a nasazení (CI/CD)** - při vývoji se často používá kontinuální integrace a nasazení (CI/CD), čímž se mohou vynucovat standardy (dobré pro udržitelnost kódu) a spouštět se automatizované testy. Bývá součástí verzování kódu.
 
-Více v otázce [Softwarové inženýrství](2_softwarove_inzenyrstvi.md)
+- **Dekompozice a abstrakce** - klíčovou součástí analýzy a návrhu bývá dekompozice (a abstrakce) na komponenty, při které dělíme komplexní systém na jednodušší nezávislé části, abychom nemuseli neustále držet v hlavě kontext celého systému. Cílem je minimalizovat závislost mezi komponenty a dodržovat SOLID principy. [Více v Kvalita kódu](1_kvalita_kodu.md).
 
-- Klíčové je zajistit pravidelnou a dobře definovanou komunikaci mezi stakeholdery (nejen na začátku, ale i v průběhu vývoje), definovat ubiquitous language (univerzální jazyk domény) a vynucovat jeho používání, aby v rámci úzce spolupracujících skupin nedocházelo k vytváření vlastních výrazů a následnému neporozumění mezi skupinami.
+- **Kontrakty komponentů** - komponenty systému mají dobře definovaný kontrakt, nezávisí na konkrétních implementacích, ale na abstrakcích (např. parametr metody je typu interface, ne konkrétní struktura)
 
-- Při vývoji se často používá kontinuální integrace a nasazení (CI/CD), čímž se mohou vynucovat standardy (dobré pro udržitelnost kódu) a spouštět se automatizované testy. Bývá součástí verzování kódu.
+Pro vývoj rozsáhlých systémů se používají následující typy nástrojů:
 
-- Klíčovou součástí analýzy a návrhu bývá dekompozice (a abstrakce) na komponenty, při které dělíme komplexní systém na jednodušší nezávislé části, abychom nemuseli neustále držet v hlavě kontext celého systému. Cílem je minimalizovat závislost mezi komponenty a dodržovat SOLID principy. [Více v Kvalita kódu](1_kvalita_kodu.md).
+- **Editory a vývojová prostředí** - v ideálním případě (pokud jazyk podporuje Language Server Protocol) závisí na preferencích vývojáře. Je možné použít od jednoduchých editorů až po plně integrovaná vývojová prostředí (vim/neovim, vscode, jetbrains produkty).
+- **Verzovací systémy** - umožňují správu verzí zdrojového kódu a spolupráci vývojářů (git, SVN). Obvykle běží na platformě, která může být hostovaná (github, gitlab), nebo kterou si hostujeme sami na vlastních serverech (gitlab). Platformy obvykle nabízí víc, než jen správu zdrojového kódu (CI/CD, issue tracking...)
+- **Nástroje pro správu projektů** - slouží pro správu úkolů, sledování chyb a komunikaci v týmu (Clickup, Jira, ale i třeba Github).
+- **Nástroje pro testování** - umožňují vytvářet a spouštět testy, simulovat uživatelské interakce, ověřovat funkčnost systému (Jest, cargo test, Insomnia, Postman)
+- **Nástroje pro kontinuální integraci a nasazení** - automatizují spouštění testů a sestavení výsledného produktu (github workflows, gitlab CI/CD, circle ci, Travis CI, Jenkins).
+- **Monitoring a logování** - slouží pro sledování výkonu systému a analýzu chyb a problémů (Grafana)
+- **Dokumentační nástroje** - popisující fungování systému a jeho částí. Dokumentaci zdrojového kódu je vhodné z něj generovat, aby se minimalizoval problém neaktuálnosti (cargo doc, OpenAPI (machine-readable JSON/YAML formát, je možné ho generovat z anotací, nebo z něj generovat příklady, dokumentaci), pro jednoduchý formátovaný text Markdown). Dokumentace je důležitá zvlášť pro vystavovaná API
+- **Kontejnerová prostředí** - slouží pro minimalizaci rozdílů mezi prostředími, usnadňují reprodukovatelnost prostředí, ve kterých aplikace běží (vývojové, testovací, produkční) (Docker, Podman).
+- **Nástroje pro analýzu kódu** - kontrolují dodržování standardů, zajišťují určitou kvalitu kódu, hledají potenciální chyby/slabá místa (cargo clippy, ESLint, SonarQube).
 
-- Komponenty systému mají dobře definovaný kontrakt, nezávisí na konkrétních implementacích, ale na abstrakcích (např. parametr metody je typu interface, ne konkrétní struktura)
+## Základní koncepty softwarových architektur z pohledu implementace (2/6)
 
-## Specifika implementace webových informačních systémů
+### Specifika implementace webových informačních systémů
 
 Webové informační systémy se obvykle skládají z několika částí:
 
@@ -45,7 +51,7 @@ Webové informační systémy mají tato specifika:
 - Nutnost **responzivního a přístupného uživatelského rozhraní**, ke kterému uživatelé mohou přistupovat i z mobilních zařízení, prohlížeče usnadňují implementaci přístupnosti (vada zraku, přístup pouze pomocí klávesnice...)
 - Většinou **tenký klient** - aplikační logika se provádí z pravidla na serveru
 - Webové systémy bývají (pokud není řešeno jinak) přístupné z celého internetu, proto je důležité vhodně řešit **autentizaci a autorizaci**, a jejich **zabezpečení proti útokům** (například SQL injection, XSS, CSRF, více níže)
-- Mohou být používané větším množstvím uživatelů, proto je vhodně třeba řešit škálování (vertikální větším výkonem nemusí stačit, horizontální více stroji nemusí být vždy aplikovatelné). Aplikační servery je možné díky jejich bezstavovosti škálovat horizontálně, databáze se obvykle řeší vertikálně, či použitím distribuovaných databází (Cassandra). Základem zvyšování výkonu systému je kešování (Redis).
+- Mohou být používané větším množstvím uživatelů, proto je vhodné třeba řešit škálování (vertikální větším výkonem nemusí stačit, horizontální více stroji nemusí být vždy aplikovatelné). Aplikační servery je možné díky jejich bezstavovosti škálovat horizontálně, databáze se obvykle řeší vertikálně, či použitím distribuovaných databází (Cassandra). Základem zvyšování výkonu systému je kešování (Redis).
 - Obvykle se používá model klient-server
 
 ### Útoky
@@ -91,26 +97,11 @@ Více v [Bezpečný kód](dev_4_bezpecny_kod.md)
 - **SAML** - xml protokol pro výměnu autentizačních a autorizačních dat, starší než oauth/oidc
 - **Kerberos** - na rozdíl od oauth2 a openid connect používá v základu symetrickou kryptografii (např. uživatelovo heslo je na autorizačním serveru, uživatel posílá pouze svou identitu a server vrací přístupová data šifrovaná heslem uživatele)
 
-## Nástroje a prostředí pro softwarový vývoj rozsáhlých systémů
+## Vícevrstvá architektura moderních informačních systémů, architektura model-view-controller (3/6)
 
-Pro vývoj rozsáhlých systémů se používají následující typy nástrojů:
+Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller), takže jen shrnutí:
 
-- **Editory a vývojová prostředí** - v ideálním případě (pokud jazyk podporuje Language Server Protocol) závisí na preferencích vývojáře. Je možné použít od jednoduchých editorů až po plně integrovaná vývojová prostředí (vim/neovim, vscode, jetbrains produkty).
-- **Verzovací systémy** - umožňují správu verzí zdrojového kódu a spolupráci vývojářů (git, SVN). Obvykle běží na platformě, která může být hostovaná (github, gitlab), nebo kterou si hostujeme sami na vlastních serverech (gitlab). Platformy obvykle nabízí víc, než jen správu zdrojového kódu (CI/CD, issue tracking...)
-- **Nástroje pro správu projektů** - slouží pro správu úkolů, sledování chyb a komunikaci v týmu (Clickup, Jira, ale i třeba Github).
-- **Nástroje pro testování** - umožňují vytvářet a spouštět testy, simulovat uživatelské interakce, ověřovat funkčnost systému (Jest, cargo test, Insomnia, Postman)
-- **Nástroje pro kontinuální integraci a nasazení** - automatizují spouštění testů a sestavení výsledného produktu (github workflows, gitlab CI/CD, circle ci, Travis CI, Jenkins).
-- **Monitoring a logování** - slouží pro sledování výkonu systému a analýzu chyb a problémů (Grafana)
-- **Dokumentační nástroje** - popisující fungování systému a jeho částí. Dokumentaci zdrojového kódu je vhodné z něj generovat, aby se minimalizoval problém neaktuálnosti (cargo doc, OpenAPI (machine-readable JSON/YAML formát, je možné ho generovat z anotací, nebo z něj generovat příklady, dokumentaci), pro jednoduchý formátovaný text Markdown). Dokumentace je důležitá zvlášť pro vystavovaná API
-- **Kontejnerová prostředí** - slouží pro minimalizaci rozdílů mezi prostředími, usnadňují reprodukovatelnost prostředí, ve kterých aplikace běží (vývojové, testovací, produkční) (Docker, Podman).
-- **Nástroje pro analýzu kódu** - kontrolují dodržování standardů, zajišťují určitou kvalitu kódu, hledají potenciální chyby/slabá místa (cargo clippy, ESLint, SonarQube).
-
-## Základní koncepty softwarových architektur z pohledu implementace, Vícevrstvá architektura moderních informačních systémů, Architektura model-view-controller
-
-- **MVC pattern - model, view, controller** - odděluje systém na model, view a controller. Model obsahuje data a business logiku. View je zobrazením těchto dat a controller slouží k manipulaci nad modelem. Jde o cyklický vztah:
-
-  `USER (uses)> CONTROLLER (manipulates)> MODEL (updates)> VIEW (shown to)> USER`
-
+- **MVC pattern - model, view, controller** - odděluje systém na model, view a controller. Model obsahuje data a business logiku. View je zobrazením těchto dat a controller slouží k manipulaci nad modelem. Jde o cyklický vztah: `USER (uses)> CONTROLLER (manipulates)> MODEL (updates)> VIEW (shown to)> USER`
   - oddělení logiky zvyšuje modulárnost kódu, který je pak snadnější upravovat, testovat, udržovat
   - např. multipage web
 - **MVP pattern - model, view, presenter** - presenter je prostředník mezi modelem a view, jde přes něj veškerá komunikace. Uživatel používá pouze view, akce uživatele view předává presenteru, který aktualizuje model a zasílá view nová data. Např. SPA. Vztah Presenter - View je imperativní. Presenter naslouchá událostem vyvolaným View a podle toho s ním manipuluje.
@@ -150,7 +141,6 @@ Pro vývoj rozsáhlých systémů se používají následující typy nástrojů
   - Pluginy jsou obvykle dostupné z nějakého registru, kde jsou data jako název, kontrakt, detaily pro připojení pluginu.
   - Důležité je dobře definovat standardizované kontrakty, které musí pluginy splňovat
   - Pro využití komponenty je nutné řešit discovery pomocí nějakého registru (může stačit hashmapa), musíme znát identitu (která by se neměla měnit) chtěného komponentu, který v systému nemusí být
-
   - např. VS Code - jádro je textový editor, pluginy jsou extensions
 
 - **Servisně orientovaná architektura (SOA)** - hybrid mezi monolitem a microservices.
@@ -167,7 +157,82 @@ Pro vývoj rozsáhlých systémů se používají následující typy nástrojů
   - nesdílí se DB
   - duplikace je akceptovatelná, když se sníží provázanost
 
-## Persistence, ORM
+## Technologie a jazyky vhodné pro frontend a backend vývoj (4/6)
+
+### Frontend technologie
+
+#### Základní webové technologie
+- **HTML** - struktura obsahu webových stránek
+- **CSS** - stylování a layout webových stránek
+- **JavaScript** - interaktivita a dynamické chování
+- **WebAssembly (WASM)** - vysokooptimalizované aplikace v prohlížeči
+
+#### JavaScript frameworky a knihovny
+- **React** - component-based, virtual DOM, unidirectional data flow, velký ekosystém
+- **Vue.js** - progressive framework, template-based syntax, snadné učení
+- **Svelte/SvelteKit** - compile-time optimized, bez virtual DOM, menší bundle size
+- **Angular** - full-featured framework, TypeScript-first, velké enterprise aplikace
+
+#### Meta/Fullstack frameworky
+- **Next.js** (React-based) - SSR, SSG, API routes, automatic code splitting
+- **Nuxt.js** (Vue-based) - universal applications, automatic routing
+- **SvelteKit** - SSR, SPA, SSG mode support
+
+#### CSS frameworky a nástroje
+- **Tailwind CSS** - utility classes pro rapid prototyping
+- **Bootstrap** - responsive grid system, pre-built components
+- **Styled Components** - CSS v React komponentech
+
+#### Build nástroje
+- **Webpack** - konfigurovatelný bundler, široká podpora
+- **Vite** - rychlý development server, založený na ES modules
+- **esbuild** - extrémně rychlý Go-based bundler
+
+### Backend technologie
+
+#### Programovací jazyky
+- **JavaScript/Node.js** - shared language s frontendem, velký ekosystém (Express.js, Fastify, NestJS)
+- **Python** - čitelnost kódu, rozsáhlé knihovny (Django, Flask, FastAPI)
+- **Java** - enterprise standard, type safety, JVM ekosystém (Spring Boot, Jakarta EE)
+- **C#/.NET** - strong typing, performance, Microsoft ekosystém (ASP.NET Core)
+- **Go** - performance, jednoduchost, built-in concurrency (Gin, Echo)
+- **Rust** - memory safety, performance, zero-cost abstractions (Actix-web, Axum)
+- **PHP** - široké přijetí, hosting support (Laravel, Symfony)
+
+#### Databázové technologie
+- **Relační databáze** - PostgreSQL, MySQL, SQLite, SQL Server, Oracle
+- **NoSQL databáze** - MongoDB (document), Redis (key-value), Cassandra (wide-column)
+- **Graph databáze** - Neo4j, Amazon Neptune
+
+#### API technologie
+- **REST** - HTTP-based, resource-oriented, OpenAPI/Swagger dokumentace
+- **GraphQL** - single endpoint, efficient data fetching, flexibilní API
+- **gRPC** - high performance, type safety, microservices communication
+
+#### Messaging a queue systémy
+- **RabbitMQ** - traditional message broker
+- **Apache Kafka** - distributed streaming platform
+- **Redis Pub/Sub** - simple messaging
+
+### Cloud a DevOps technologie
+
+#### Kontejnerizace a orchestrace
+- **Docker** - containerization platform
+- **Kubernetes** - container orchestration
+- **Podman** - daemonless container engine
+
+#### Cloud platformy
+- **AWS** - největší cloud provider (EC2, S3, RDS, Lambda)
+- **Google Cloud Platform** - strong v AI/ML services
+- **Microsoft Azure** - integration s Microsoft stack
+- **Heroku** - jednoduchá PaaS platforma
+
+#### CI/CD nástroje
+- **GitHub Actions** - integrated s GitHub
+- **GitLab CI/CD** - integrated s GitLab
+- **Jenkins** - open-source automation server
+
+## Persistence, ORM (5/6)
 
 Zabývá se uchováním dat mezi jednotlivými běhy aplikace/restarty systému/požadavky klienta:
 
@@ -180,6 +245,68 @@ Zabývá se uchováním dat mezi jednotlivými běhy aplikace/restarty systému/
 - **NoSQL** - alternativa k relačním db, umožňují ukládání a manipulaci s nestrukturovanými daty. Oproti relačním databázím poskytují lepší škálovatelnost a flexibilitu, problém může být konzistence (často se používá duplikace pro vyšší rychlost) (mongodb, cassandra)
 
 - **Cachování** - dočasné ukládání často používaných dat/výsledků operací. Lze provádět na úrovni RAM, před databází, před serverem... (redis, nginx)
+
+## Příklady z praxe pro vše výše uvedené (6/6)
+
+### Reálné architektury
+
+- **Netflix** - microservices architektura s 600+ službami, circuit breaker pattern (Hystrix), service discovery (Eureka), API Gateway (Zuul), distributed caching (EVCache)
+- **Amazon** - přechod z monolitické aplikace na tisíce mikroserviců, AWS Lambda, DynamoDB, API Gateway
+- **GitHub** - modular monolith s Rails, postupná modularizace bez úplného rozdělení
+- **Spotify** - microservices s event-driven architekturou, Kafka pro user activity tracking, Apache Spark pro ML workloads
+- **Uber** - 1000+ mikroservic, Kafka pro location updates, Schemaless (MySQL wrapper) + Cassandra
+
+### Nástroje v praxi
+
+#### CI/CD implementace
+- **GitHub Actions** - YAML konfigurace pro build, test, deploy pipeline
+- **GitLab CI/CD** - integrované s GitLab repository
+- **Jenkins** - open-source s rozšířeným plugin ekosystémem
+
+#### Kontejnerizace
+- **Docker** - standardní kontejnerizace aplikací
+- **Kubernetes** - orchestrace kontejnerů v produkci s auto-scaling
+- **Docker Swarm** - jednodušší alternativa k Kubernetes
+
+#### Monitoring a observability
+- **Prometheus + Grafana** - metriky a dashboardy
+- **ELK Stack** (Elasticsearch, Logstash, Kibana) - centralizované logování
+- **Jaeger, Zipkin** - distributed tracing napříč mikroservicemi
+
+### Frontend implementace v praxi
+
+- **React aplikace** - component-based architektura s hooks pro state management
+- **Next.js** - SSR/SSG s API routes pro fullstack aplikace
+- **Tailwind CSS** - utility-first styling pro rychlý vývoj
+- **Redux/Zustand** - state management pro complex aplikace
+
+### Backend implementace v praxi
+
+- **Express.js API** - REST endpoints s middleware pro auth, validation, logging
+- **Spring Boot** - enterprise Java aplikace s dependency injection
+- **Django/FastAPI** - Python web aplikace s automatickou API dokumentací
+- **ASP.NET Core** - .NET aplikace s built-in dependency injection
+
+### Databázové implementace
+
+- **PostgreSQL** - relační databáze s JSON support a advanced features
+- **MongoDB** - document database pro flexible schema
+- **Redis** - in-memory cache a session store
+- **Prisma/TypeORM** - type-safe ORM s automatickou migrací
+
+### Security implementace
+
+- **JWT tokens** - stateless authentication s claims
+- **OAuth2/OpenID Connect** - federalized identity management
+- **API rate limiting** - ochrana proti abuse
+- **HTTPS everywhere** - TLS certifikáty pro všechnu komunikaci
+
+### DevOps workflow
+
+- **Git workflow** - feature branches, pull requests, code review
+- **Automated testing** - unit, integration, e2e testy v CI pipeline
+- **Blue-green deployment** - zero-downtime nasazení
+- **Infrastructure as Code** - Terraform, CloudFormation pro reproducible infrastructure
 
 ## Notes
 
@@ -210,16 +337,6 @@ Zabývá se uchováním dat mezi jednotlivými běhy aplikace/restarty systému/
 **Message bus** = dokaze zpravu poslat na vic zarizeni (ne jen jedno jako mq), pub/sub pattern, mam tam topics, ktery odebiram, kafka, redis
 
 **Event queue** - primarne pro event driven systemy, komunikujeme, ze neco probehlo, vetsinou append only log, napr pro big data analyzu. Kafka
-
-Možné problémy:
-
-- delay/blížíme se plné frontě (=> flow control)
-- cíl doručení není dostupný a je důležité doručit (=> ulož do error queue, aby bylo možné zprocesovat později/ručně)
-- zpráva dorazí vícekrát (=> služby dělej idempotentní).
-
-Obecně dokumentuj možné nestandardní chování a způsoby řešení problémů, měj recovery mechanismy.
-
-Queue (musí se doručit aspoň jednomu) vs Topic (publisher-subscriber model).
 
 **Continuous integration** - pravidelně sestavujeme výsledný systém (děláme malé a relativně jednoduché změny), automaticky testujeme výsledek
 
