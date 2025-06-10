@@ -1,12 +1,10 @@
-# Otázky SZMGR-SWE (DEV)
+# Otázky N-SWE Softwarové inženýrství (DEV) 2025
+
+Tohle je fork [původního repozitáře s notes](https://github.com/holubond/szmgr/tree/main), s trochu updated strukturou a doplněnými/aktualizovanými/odstraněnými otázkami. Trochu věcí je z google drive otazek nebo ruzne z internetu. Postupujte opatrně.
 
 Oficiální link s otázkami: [https://www.fi.muni.cz/studies/fe-mgr/swe2021.html](https://www.fi.muni.cz/studies/fe-mgr/swe2021.html)
 
-Za správnost/aktuálnost neručím, jako příklady jsem používal technologie mně blízké. Občas jsou v materiálech informace navíc (z jiných předmětů/zdrojů). Pokud najdete chybu/nepřesnost, feel free to PR. Občas míchám pojmy jako struktura a třída, myslím tím v podstatě to samé (rust/go struktury víceméně odpovídají java/c# třídám). Odkazy na zdroje v ISu vám nemusí fungovat, pokud jste v daném období předmět neměli... v takovém případě by mělo stačit přepsat období v linku.
-
-Sepsáno na základě přednášek, osobních zkušeností, praxe, a samozřejmě drobné pomoci ChatGPT :) Pro rychlé pochopení základních konceptů dané technologie doporučuju mrknout na [Fireship](https://www.youtube.com/@Fireship) a jeho `in 100 seconds` videa.
-
-#### Hotové otázky
+## Shorter TOC
 
 - [Kvalita kódu](1_kvalita_kodu.md)
 - [Softwarové inženýrství](2_softwarove_inzenyrstvi.md)
@@ -22,8 +20,10 @@ Specializace DEV
 - [Bezpečný kód](dev_4_bezpecny_kod.md)
 - [Uživatelská rozhraní](dev_5_uzivatelska_rozhrani.md)
 
-# Otázky N-SWE Softwarové inženýrství (2025)
-## **Společný základ programu**
+
+## Detailed TOC
+
+### **Společný základ programu**
 
 1. [Kvalita kódu](1_kvalita_kodu.md) (PV260, PA017, PA103)
     1. Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky.
@@ -66,7 +66,7 @@ Specializace DEV
     5. Příklady existujících technologií a jejich využití.
     6. Příklady z praxe pro vše výše uvedené.
 
-## **Specializace DEV**
+### **Specializace DEV**
 
 1. [Programování a softwarový vývoj](dev_1_programovani_a_softwarovy_vyvoj.md) (PA165 || PV179, volba Programování, SA200)
     1. Nástroje a prostředí pro softwarový vývoj rozsáhlých systémů.
