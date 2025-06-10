@@ -35,26 +35,6 @@ Pro aplikace se hodí na ukládání velkých souborů (pdf, obrázky, video, st
 - obtížná implementace složitějších struktur (záleží však na systému)
 - O relačních databázích platí, že umožňují ACID [transakce](#řízení-transakcí).
 
-### Kódování a komprese dat
-
-Techniky s cílem transformace informací do formátu, který je efektivní na ukládání či přenos.
-
-**Bezztrátová komprese** - z komprimovaných dat jsme schopni plně rekonstruovat původní data (např. png, zip)  
-**Ztrátová komprese** - část komprimovaných dat je ztracena (např. jpeg, mp3), ale jsme schopni dosáhnout větší komprese
-
-#### Vybrané metody
-
-**Statistické**
-
-- [Huffmanovo kódování](https://www.youtube.com/watch?v=iEm1NRyEe5c) - na základě frekvence určíme pro každý symbol kódovací znak, kód má minimální redundanci, proměnlivá délka kódu symbolů
-  1. seřadíme znaky podle frekvence do prioritní fronty ve formě uzlů, u každého máme uvedenou frekvenci
-  2. vyjmeme 2 uzly s nejmenšími frekvencemi a spojíme je do uzlu, který bude mít frekvenci rovnou součtu frekvencí. Takto vytváříme stromovou strukturu. Opakujeme, dokud nemáme 1.
-  3. procházíme stromovou strukturu od kořene, levé větve značíme `0`, pravé `1`, cesta od kořene po uzel unikátně identifikuje symbol a kombinací `0` a `1` získáme kód pro daný symbol
-     <img src="img_3.png" alt="Huffman tree" width="300"/>
-
-- [Shannon-Fano](https://www.youtube.com/watch?v=dJCck1OgsIA) - podobný jako Huffman, nemusí být optimální, ale jdeme od kořene a sekvenci symbolů seřazených dle frekvence dělíme na poloviny (+-, sčítáme frekvence a při překročení poloviny dělíme), Při každém dělení značíme `0` a `1`. Jakmile je ve vytvořené polovině jen 1 symbol, už není co dělit.
-  <img src="img.png" alt="Shannon fano tree" width="500"/>
-
 ## Architektura relačních databází, dotazovací jazyk SQL a jeho části (2/7)
 
 *Fun fact: Jaká architektura se v RDBMS používá? To se v předmětu `Architektura relačních databází` nedozvíte*
