@@ -1,6 +1,6 @@
 # Databáze
 
-> Principy ukládání dat, databáze. Architektura relačních databází, dotazovací jazyk SQL a jeho části (definice, manipulace, transakce). Jazyk definice datového schématu, DDL. Jazyk manipulace s daty, DML. Relační algebra, integritní omezení, řízení transakcí. Indexování, hašování. Příklady z praxe pro vše výše uvedené. ([PV003](https://is.muni.cz/auth/el/fi/jaro2022/PV003/um/) || [PA152(https://is.muni.cz/auth/el/fi/jaro2025/PA152/um/)])
+> Principy ukládání dat, databáze. Architektura relačních databází, dotazovací jazyk SQL a jeho části (definice, manipulace, transakce). Jazyk definice datového schématu, DDL. Jazyk manipulace s daty, DML. Relační algebra, integritní omezení, řízení transakcí. Indexování, hašování. Příklady z praxe pro vše výše uvedené. ([PV003](https://is.muni.cz/auth/el/fi/jaro2022/PV003/um/) || [PA152](https://is.muni.cz/auth/el/fi/jaro2025/PA152/um/))
 
 1. [Principy ukládání dat, databáze (1/7)](#principy-ukládání-dat-databáze-17)
 2. [Architektura relačních databází, dotazovací jazyk SQL a jeho části (2/7)](#architektura-relačních-databází-dotazovací-jazyk-sql-a-jeho-části-27)
