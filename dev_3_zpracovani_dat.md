@@ -1,12 +1,13 @@
 # Zpracování dat
 
-1. [Základní pojmy a principy datových skladů, datové analytiky a business intelligence](#základní-pojmy-a-principy-datových-skladů-datové-analytiky-a-business-intelligence)
-2. [Životní cyklus datového skladu](#životní-cyklus-datového-skladu)
-3. [Analytika velkých dat, jazyky pro realizaci analytických úloh, analytika na úrovni databází](#analytika-velkých-dat-jazyky-pro-realizaci-analytických-úloh-analytika-na-úrovni-databází)
-4. [Pokročilé techniky zpracování dat, výkonnostní aspekty zpracování velkých dat](#pokročilé-techniky-zpracování-dat-výkonnostní-aspekty-zpracování-velkých-dat)
-5. [Příklady z praxe pro vše výše uvedené](#příklady-z-praxe)
+> Základní pojmy a principy datových skladů, datové analytiky a business intelligence. Životní cyklus datového skladu. Analytika velkých dat, jazyky pro realizaci analytický úloh, analytika na úrovni databází. Pokročilé techniky zpracování dat, výkonnostní aspekty zpracování velkých dat. Příklady z praxe pro vše výše uvedené. (PA036, PA220 || PA212)
 
-## Základní pojmy a principy datových skladů, datové analytiky a business intelligence
+1. [Základní pojmy a principy datových skladů, datové analytiky a business intelligence (1/5)](#základní-pojmy-a-principy-datových-skladů-datové-analytiky-a-business-intelligence-15)
+2. [Životní cyklus datového skladu (2/5)](#životní-cyklus-datového-skladu-25)
+3. [Analytika velkých dat, jazyky pro realizaci analytických úloh, analytika na úrovni databází (3/5)](#analytika-velkých-dat-jazyky-pro-realizaci-analytických-úloh-analytika-na-úrovni-databází-35)
+4. [Pokročilé techniky zpracování dat, výkonnostní aspekty zpracování velkých dat (4/5)](#pokročilé-techniky-zpracování-dat-výkonnostní-aspekty-zpracování-velkých-dat-45)
+
+## Základní pojmy a principy datových skladů, datové analytiky a business intelligence (1/5)
 
 ### Business intelligence
 
@@ -50,7 +51,7 @@
 
 **Conformed (přizpůsobivá?) dimension** - dimenze, která má stejné hodnoty a význam pro data pocházející z více zdrojů. Např. čas je obvykle conformed dimenze, pobočka nemusí být (pod jakou pobočku by spadal prodej přes internet?).
 
-**Datový sklad**
+### Datový sklad
 
 - OLAP
 - oddělení od OLTP, abychom nezatěžovali produkční db
@@ -62,7 +63,7 @@
 - jednoduchá reprezentace dat, aby s nimi mohli pracovat analytici a bylo umožněno používat jednoduché analytické dotazy (s minimem joinů)
 - cílem je umožnit a zjednodušit analýzu dat
 
-**Data mart**
+### Data mart
 
 - malý data warehouse, soustředí se na jednu zájmovou jednotku (např. objednávky)
 - cílem je dekompozice za účelem zvýšení efektivity/omezení přístupu do jednotlivých částí datového skladu
@@ -70,7 +71,7 @@
     - **Nezávislé data marty** - nemáme žádný centrální zdroj pravdy (DW), data do data martů jdou přímo ze zdrojů
     - **Logické data marty** - data marty fungují jako logické pohledy na část datového skladu, jednodušší na údržbu
 
-**Data Cube**
+### Data Cube
 
 - obsah DW, umožňuje pohled na data z různých dimenzí (rozměrů kostky, obvykle 4-15)
 - skládá se z buněk (cells) - každá je kombinací hodnot dimenzí. No data = prázdná buňka.
@@ -78,7 +79,7 @@
 
 Na datový sklad/data marty jsou obvykle napojeny další **vizualizační aplikace** (např. Grafana, Kibana, PowerBI, nebo třeba R project)
 
-## Životní cyklus datového skladu
+## Životní cyklus datového skladu (2/5)
 
 Životní cyklus:
 
@@ -109,7 +110,7 @@ Na datový sklad/data marty jsou obvykle napojeny další **vizualizační aplik
 
 ![](img/20230610173720.png)
 
-**Změny dimenzí**
+### Změny dimenzí
 
 Dimenze se mohou v průběhu života DW měnit (změní se třeba region, pod který spadá pobočka)
 
@@ -121,12 +122,14 @@ Možnosti implementace změny:
 
 Pokud často pracujeme s aktuální hodnotou, můžeme použít verzování, ale držet i aktuální hodnotu v separátním sloupci.
 
-Přístupy tvorby datových skladů:
+### Přístupy tvorby datových skladů
 
 - **top-down** - analogie vodopádu, nejdříve analyzujeme datové zdroje, pak navrhneme a implementujeme sklad, nakonec naplníme daty a vytvoříme data marty
 - **bottom-up** - iterativně-inkrementální přístup, postupně pro každý zájmový objekt analyzujeme zdroje, postavíme data mart a případně rozšíříme (pokud nějaký centrální používáme) datový sklad
 
-## Analytika velkých dat, jazyky pro realizaci analytických úloh, analytika na úrovni databází
+## Analytika velkých dat, jazyky pro realizaci analytických úloh, analytika na úrovni databází (3/5)
+
+### Big data
 
 **Big data** - jedná se o data, které kvůli své rychlé a kontinuální tvorbě, velkému objemu, či složitosti, vylučují zpracování tradičními analytickými způsoby.
 
@@ -134,25 +137,25 @@ Přístupy tvorby datových skladů:
 - Velikost dat lze zvládat pomocí distribuovaných databází/souborových systémů (obvykle NoSQL databáze, nebo Hadoop Distributed File System)
 - pro zvládání složitosti dat (komplexní vztahy, či data typu video) je nutné použít specializované nástroje (pro vztahy třeba grafovou databázi).
 
-**Přístupy ke zpracování (nejen) velkých dat**
+### Přístupy ke zpracování dat
 
 - **batch** - jednou za čas aktualizujeme náš DW, doplníme nově vzniklá data
 - **stream** - průběžně vkládáme data tak, jak vznikají (důležité je udržovat konzistentní formát dat), snadněji se škáluje
 
-**Jazyky pro realizaci analytických úloh**
+### Jazyky pro realizaci analytických úloh
 
 - Tradičně jde o SQL, nebo jeho deriváty, které datoví analytici dobře znají.
 - Pro pokročilejší zpracování lze využít model MapReduce (a Hadoop), ve kterém je možné specifikovat transformační uzly v jakémkoliv programovacím jazyce
 - NoSQL databáze mohou mít vlastní rozšíření sql, nebo úplně jiný přístup k analytickým dotazům (např. mongo má knihovny pro různé jazyky)
 
-**Druhy sql dotazů specifické pro analytiku**
+### Druhy sql dotazů specifické pro analytiku
 
 - **Slice** - v rámci jedné dimenze vybíráme konkrétní hodnotu a zobrazujeme pouze data s touto hodnotou dimenze. V sql pomocí WHERE. Např. kolik se prodalo laptopů?
 - **Dice** - jako slice, akorát pracujeme s intervaly/více hodnotami jedné dimenze (např. prodeje od-do, prodeje laptopů a telefonů), nebo hodnot více dimenzí (prodeje laptopů v říjnu)
 - **Roll-up** - provádíme agregaci dat. Dimenzionální - můžeme vynechat nějakou dimenzi (kolik jsme prodali za celý čas? kolik ve všech pobočkách?) nebo hierarchický - můžeme se dívat z pohledu vyšší úrovně nějaké dimenze (kolik jsme prodali v jednotlivých regionech, které se skládají z více poboček?). Oba přístupy lze kombinovat. V sql pomocí agregačních funkcí (GROUP BY a třeba SUM)
 - **Drill-down** - opak roll-upu, jdeme z abstrakce do většího detailu. Je nutné, aby nějaká detailnější data existovala. Obvykle děláme drill-down z nějakého materializovaného pohledu a jdeme na konkrétní data.
 
-**Pivoting**
+### Pivoting
 
 - přeskládání a agregace dat za účelem vizualizace
 - nejjednodušší variantou je **kontingenční tabulka** (cross table), ve které se zaměřujeme na dvě dimenze:
@@ -167,7 +170,7 @@ Přístupy tvorby datových skladů:
     - `GROUP BY GROUPING SETS(...)` - umožňuje větší kontrolu nad agregací dat (lze mimo jiné realizovat příkazy ROLLUP, CUBE)
       ![](img/20230611215834.png)
 
-**Přístupy k implementaci OLAP**
+### Přístupy k implementaci OLAP
 
 - **Relational OLAP (ROLAP)**
     - data ukládáme v relační databázi (např. postgres), dimenze simulujeme pomocí star schema, pro dotazování používáme standardní SQL
@@ -187,13 +190,15 @@ Přístupy tvorby datových skladů:
     - agregace uloženy v MOLAP
     - => flexibilita, rychlost, ale vyšší složitost systému
 
-## Pokročilé techniky zpracování dat, výkonnostní aspekty zpracování velkých dat
+## Pokročilé techniky zpracování dat, výkonnostní aspekty zpracování velkých dat (4/5)
 
 Pro zajištění rychlosti dotazů v OLAP se používá redundance v podobě:
 
 - materializovaných pohledů (vkládáme jednou za čas, takže to není problém)
 - indexů
 - denormalizovaného schématu
+
+### Indexy
 
 **Indexy** - umožňují rychlejší získání dat, která nás zajímají, pomocí předpočítaných výsledků. Omezují prostor nutný k prohledání při čtení dat.
 
@@ -206,6 +211,8 @@ Pro zajištění rychlosti dotazů v OLAP se používá redundance v podobě:
 - **Bitmap indexy** - vhodné pro dimenze s málo variantami (např. pobočky). Pro každou variantu uděláme bitové pole o délce tabulky faktů. Index v poli odpovídá řádku v tabulce faktů. U pole nastavíme 1 pro indexy, ve kterých varianta platí, jinak 0. Výhodou je, že se snadno používají bitové operace (AND, OR) a je možné takto pracovat i s rozdílnými dimenzemi. Při mazání v tabulce faktů je třeba buď upravit všechny bitmap indexy, nebo v tabulce faktů použít *tombstone* hodnotu (považujeme za prázdnou).
 - **Range-encoded bitmap indexy** - vyžadují, aby měla dimenze seřazené hodnoty variant (jinak stejně nemá cenu hledat pomocí intervalů). Opět má každá varianta bitové pole délky tabulky faktů. Pokud je varianta pro daný fakt pravdivá, nastavíme ji, a všechny následující varianty v pořadí, na hodnotu 1 (jinak 0). (Hodnota neznamená např. *narodil se v měsíci*, ale *byl už na živu v měsíci*) Při intervalovém dotazu pak stačí provést `<lower> AND (NOT <upper-exclusive>)`.
   ![](img/20230612104455.png)
+
+### Partitioning
 
 **Partitioning** - dělení dat (tabulky) na více (nepřekrývajících se) částí
 
@@ -221,7 +228,7 @@ Pro zajištění rychlosti dotazů v OLAP se používá redundance v podobě:
 - nevýhodou je vyšší složitost systému, při vertikálním dělení jsou drahé joiny
 - doporučuje se dělat partitioning, když má tabulka >100 milionů řádků/je větší než 2GB
 
-**Optimalizace JOINů**
+### Optimalizace JOINů
 
 JOINy jsou:
 - komutativní (nezáleží na pořadí operandů, `A JOIN B = B JOIN A`)
@@ -233,11 +240,13 @@ JOINy jsou:
     - uživatel může poskytnout hinty/vnutit vlastní plán (pokud víme, co děláme, můžeme být snadno lepší)
 - pokud jsou dimenze dost restriktivní (filtrují hodně faktů), může být vhodné udělat cross join dimenzí
 
-**Pohledy**
+### Pohledy
 
 - klasický pohled (**view**) připomíná funkce v programovacích jazycích - pojmenovaný dotaz. Při dotazu nad view se automaticky provede selekce dat
 - **materializovaný pohled** funguje jako klasický pohled, ale má předpočítaný výsledek, uložený v tabulce (funguje jako cache), takže dotazy na materializovaný pohled jsou rychlejší. Při změně underlying dat se musí data materializovaného pohledu přepočítat/rozšířit (lze odložit, ale pak máme nekonzistenci), což u OLAP není zas takový problém, jako u OLTP.
     - vhodné pro často používané a drahé dotazy/části dotazů
+
+### Databázové technologie pro Big Data
 
 **Sloupcové databáze** - na rozdíl od řádkových databází (např. Postgres), kde jsou uloženy vedle sebe data náležící jednomu řádku ukládají sloupcové databáze (např. BigQuery, S4HANA) vedle sebe data z jednoho sloupce. Díky tomu mohou být sloupcové databáze rychlejší pro čtení dat.
 
@@ -245,7 +254,7 @@ JOINy jsou:
 
 **Distribuované databáze** - umožňují horizontální škálování, svou distribuovaností umožňují fault-tolerance (díky replikaci dat), např. Hadoop Distributed File System, Apache Cassandra.
 
-**NoSQL (not only sql)**
+### NoSQL (not only sql)
 
 - **key-value stores** - data ukládáme/hledáme pomocí klíče, snadno se používají jako cache např. Redis
 - **dokumentové databáze** - data ukládají ve formě dokumentů (každý má klíč, podle kterého se referencuje, jinak je to klasická struktura/třída) a kolekcí dokumentů, např. Mongo, Firebase

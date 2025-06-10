@@ -6,20 +6,19 @@ Oficiální link s otázkami: [https://www.fi.muni.cz/studies/fe-mgr/swe2021.htm
 
 ## Shorter TOC
 
-- [Kvalita kódu](1_kvalita_kodu.md)
-- [Softwarové inženýrství](2_softwarove_inzenyrstvi.md)
-- [Projektové řízení](3_projektove_rizeni.md)
-- [Databáze](4_databaze.md)
-- [Počítačové sítě](5_pocitacove_site.md)
-- [Distribuované systémy](6_distribuovane_systemy.md)
+1. [Kvalita kódu](1_kvalita_kodu.md)
+2. [Softwarové inženýrství](2_softwarove_inzenyrstvi.md)
+3. [Projektové řízení](3_projektove_rizeni.md)
+4. [Databáze](4_databaze.md)
+5. [Počítačové sítě](5_pocitacove_site.md)
+6. [Distribuované systémy](6_distribuovane_systemy.md)
 
 Specializace DEV
-- [Programování a softwarový vývoj](dev_1_programovani_a_softwarovy_vyvoj.md)
-- [Analýza a návrh systémů](dev_2_analyza_a_navrh.md)
-- [Zpracování dat](dev_3_zpracovani_dat.md)
-- [Bezpečný kód](dev_4_bezpecny_kod.md)
-- [Uživatelská rozhraní](dev_5_uzivatelska_rozhrani.md)
-
+1. [Programování a softwarový vývoj](dev_1_programovani_a_softwarovy_vyvoj.md)
+2. [Analýza a návrh systémů](dev_2_analyza_a_navrh.md)
+3. [Zpracování dat](dev_3_zpracovani_dat.md)
+4. [Bezpečný kód](dev_4_bezpecny_kod.md)
+5. [Uživatelská rozhraní](dev_5_uzivatelska_rozhrani.md)
 
 ## Detailed TOC
 
