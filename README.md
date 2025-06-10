@@ -5,7 +5,7 @@ Tohle je fork [původního repozitáře s notes](https://github.com/holubond/szm
 Oficiální link s otázkami: [https://www.fi.muni.cz/studies/fe-mgr/swe2021.html](https://www.fi.muni.cz/studies/fe-mgr/swe2021.html)
 
 ## Shorter TOC
-
+**Společný základ programu**
 1. [Kvalita kódu](1_kvalita_kodu.md)
 2. [Softwarové inženýrství](2_softwarove_inzenyrstvi.md)
 3. [Projektové řízení](3_projektove_rizeni.md)
