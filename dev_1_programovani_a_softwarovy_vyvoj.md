@@ -1,6 +1,6 @@
 # Programování a softwarový vývoj
 
-> (PA165 || PV179, volba Programování, SA200)
+> Nástroje a prostředí pro softwarový vývoj rozsáhlých systémů. Základní koncepty softwarových architektur z pohledu implementace. Vícevrstvá architektura moderních informačních systémů, architektura model-view-controller. Technologie a jazyky vhodné pro frontend a backend vývoj. Persistence, ORM. Příklady z praxe pro vše výše uvedené. (PA165 || PV179, volba Programování, SA200)
 
 1. [Nástroje a prostředí pro softwarový vývoj rozsáhlých systémů (1/6)](#nástroje-a-prostředí-pro-softwarový-vývoj-rozsáhlých-systémů-16)
 2. [Základní koncepty softwarových architektur z pohledu implementace (2/6)](#základní-koncepty-softwarových-architektur-z-pohledu-implementace-26)

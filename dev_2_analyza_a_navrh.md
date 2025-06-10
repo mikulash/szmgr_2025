@@ -1,13 +1,15 @@
 # Analýza a návrh systémů
 
-- [Object-oriented methods for information systems design](#objektové-metody-návrhu-informačních-systémů)
-- [Requirements specification and management](#specifikace-a-řízení-požadavků)
-- [Software architectures, component systems](#softwarové-architektury-komponentové-systémy)
-- [Design and architectural patterns](#návrhové-a-architektonické-vzory)
-- [Component interfaces, interface contracts, OCL](#rozhraní-komponent-kontrakty-na-úrovni-rozhraní-ocl)
-- [Software system models, UML language](#modely-softwarových-systémů-jazyk-uml)
+> Objektové metody návrhu informačních systémů. Specifikace a řízení požadavků. Softwarové architektury, komponentové systémy. Návrhové a architektonické vzory. Rozhraní komponent, kontrakty na úrovni rozhraní, OCL. Modely softwarových systémů, jazyk UML. Příklady z praxe pro vše výše uvedené. (PA103, PV167 || PV258 || PV293)
 
-## Objektové metody návrhu informačních systémů
+1. [Objektové metody návrhu informačních systémů (1/6)](#objektové-metody-návrhu-informačních-systémů-16)
+2. [Specifikace a řízení požadavků (2/6)](#specifikace-a-řízení-požadavků-26)
+3. [Softwarové architektury, komponentové systémy (3/6)](#softwarové-architektury-komponentové-systémy-36)
+4. [Návrhové a architektonické vzory (4/6)](#návrhové-a-architektonické-vzory-46)
+5. [Rozhraní komponent, kontrakty na úrovni rozhraní, OCL (5/6)](#rozhraní-komponent-kontrakty-na-úrovni-rozhraní-ocl-56)
+6. [Modely softwarových systémů, jazyk UML (6/6)](#modely-softwarových-systémů-jazyk-uml-66)
+
+## Objektové metody návrhu informačních systémů (1/6)
 
 Přístupy a postupy k návrhu IS založených na objektově orientovaném paradigmatu, kde jsou objekty spojením dat a metod nad těmito daty.
 
@@ -17,25 +19,27 @@ Objektové paradigma si dobře rozumí s principy abstrakce, což lze aplikovat 
 
 Mezi metody se řadí:
 
-- modelování domény pomocí [UML](dev_2_analyza_a_navrh.md#modely-softwarových-systémů-jazyk-uml), v různých částech vývoje se zabýváme různými úrovněmi detailů
+- modelování domény pomocí [UML](#modely-softwarových-systémů-jazyk-uml-66), v různých částech vývoje se zabýváme různými úrovněmi detailů
 - dekompozice systému do menších, koherentních částí
 - aplikace návrhových a architektonických vzorů, které popisují řešení na dobře známé a často se opakující problémy v (nejen) objektovém světě.
 
-## Specifikace a řízení požadavků
+## Specifikace a řízení požadavků (2/6)
 
 Požadavky na systém se dělí (obvykle je mezi kategoriemi tenká hranice a závisí i na formulaci) na:
 
 - **Funkční (functional) požadavky** - jaké funkce zákazník od systému očekává, jedná se o business logiku, uživatelské požadavky, řeší se programově, v implementaci
 - **Nefunkční (non-functional/quality) požadavky** - jaké technické nároky jsou na systém, použité technologie, OS, garance dostupnosti (availability), response time, internacionalizace a lokalizace, řeší se návrhem, architekturou i kódem
 
-Součástí řízení požadavků je:
+### Součásti řízení požadavků
 
-- porozumění doméně problému
-- sběr požadavků od stakeholderů - klíčem je ptát se PROČ, ne CO a JAK
-- analýza a jednání (hej, toto není možné/hej, nestačilo by vám to udělat takto?...)
-- specifikace požadavků - úprava do jednoznačné/formální podoby (use case). Je jasné, v jakém momentě můžeme považovat za splněný.
-- validace požadavků - ověření, že formalizované požadavky odpovídají skutečným potřebám
-- prioritizace požadavků - umožňuje soustředit se na kritické části (dle potřeb zákazníka) a blbosti případně vynechat, pokud nebude čas/rozpočet.
+- **Porozumění doméně problému**
+- **Sběr požadavků od stakeholderů** - klíčem je ptát se PROČ, ne CO a JAK
+- **Analýza a jednání** (hej, toto není možné/hej, nestačilo by vám to udělat takto?...)
+- **Specifikace požadavků** - úprava do jednoznačné/formální podoby (use case). Je jasné, v jakém momentě můžeme považovat za splněný.
+- **Validace požadavků** - ověření, že formalizované požadavky odpovídají skutečným potřebám
+- **Prioritizace požadavků** - umožňuje soustředit se na kritické části (dle potřeb zákazníka) a blbosti případně vynechat, pokud nebude čas/rozpočet.
+
+### Vlastnosti dobrého požadavku
 
 Dobrý/dobře specifikovaný požadavek:
 
@@ -46,7 +50,11 @@ Dobrý/dobře specifikovaný požadavek:
 
 Obecně platí, že čím později se požadavek změní, tím nákladnější bude jeho implementace.
 
+### Modelování a formalizace požadavků
+
 Požadavky se modelují pomocí **use case diagramu**, uchovávají se v **use case dokumentu** (forma: id, jméno, actor(s), popis, trigger, pre/post conditions, příklad typického flow, priorita, výjimky, častost používání...). Požadavky jsou také formalizovány v jednoduché formě pomocí **user stories** - krátké, výstižné popisy (As `role` I want to `akce` So I can `zdůvodnění`), srozumitelní zákazníkovi (+ obsahují akceptační kritéria, prioritu, story pointy...).
+
+### Určení priority požadavku
 
 Pro **určení priority požadavku** lze použít například:
 
@@ -56,11 +64,13 @@ Pro **určení priority požadavku** lze použít například:
 
 Non-functional requirements platí vždy, je třeba je brát v potaz i s nově příchozími functional požadavky => máme pro ně vyhrazené místo (např. wiki), kde jsou důkladně popsány. Můžeme na konkrétní NFR poukázat v user stories (např. u FR `jako uživatel chci mít přístup k aktuálním datům senzoru` linkneme NFR `systém poskytne odezvu do vteřiny` a `data ze senzorů se do systému dostanou nejpozději minutu po naměření`).
 
-## Softwarové architektury, komponentové systémy
+## Softwarové architektury, komponentové systémy (3/6)
 
 SW architektura určuje, jakým způsobem je systém strukturován, jakým způsobem je dělen na komponenty/moduly a jak mezi sebou jednotlivé komponenty/moduly interagují a jak jsou jednotlivé části systému nasazeny na hw.
 
 SW architektury (vyšší úroveň abstrakce) a architektonické vzory (nižší úroveň abstrakce) jsou obecná řešení architektur systému. Uvádím jen seznam, podrobně jsou popsány v [části otázky 1](dev_1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller)
+
+### Architektonické vzory
 
 - **MVC/MVP/MVVM pattern**
 - **Klient-Server**
@@ -72,15 +82,17 @@ SW architektury (vyšší úroveň abstrakce) a architektonické vzory (nižší
 - **SOA**
 - **Microservices**
 
+### Komponentové systémy
+
 Komponenty jsou spustitelné softwarové jednotky, které mají definované komunikační rozhraní, do vnitřního fungování nevidíme/nezajímá nás. Komponent by měl poskytovat logicky související funkcionalitu, funguje jako vrstva abstrakce. Komponenty mohou být vyvíjeny nezávisle na jiných komponentech, jsou nahraditelné (stačí splnit rozhraní a jeho kontrakt), znovupoužitelné. Komponenty mohou mít vnitřní stav, ten však může dělat problém u škálování (paralelizací komponentů), mohou být asynchronní, mohou se interně skládat z dalších komponentů...
 
 Pokud systém vystavuje rozhraní používaná i někým jiným (klient), je fajn nějakým způsobem verzovat rozhraní. Díky tomu se předejde problémům při přidávání změn, nějakou dobu totiž můžeme podporovat více rozhraní, než se klient aktualizuje na novou verzi.
 
-## Návrhové a architektonické vzory
+## Návrhové a architektonické vzory (4/6)
 
 Návrhový vzor je obecné řešení k často se opakujícímu problému řešenému při návrhu sw, není potřeba kompletně vymýšlet vlastní řešení. Slouží nejen jako obecný návod pro implementaci, ale umožňují snadnější komunikaci v rámci týmu (např. tady použijeme Strategy pattern). Vzory je třeba používat s rozvahou, občas můžou být zbytečně obecné.
 
-*Architektonické vzory jsou popsány v [předchozí podotázce](dev_2_analyza_a_navrh.md#softwarové-architektury-komponentové-systémy)*.
+*Architektonické vzory jsou popsány v [předchozí podotázce](#softwarové-architektury-komponentové-systémy-36)*.
 
 [Pro pochopení a ukázky kódu](https://refactoring.guru/design-patterns)
 
@@ -89,7 +101,6 @@ Návrhový vzor je obecné řešení k často se opakujícímu problému řešen
 Řeší tvorbu a inicializaci objektů, poskytují jednoduché rozhraní skrývající složitou inicializaci.
 
 #### Singleton
-
 Zajišťuje, že daný objekt existuje v systému jen jednou (globální stav). V OO jazycích se řeší pomocí třídy s private constructorem a se statickou metodou `instance()` poskytující přístup k objektu drženému ve statickém atributu. *Metoda `instance()` se obvykle stará i o inicializaci statického atributu*
 
 Singleton je mnohdy považován za antivzor, protože vytváří globální stav (namísto předávání stavu parametry) - blbě se to testuje, může být nutné zamykání globálního stavu pro thread safety, narušuje se single responsibility principle (singleton třída ovládá svou tvorbu).
@@ -99,25 +110,21 @@ Např. DB pool
 ![](img/20230603121311.png)
 
 #### Factory method
-
 Stará se o tvorbu konkrétních instancí objektů dle instance továrny (tj. máme interfaces VehicleFactory a Vehicle. CarFactory bude dělat Car, zatímco stejné volání metody u PlaneFactory vytvoří Plane). Používá se pokud potřebujeme flexibilní a rozšiřitelný způsob vytváření objektů, nebo chceme oddělit logiku tvorby objektu od zbytku. Nevýhodou je nutnost tvorby nové Factory třídy a rozhraní.
 
 ![](img/20230604152821.png)
 
 #### Abstract factory
-
 Podobná factory method, ale je zodpovědná za více produktů. Instance této factory zajišťuje tvorbu vzájemně kompatibilních produktů.
 
 ![](img/20230605121553.png)
 
 #### Prototype
-
 Doslova trait `Clone`, vytvoří identickou kopii nějakého již existujícího objektu. Hodí se, pokud inicializace objektu je náročná, nebo neznáme konkrétní instanci (pracujeme s abstrakcí přes interface).
 
 ![](img/20230604183448.png)
 
 #### Builder pattern
-
 Ke konfiguraci objektu při inicializaci používáme (deklarativním způsobem) metody příslušného `Builder` objektu, každá se stará o jeden aspekt.
 
 Např. Inicializace http požadavku
@@ -136,7 +143,6 @@ let request = HttpRequest::get("www.mysite.com/content")
 Řeší kompozici objektů do hierarchií, oddělení rozhraní a implementace.
 
 #### Composite
-
 Umožňuje tvorbu stromových struktur a poskytuje jednotné rozhraní k operaci na podstromu definovaném svým kořenem. `Component` je buď list `Leaf`, nebo uzel `Composite` obsahující potenciálně další `Component`y.
 
 Např. stavební prvky grafických rozhraní
@@ -144,7 +150,6 @@ Např. stavební prvky grafických rozhraní
 ![](img/20230603143753.png)
 
 #### Adapter
-
 A.k.a. Wrapper - zapouzdříme/poskytneme rozhraní nekompatibilní jednotce tak, aby se dala použít v našem systému.
 
 Např. integrace knihovny, případně můžeme adaptér použít k převodu mezi formáty (XML - JSON)
@@ -154,7 +159,6 @@ Adaptér lze implementovat ve všech populárních jazycích jako wrapper, je mo
 ![](img/20230603161229.png)
 
 #### Bridge
-
 Používá se k rozbití tightly coupled jednotek (nebo skupiny jednotek) pomocí abstrakcí (ty mohou mít více implementací, ale často nám bridge pomůže jen díky vytvoření abstrakce).
 
 Např. Fullstack aplikaci využívající templating rozbijeme na frontend a backend api.
@@ -162,7 +166,6 @@ Např. Fullstack aplikaci využívající templating rozbijeme na frontend a bac
 ![](img/20230604142514.png)
 
 #### Decorator
-
 Umožňuje rozšířit třídu, přidat k ní různé metody/atributy na základě použitého dekorátoru, dynamicky je přidávat/odebírat. Obdobně jako Adapter může obalit původní komponent, ale nemění rozhraní komponentu.
 
 Např. BufReader pro bufferované čtení (ze souboru), BufReader obaluje Reader a přidává buffer.
@@ -170,19 +173,16 @@ Např. BufReader pro bufferované čtení (ze souboru), BufReader obaluje Reader
 ![](img/20230604142455.png)
 
 #### Proxy
-
 Prostředník mezi objektem a volajícím, transparentně předává zprávu (a může provádět další operace, hlídat přístup k objektu, provést alokaci objektu on-demand...).
 
 ![](img/20230605125209.png)
 
 #### Facade
-
 Poskytuje jednotné (a jednoduché) rozhraní složitějšímu subsystému.
 
 ![](img/20230605125311.png)
 
 #### Flyweight
-
 Sdílený objekt použitý na více místech - sdílený stav je uchováván v objektu, kontextuální stav se dodá skrz parametry volané metody. Slouží k úspoře paměti a/nebo výpočtu (pokud je inicializace drahá).
 
 Např. DB pool
@@ -194,7 +194,6 @@ Např. DB pool
 Řeší chování objektů a dynamické interakce mezi objekty.
 
 #### Iterator
-
 Poskytuje jednotné rozhraní k průchodu prvky kolekcí. Je to samostatný objekt (specifický pro danou strukturu), má metody jako `current()` a `next()` umožňující přístup k prvku, nebo posunutí interního ukazatele iterátoru na další prvek.
 
 Např. implementace `for-in/foreach`.
@@ -202,7 +201,6 @@ Např. implementace `for-in/foreach`.
 ![](img/20230603144800.png)
 
 #### Strategy
-
 Poskytuje rozhraní k výpočtu/operaci, které může klient použít bez znalosti konkrétní implementace a jejích detailů. Díky tomu je možné konkrétní implementace pro výpočet snadno měnit, nebo jednotně používat funkcionalitu objektů s rozdílnými implementacemi. Klient přistupuje přes `Context`, který se stará o případnou volbu strategie. Konkrétní strategie lze měnit za běhu. *?Iterátor by se dal považovat za formu strategy?*
 
 Např. libovolné použití přístupu přes rozhraní, třeba výpočet trasy (pro auto, pro cyklistu, pro chodce...)
@@ -210,11 +208,9 @@ Např. libovolné použití přístupu přes rozhraní, třeba výpočet trasy (
 ![](img/20230603153352.png)
 
 #### State
-
-Obdobný jako Strategy, výběr implementace děláme na základě aktuálního stavu, který je možné měnit za běhu. O konkrétní stav (a výběr implementace) a jeho přeměny se stará `Context`, díky čemu izolujeme a můžeme jednoduše kontrolovat přechody stavu v systému.
+Obdobný jako Strategy, výběr implementace děláme na základě aktuálního stavu, který je možné měnit za běhu. O konkrétní stav (a výběr implementace) a jeho přeměny se stará `Context`, díky čemuž izolujeme a můžeme jednoduše kontrolovat přechody stavu v systému.
 
 Na rozdíl od `Strategy`:
-
 - daná implementace je vybrána na základě vnitřního stavu
 - řešíme přechody stavu, stavy se můžou nahradit jiným stavem (=> stavy mohou mít referenci na kontext)
 - neřešíme jeden specifický task, ale poskytujeme implementaci pro většinu věcí co `Context` nabízí
@@ -224,7 +220,6 @@ Např. Vypínač má dva stavy (concrete state), Vypnutý Vypínač a ZapnutýVy
 ![](img/20230603154910.png)
 
 #### Memento
-
 Uchovává předchozí stavy objektu, díky čemuž je možné přenést objekt do dřívějšího stavu. Používá se pro případy, kdy přímý přístup do atributů třídy není možný (private atributy).
 
 Např. použití při implementaci UNDO.
@@ -232,7 +227,6 @@ Např. použití při implementaci UNDO.
 ![](img/20230605132549.png)
 
 #### Observer
-
 Umožňuje tvorbu mechanismu pro notifikace. Observery se registrují ke sledování Subjektu (ukládáme si reference observerů do vektoru). V momentě, kdy se subjekt změní (a měly by být observery notifikovány), stačí zavolat metodu notify, která projde observery a každého notifikuje (obvykle zavoláním metody).
 
 Používá se pro nahrazení pollingu (opakovaně se ptám "už se událost stala?").
@@ -240,18 +234,19 @@ Používá se pro nahrazení pollingu (opakovaně se ptám "už se událost stal
 ![](img/20230605162806.png)
 
 #### Visitor
-
 Poskytuje jednotné rozhraní pro spuštění nějaké shodné akce nad objekty. Každý objekt má implementaci odlišnou, ale signatura pro všechny objekty je shodná (např. serializace různých struktur, bere Self, vrací String). Namísto abychom na základě typu struktury volali příslušnou metodu (`if let Vehicle::Car(_) = my_data { return serialize_car(my_data); }`), implementujeme metodu poskytnutou rozhraním (jen `serialize(&self)`). V diagramu je to metoda `accept(v: Visitor)`.
 
 Např. serde
 
 ![](img/20230605165644.png)
 
-## Rozhraní komponent, kontrakty na úrovni rozhraní, OCL
+## Rozhraní komponent, kontrakty na úrovni rozhraní, OCL (5/6)
 
 Aby mohl komponent komunikovat se svým okolím (být volán a případně vracet data), potřebuje nějaké veřejné rozhraní, kterému se říká **signatura**. Skládá se z poskytovaných operací (funkcí/metod) a jejich vstupních a výstupních parametrů.
 
 U rozhraní nás zajímají i další omezení, které mohou upravovat (správné) používání rozhraní (*např. uživatel se může registrovat jen jednou*). Signatuře a omezení se souhrnně říká **kontrakt**. Kontrakt popisuje poskytnutou funkcionalitu za předpokladu, že dodržíme předem stanovené podmínky.
+
+### Součásti kontraktu
 
 Součástí kontraktu (v kontextu struktur/objektů) můžou být:
 
@@ -259,11 +254,13 @@ Součástí kontraktu (v kontextu struktur/objektů) můžou být:
 - **postconditions** - co musí platit po skončení dané metody, tj. co metoda poskytuje (např. proběhne platba, z účtu se nám odečte příslušná platba)
 - **invariants** - co vždy musí platit, váže se obvykle k objektům, nejen metodám (např. na debetním účtu není možné jít do mínusu)
 
+### OCL (Object Constraint Language)
+
 **OCL (Object Constraint Language)** je deklarativní jazyk, který umožňuje popis kontraktů a jejich constraintů (omezení domén hodnot), včetně jejich zavedení do UML, a může být použit i pro jejich vynucování (např. generování kódu na základě kontraktu popsaného v komentáři/anotacích (v Javě `@`)).
 
 Při definici kontraktů objektů s dědičností nesmíme porušit Liskov substitution principle, dědic může invarianty a postconditions pouze utahovat, ne je rozvolňovat (co platilo pro rodiče, musí platit i pro potomka). Naopak je to u preconditions, kde může dědic podporovat více vstupů než předek.
 
-Příklady:
+#### Příklady OCL
 
 Auto (třída Car) nesmí překročit rychlost 240.
 `context Car inv: speed < 240`
@@ -286,7 +283,7 @@ post: self.len() = self@pre.len() + 1
 
 V OCL lze používat funkcionální přístup ke kolekcím (select, forAll...), řešit existenci (exists), provádět množinové operace (union, intersection...), používat booleovské operátory (or, and, implies...) a spoustu dalšího (proměnné, cykly...).
 
-## Modely softwarových systémů, jazyk UML
+## Modely softwarových systémů, jazyk UML (6/6)
 
 Modely sw systémů popisují systém vždy z nějakého zjednodušeného pohledu (model je už z definice abstrakce). Různé modely se zabývají různými aspekty/fázemi vývoje systému. Důležité však je, aby byly modely systému vzájemně konzistentní. Obecně lze rozlišovat na modely popisující strukturu a modely popisující chování.
 
@@ -302,7 +299,7 @@ Popisuje kontext a prostředí, v jakém systém má fungovat. Jsou zde znázorn
 
 ![](img/20230607124347.png)
 
-Neřešíme části, se kterými přímo neinteragujeme. Ty jsou vidět v [Ecosystem map](dev_2_analyza_a_navrh.md#ecosystem-map).
+Neřešíme části, se kterými přímo neinteragujeme. Ty jsou vidět v [Ecosystem map](#ecosystem-map).
 
 ### Use case diagram
 
@@ -397,21 +394,21 @@ Návrhové vzory nabízí řešení na často řešené problémy v návrzích s
 
 Accountability vzory *(přijdou mi ve slajdech popsány složitější, než jsou, proto popisuju koncepty/zapamatovatelné aspekty, zbytek si člověk dokáže odvodit. Odkazy vedou na příslušnou část s diagramem.)*
 
-- [Party](dev_2_analyza_a_navrh.md#party) - společný název (abstrakce) pro osobu či firmu, obvykle má kontaktní údaje (adresu, telefon, email...)
-- [Organization Hierarchies](dev_2_analyza_a_navrh.md#organization-hierarchies) - řešíme problém reprezentace organizace skládající se z často měnících se hierarchií organizačních jednotek (např. Korporace, Region, Pobočka, Oddělení... typy jednotek mohou být také předmětem změn). Řešením je stavební blok `Organizace`, která má 0..1 rodiče `Organizace` a 0..n potomků `Organizace` (rekurzivní vazba). Jednotlivé typy oddělení pak mohou dědit od `Organizace`.
-- [Organization Structure](dev_2_analyza_a_navrh.md#organization-structure) - To samé co organization hierarchies, ale přidáváme k tomu `TimePeriod` (pro verzování v čase), `Typ Organizační Struktury`, který může mít `Pravidla` zajišťující, že třeba oddělení nebude nadřízené divizi.
-- [Accountability](dev_2_analyza_a_navrh.md#accountability) - Organization Structure, ale Organizaci nahradíme Party (a vztahu říkáme accountability). Je tam opět `TimePeriod`, ale `Typ Organizační Struktury` se jmenuje `Accountability Type`. `Pravidla` pro vazby zahazujeme
-- [Accountability Knowledge Level](dev_2_analyza_a_navrh.md#accountability-knowledge-level) - Accountability, ale `Pravidla` pro vazby mezi jednotlivými `Party`s zase přidáme. `Pravidla` jsou definována pro jednotlivé `Accountability Type`s, každé definuje povolenou kombinaci `Party Type` potomka a rodiče v hierarchii. Úrovni, kde popisujeme pravidla (a kde tím pádem jsou i `Accountability Type`s a `Party Type`s) říkáme knowledge level, existuje jen pro zajištění správné kompozice (ale nemá moc význam pro day-to-day operace).
+- [Party](#party) - společný název (abstrakce) pro osobu či firmu, obvykle má kontaktní údaje (adresu, telefon, email...)
+- [Organization Hierarchies](#organization-hierarchies) - řešíme problém reprezentace organizace skládající se z často měnících se hierarchií organizačních jednotek (např. Korporace, Region, Pobočka, Oddělení... typy jednotek mohou být také předmětem změn). Řešením je stavební blok `Organizace`, která má 0..1 rodiče `Organizace` a 0..n potomků `Organizace` (rekurzivní vazba). Jednotlivé typy oddělení pak mohou dědit od `Organizace`.
+- [Organization Structure](#organization-structure) - To samé co organization hierarchies, ale přidáváme k tomu `TimePeriod` (pro verzování v čase), `Typ Organizační Struktury`, který může mít `Pravidla` zajišťující, že třeba oddělení nebude nadřízené divizi.
+- [Accountability](#accountability) - Organization Structure, ale Organizaci nahradíme Party (a vztahu říkáme accountability). Je tam opět `TimePeriod`, ale `Typ Organizační Struktury` se jmenuje `Accountability Type`. `Pravidla` pro vazby zahazujeme
+- [Accountability Knowledge Level](#accountability-knowledge-level) - Accountability, ale `Pravidla` pro vazby mezi jednotlivými `Party`s zase přidáme. `Pravidla` jsou definována pro jednotlivé `Accountability Type`s, každé definuje povolenou kombinaci `Party Type` potomka a rodiče v hierarchii. Úrovni, kde popisujeme pravidla (a kde tím pádem jsou i `Accountability Type`s a `Party Type`s) říkáme knowledge level, existuje jen pro zajištění správné kompozice (ale nemá moc význam pro day-to-day operace).
 
 Příklad pro aplikaci accountability je ve [slajdech (str 35+)](https://is.muni.cz/auth/el/fi/podzim2021/PA103/um/02-03-Analysis-patterns.pdf#page=35).
 
 Observations & measurements
 
-- [Quantity](dev_2_analyza_a_navrh.md#quantity) - kvantita má hodnotu a jednotku (v Rustu bychom použili Newtype pattern konkrétní jednotky a pomocí traitů implementovali funkcionalitu)
-- [Conversion Ratio](dev_2_analyza_a_navrh.md#conversion-ratio) - převedení jedné jednotky na jinou, samo o sobě funguje jen pro lineární vztahy
-- [Compound Units](dev_2_analyza_a_navrh.md#compound-units) - Jednotka může být buď `Atomic Unit` (např. kilometry), nebo `Compound Unit`, která má aspoň jeden `Unit Reference` obsahující mocninu (např. kilometry za hodinu).
-- [Measurement](dev_2_analyza_a_navrh.md#measurement) - Reprezentuje výsledek měření. Každé měření bylo někým vykonáno (`Person`), zkoumalo nějaký měřený fenomén (`Phenomenon Type`) a zjistilo nějakou hodnotu, včetně jednotek (`Quantity`)
-- [Observation](dev_2_analyza_a_navrh.md#observation) - výše popsaný `Measurement` je typ `Observation`, stejně jako `Category Observation` umožňující zaznamenávat nekvantitativní měření s nějakou kategorickou hodnotou (např. počet lidí s danou krevní skupinou), kde nás zajímá konkrétní `Phenomenon` (např. A+), který je součástí `Phenomenon Type`.
+- [Quantity](#quantity) - kvantita má hodnotu a jednotku (v Rustu bychom použili Newtype pattern konkrétní jednotky a pomocí traitů implementovali funkcionalitu)
+- [Conversion Ratio](#conversion-ratio) - převedení jedné jednotky na jinou, samo o sobě funguje jen pro lineární vztahy
+- [Compound Units](#compound-units) - Jednotka může být buď `Atomic Unit` (např. kilometry), nebo `Compound Unit`, která má aspoň jeden `Unit Reference` obsahující mocninu (např. kilometry za hodinu).
+- [Measurement](#measurement) - Reprezentuje výsledek měření. Každé měření bylo někým vykonáno (`Person`), zkoumalo nějaký měřený fenomén (`Phenomenon Type`) a zjistilo nějakou hodnotu, včetně jednotek (`Quantity`)
+- [Observation](#observation) - výše popsaný `Measurement` je typ `Observation`, stejně jako `Category Observation` umožňující zaznamenávat nekvantitativní měření s nějakou kategorickou hodnotou (např. počet lidí s danou krevní skupinou), kde nás zajímá konkrétní `Phenomenon` (např. A+), který je součástí `Phenomenon Type`.
   - je možné přidat i způsob měření `Protocol`, či sledovat přítomnost/nepřítomnost kategorického jevu, který může mít závislosti na (pod)jevech modelovaných pomocí `Observation Concept` (např. diabetik typu 2 je obecně diabetik)
 
 ### Diagramy analytických vzorů
