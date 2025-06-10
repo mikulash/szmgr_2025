@@ -1,6 +1,6 @@
 # Otázky N-SWE Softwarové inženýrství (DEV) 2025
 
-Tohle je fork [původního repozitáře s notes](https://github.com/holubond/szmgr/tree/main), s trochu updated strukturou a doplněnými/aktualizovanými/odstraněnými otázkami. Trochu věcí je z google drive otazek nebo ruzne z internetu. Postupujte opatrně.
+Tohle je fork [původního repozitáře s notes](https://github.com/holubond/szmgr/tree/main), s trochu updated strukturou a doplněnými/aktualizovanými/odstraněnými podotázkami. Trochu věcí je z google drive otazek nebo ruzne z internetu. Postupujte opatrně.
 
 Oficiální link s otázkami: [https://www.fi.muni.cz/studies/fe-mgr/swe2021.html](https://www.fi.muni.cz/studies/fe-mgr/swe2021.html)
 
