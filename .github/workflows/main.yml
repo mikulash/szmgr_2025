@@ -1,0 +1,38 @@
+name: Combine Notes and Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to create releases
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Specify your desired Node.js version
+
+      - name: Run combiner script
+        run: node combinerNotesIntoOne.js
+        working-directory: ${{ github.workspace }}
+
+      - name: Create Release and Upload Asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: generated/combined.md
+          tag_name: release-${{ github.run_id }}-${{ github.run_number }}-${{ github.sha }}
+          name: Automated Notes Release ${{ github.run_id }}-${{ github.run_number }}
+          body: |
+            Automated release of combined notes.
+            Triggered by commit ${{ github.sha }}.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
