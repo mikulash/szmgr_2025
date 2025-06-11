@@ -33,8 +33,7 @@ function combineMarkdownFiles(outputPath) {
         if (index === 0) {
             combinedContent +=  content;
         } else {
-            combinedContent += '\n\n---' + content;
-            combinedContent += '\n\n---' +  content;
+            combinedContent += '\n\n---\n' + content;
         }
 
         console.log(`Added: ${file}`);
