@@ -43,16 +43,17 @@ Pro aplikace se hodí na ukládání velkých souborů (pdf, obrázky, video, st
 
 Nějaká jednoduchá architektura by mohla vypadat takto:
 
-- **databázový server**
+- **databázový server** (např. fyzický/virtuální server, cloudová služba jako AWS RDS, Google Cloud SQL)
   - přijímá, zpracovává a odpovídá na požadavky
-- **relační databázový systém**
+- **relační databázový systém** (např. PostgreSQL, MySQL, Oracle Database, Microsoft SQL Server)
   - autentizace, autorizace
   - aplikace pracující nad samotnou databází
   - umožňuje tvorbu tabulek/indexů... manipulaci s daty, jejich čtení...
   - zajišťuje integritu dat
   - vyhodnocuje a zpracovává SQL queries, provádí vnitřní optimalizace
   - může dělat kešování
-- **databáze** - samotné místo, kde jsou data uložena
+- **databáze** (např. konkrétní databáze `eshop`, `crm`, `test_db` v rámci RDBMS)
+  - samotné místo, kde jsou data uložena
 
 RDBMS může obsahovat techniky pro administraci přístupových práv (omezení určitých operací, viditelnost dat až na row/column level...).
 
