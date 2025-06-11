@@ -5,7 +5,7 @@
 1. [Koncepty, principy, architektury (1/5)](#koncepty-principy-architektury-15)
 2. [ISO/OSI a TCP/IP model, IP protokol, transportní protokoly (2/5)](#isoosi-a-tcpip-model-ip-protokol-transportní-protokoly-25)
 3. [Protokoly na síťových vrstvách, funkce IPv4, pokročilé funkce IPv6 (3/5)](#protokoly-na-síťových-vrstvách-funkce-ipv4-pokročilé-funkce-ipv6-35)
-4. [Peer-to-peer sítě, ad-hoc/senzorové sítě, počítačové sítě a multimédia (4/5)](#peer-to-peer-sítě-ad-hocsenzorové-sítě-počítačové-sítě-a-multimédia-45)
+4. [Peer-to-peer sítě, ad-hoc/senzorové sítě, vysokorychlostní sítě, počítačové sítě a multimédia (4/5)](#peer-to-peer-sítě-ad-hocsenzorové-sítě-vysokorychlostní-sítě-počítačové-sítě-a-multimédia-45)
 5. [Příklady z praxe pro vše výše uvedené (5/5)](#příklady-z-praxe-pro-vše-výše-uvedené-55)
 
 ## Koncepty, principy, architektury (1/5)
@@ -258,7 +258,7 @@ Podpůrný ICMPv6 rozšiřuje funkcionalitu i o to co dělal IGMP a ARP.
 - složitější zpracovávání IPv6 adresy
 - ideální je dnes dělat aplikaci fungující s obojím, alternativně je potřeba použít enkapsulaci (tunelování) IPv6 do IPv4 paketů, nebo překládání (NAT)
 
-## Peer-to-peer sítě, ad-hoc/senzorové sítě, počítačové sítě a multimédia (4/5)
+## Peer-to-peer sítě, ad-hoc/senzorové sítě, vysokorychlostní sítě, počítačové sítě a multimédia (4/5)
 
 ### Peer-to-peer (P2P) sítě
 
@@ -362,6 +362,27 @@ Příklady:
 - automatizace řízení teploty v budovách
 - měření kvality vzduchu
 - zabezpečení objektů
+
+### Vysokorychlostní sítě
+
+- **Vysoká propustnost** - gigabitové až terabitové rychlosti
+- **Nízká latence** - kritické pro real-time aplikace (sub-milisekundové odezvy)
+- **Vysoká spolehlivost** - redundance, rychlé obnovení při výpadcích
+- **Škálovatelnost** - schopnost růstu s rostoucími nároky
+- Opticke sítě a Ethernet technologie jsou nejčastěji používané pro vysokorychlostní sítě (napr. 10+ Gigabit Ethernet)
+- speciální varianty protokolů - těm běžným by trvalo mega dlouho, než by se dostali na maximální možnou rychlost.
+  - **tsunami** - TCP pro ustanovení spojení, ale pak se přepne na UDP pro rychlý přenos dat
+  - high-speed UDP - optimalizované pro vysokou propustnost, minimalizuje overhead
+  - reliable UDP
+  - RBUDP - reliable blast UDP
+
+#### Aplikace:
+
+- **High Performance Computing (HPC)** - vědecké výpočty, simulace
+- **Datacenter interconnects** - propojení datacenter pro cloud služby
+- **Content Delivery Networks (CDN)** - rychlá distribuce obsahu
+- **Real-time trading** - vysokofrekvenční obchodování na finančních trzích
+- **4K/8K video streaming** - přenos vysokorozlišovacího obsahu
 
 ### Počítačové sítě a multimédia
 
