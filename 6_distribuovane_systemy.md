@@ -167,6 +167,29 @@ Dříve se používaly web services založené na:
 - **XML**
 - definované pomocí **Web Service Definition Language (WSDL)**
 
+*SOAP Request:*
+```xml
+<?xml version='1.0' ?>
+<soapenv:Envelope
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Body>
+        <ns1:echo
+            soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+            xmlns:ns1="http://localhost:8484/services/EchoService">
+            <in0 xsi:type="xsd:string">Hello World</in0>
+        </ns1:echo>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+
+##### WSDL (Web Service Description Language)
+- **W3C specification** pro popis webových služeb
+- **Programmatically generated** from source code annotations
+- **Programming language independent** way to specify service interfaces
+- **Podobné CORBA IDL**
+
 #### Moderní technologie
 
 Aktuálně se pro tyto účely spíše používá:
@@ -199,13 +222,11 @@ Aktuálně se pro tyto účely spíše používá:
 #### Message Brokers
 - **Apache Kafka** - distribuovaná streamovací platforma, high-throughput pub/sub messaging
 - **RabbitMQ** - message broker s podporou různých messaging patterns
-- **Apache ActiveMQ** - Java-based message broker
 - **Redis Pub/Sub** - jednoduchý publish/subscribe messaging
 
 ### Databázové technologie
 
 #### Distribuované NoSQL databáze
-- **Apache Cassandra** - column-family databáze s vysokou dostupností
 - **MongoDB** - document-oriented databáze s automatickým shardingem
 - **Amazon DynamoDB** - fully managed NoSQL databáze
 - **Apache HBase** - column-oriented databáze postavená na Hadoop
@@ -222,24 +243,6 @@ Aktuálně se pro tyto účely spíše používá:
 #### Stream Processing
 - **Apache Kafka Streams** - stream processing library
 - **Apache Storm** - real-time computation system
-
-### Orchestrace a Service Discovery
-
-#### Container Orchestration
-- **Kubernetes** - container orchestration platform
-- **Docker Swarm** - Docker's native clustering
-
-### Cloud Platformy
-
-#### Infrastructure as a Service (IaaS)
-- **Amazon Web Services (AWS)** - EC2, S3, RDS
-- **Microsoft Azure** - Virtual Machines, Blob Storage
-- **Google Cloud Platform (GCP)** - Compute Engine, Cloud Storage
-
-#### Platform as a Service (PaaS)
-- **Heroku** - cloud application platform
-- **AWS Lambda** - serverless computing
-- **Google App Engine** - platform for building scalable web applications
 
 ## Příklady z praxe pro vše výše uvedené (6/6)
 
