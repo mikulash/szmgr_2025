@@ -123,7 +123,7 @@ Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#zá
   - vrstvu je možné nasadit samostatně a zlepšit tak škálovatelnost systému
   - např. eshop
 
-- **Pipeline architektura/Pipes and Filters** - monolitická, funguje na principu MapReduce, skládá se z:
+- **Pipeline architektura/Pipes and Filters** - monolitická, skládá se z:
   - **pipe** - point-to-point komunikace
   - **filter** - komponenty transformující data, bezstavové, ale mohou zapisovat do db. Filter se má soustředit čistě na jednu úlohu. Jsou typy:
     - **Producer/source** - zdroj, iniciátor akce
@@ -132,7 +132,7 @@ Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#zá
     - **Consumer/sink** - ukončuje akci
   - filtry je možné snadno používat znovu (reuse)
   - vede k batch processingu, což není fajn pro rychlou odezvu systému
-  - např. unix terminal, compiler
+  - např. unix terminal, compiler, RxJS, Dart streamy
     ![](img/20230518144835.png)
 
 - **Microkernel/Hexagonal/Component-based architecture** - monolitická, dělí systém na jádro (core) a (ideálně) plug-in komponenty, aplikační logika je v těchto komponentech. Jednoduchá rozšiřitelnost, adaptabilita, customizace
@@ -251,8 +251,6 @@ Zabývá se uchováním dat mezi jednotlivými běhy aplikace/restarty systému/
 ### Reálné architektury
 
 - **Netflix** - microservices architektura s 600+ službami, circuit breaker pattern (Hystrix), service discovery (Eureka), API Gateway (Zuul), distributed caching (EVCache)
-- **Amazon** - přechod z monolitické aplikace na tisíce mikroserviců, AWS Lambda, DynamoDB, API Gateway
-- **GitHub** - modular monolith s Rails, postupná modularizace bez úplného rozdělení
 - **Spotify** - microservices s event-driven architekturou, Kafka pro user activity tracking, Apache Spark pro ML workloads
 - **Uber** - 1000+ mikroservic, Kafka pro location updates, Schemaless (MySQL wrapper) + Cassandra
 
@@ -261,16 +259,13 @@ Zabývá se uchováním dat mezi jednotlivými běhy aplikace/restarty systému/
 #### CI/CD implementace
 - **GitHub Actions** - YAML konfigurace pro build, test, deploy pipeline
 - **GitLab CI/CD** - integrované s GitLab repository
-- **Jenkins** - open-source s rozšířeným plugin ekosystémem
 
 #### Kontejnerizace
 - **Docker** - standardní kontejnerizace aplikací
 - **Kubernetes** - orchestrace kontejnerů v produkci s auto-scaling
-- **Docker Swarm** - jednodušší alternativa k Kubernetes
 
 #### Monitoring a observability
 - **Prometheus + Grafana** - metriky a dashboardy
-- **ELK Stack** (Elasticsearch, Logstash, Kibana) - centralizované logování
 - **Jaeger, Zipkin** - distributed tracing napříč mikroservicemi
 
 ### Frontend implementace v praxi
@@ -284,7 +279,6 @@ Zabývá se uchováním dat mezi jednotlivými běhy aplikace/restarty systému/
 
 - **Express.js API** - REST endpoints s middleware pro auth, validation, logging
 - **Spring Boot** - enterprise Java aplikace s dependency injection
-- **Django/FastAPI** - Python web aplikace s automatickou API dokumentací
 - **ASP.NET Core** - .NET aplikace s built-in dependency injection
 
 ### Databázové implementace
@@ -403,13 +397,9 @@ Některé REST metody jsou kešovatelné, v komunikaci mohou být prostředníci
   - decoupling klienta od serveru, API lze měnit bez breaking changes, klienti u sebe nepotřebují uchovávat dané URI
   - nejzralejší forma REST API
 
-#### HATEOAS (Hypermedia as the engine of application state)
-
-- jakýkoliv zdroj (URI) vrácený serverem může být předmětem další komunikace
-- k entitám přidáváme href
-
-```json
+```json5
 {
+  // Příklad HATEOAS odpovědi
   "id": 1,
   "name": "John Doe",
   "email": "john@example.com",
@@ -429,11 +419,3 @@ Některé REST metody jsou kešovatelné, v komunikaci mohou být prostředníci
 
 - komunikační protokol pro web services, umožňuje výměnu dat, vzdálená volání funkcí
 - slouží jako jednotná vrstva mezi službami (aktuálně se používá spíš gRPC)
-
-#### Java specifické věci
-
-**Servlety** jsou komponenty umožňující zpracování požadavků a zaslání odpovědi (a.k.a. handler).
-
-**Java Web Containers** poskytují servletům runtime a starají se o další věci (např. sessions), může v nich běžet více web aplikací ve WAR (web archive). Alternativně je možné použít lehčí variantu, např. spring boot
-
-**Java Server Pages** umožňují psát javu do html (server-side), obdobně jako php

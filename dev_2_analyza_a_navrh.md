@@ -160,10 +160,11 @@ Adaptér lze implementovat ve všech populárních jazycích jako wrapper, je mo
 
 #### Bridge
 Používá se k rozbití tightly coupled jednotek (nebo skupiny jednotek) pomocí abstrakcí (ty mohou mít více implementací, ale často nám bridge pomůže jen díky vytvoření abstrakce).
+Abstrakce obsahuje instanci _implementace_, která je volána v metodách _abstrakce_. Díky tomu můžeme snadno měnit implementaci, aniž bychom měnili _abstrakci_.
 
-Např. Fullstack aplikaci využívající templating rozbijeme na frontend a backend api.
+![img.png](img/bridge_pattern.png)
 
-![](img/20230604142514.png)
+[//]: # (![]&#40;img/20230604142514.png&#41;)
 
 #### Decorator
 Umožňuje rozšířit třídu, přidat k ní různé metody/atributy na základě použitého dekorátoru, dynamicky je přidávat/odebírat. Obdobně jako Adapter může obalit původní komponent, ale nemění rozhraní komponentu.
@@ -201,7 +202,7 @@ Např. implementace `for-in/foreach`.
 ![](img/20230603144800.png)
 
 #### Strategy
-Poskytuje rozhraní k výpočtu/operaci, které může klient použít bez znalosti konkrétní implementace a jejích detailů. Díky tomu je možné konkrétní implementace pro výpočet snadno měnit, nebo jednotně používat funkcionalitu objektů s rozdílnými implementacemi. Klient přistupuje přes `Context`, který se stará o případnou volbu strategie. Konkrétní strategie lze měnit za běhu. *?Iterátor by se dal považovat za formu strategy?*
+Poskytuje rozhraní k výpočtu/operaci, které může klient použít bez znalosti konkrétní implementace a jejích detailů. Díky tomu je možné konkrétní implementace pro výpočet snadno měnit, nebo jednotně používat funkcionalitu objektů s rozdílnými implementacemi. Klient přistupuje přes `Context`, který se stará o případnou volbu strategie. Konkrétní strategie lze měnit za běhu.
 
 Např. libovolné použití přístupu přes rozhraní, třeba výpočet trasy (pro auto, pro cyklistu, pro chodce...)
 
@@ -214,6 +215,7 @@ Na rozdíl od `Strategy`:
 - daná implementace je vybrána na základě vnitřního stavu
 - řešíme přechody stavu, stavy se můžou nahradit jiným stavem (=> stavy mohou mít referenci na kontext)
 - neřešíme jeden specifický task, ale poskytujeme implementaci pro většinu věcí co `Context` nabízí
+- i konkrétní `State` může vědět o dalších stavech a může sám spustit přechod do jiného
 
 Např. Vypínač má dva stavy (concrete state), Vypnutý Vypínač a ZapnutýVypínač. Interface Vypínač má metodu přepni(), čímž se změní stav (VypnutýVypínač na ZapnutýVypínač a opačně)
 
@@ -268,7 +270,7 @@ Auto (třída Car) nesmí překročit rychlost 240.
 
 Před odebráním prvku musí zásobník něco obsahovat, vrací to co bylo na vrchu zásobníku
 
-```
+```ocl
 context Stack::pop()
 pre neniPrazdny: self.len() > 0
 post vraciVrsekZasobniku: result = self@pre.top()
@@ -276,7 +278,7 @@ post vraciVrsekZasobniku: result = self@pre.top()
 
 Po vložení prvku se zvětší zásobník
 
-```
+```ocl
 context Stack::push(element)
 post: self.len() = self@pre.len() + 1
 ```
