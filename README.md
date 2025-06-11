@@ -4,6 +4,8 @@ Tohle je fork [původního repozitáře s notes](https://github.com/holubond/szm
 
 Oficiální link s otázkami: [https://www.fi.muni.cz/studies/fe-mgr/swe2021.html](https://www.fi.muni.cz/studies/fe-mgr/swe2021.html)
 
+Každá otázka je v samostatném markdown souboru, ale všechny poznamky jsou pravidelně mergovany do jednoho souboru dostupného v github [releasech](https://github.com/mikulash/szmgr_2025/releases). třeba pro vygerování PDFka nebo tak. Tohle je dělaný github actions, takže by to `combined` verze by měla být vždy aktuální.
+
 ## Shorter TOC
 **Společný základ programu**
 1. [Kvalita kódu](1_kvalita_kodu.md)
