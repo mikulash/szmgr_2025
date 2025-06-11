@@ -90,6 +90,9 @@ function combineMarkdownFiles(outputPath) {
         return;
     }
 
+    const title = '# Otázky N-SWE Softwarové inženýrství (DEV) 2025\n\n';
+
+
     let combinedContent = '';
 
     mdFiles.forEach((file, index) => {
@@ -112,7 +115,7 @@ function combineMarkdownFiles(outputPath) {
     const contentWithBackLinks = addBackToTopLinks(combinedContent);
 
     // Combine TOC with content
-    const finalContent = toc + contentWithBackLinks;
+    const finalContent = title + toc + contentWithBackLinks;
 
     fs.writeFileSync(outputPath, finalContent);
     console.log(`Combined ${mdFiles.length} markdown files into: ${outputPath}`);
