@@ -1,14 +1,16 @@
 # Bezpečný kód
 
-- [Metody autentizace a řízení přístupu](#metody-autentizace-a-řízení-přístupu)
-- [Biometrické metody autentizace, jejich dopady a problémy](#biometrické-metody-autentizace-jejich-dopady-a-problémy)
-- [Elektronický podpis a jeho použití](#elektronický-podpis-a-jeho-použití)
-- [Autentizace strojů a aplikací](#autentizace-strojů-a-aplikací)
-- [Zásady a principy bezpečného kódu](#zásady-a-principy-bezpečného-kódu)
-- [Typické bezpečnostní chyby na úrovni kódu, souběžnost, ošetření vstupů](#typické-bezpečnostní-chyby-na-úrovni-kódu-souběžnost-ošetření-vstupů)
-- [Detekce bezpečnostních zranitelností, penetrační testování](#detekce-bezpečnostních-zranitelností-penetrační-testování)
+> Metody autentizace a řízení přístupu. Biometrické metody autentizace, jejich dopady a problémy. Elektronický podpis a jeho použití. Autentizace strojů a aplikací. Zásady a principy bezpečného kódu. Typické bezpečnostní chyby na úrovni kódu, souběžnost, ošetření vstupů. Detekce bezpečnostních zranitelností, penetrační testování. Příklady z praxe pro vše výše uvedené. (PV157, PV286 || PV017 || PV276)
 
-## Metody autentizace a řízení přístupu
+1. [Metody autentizace a řízení přístupu (1/7)](#metody-autentizace-a-řízení-přístupu-17)
+2. [Biometrické metody autentizace, jejich dopady a problémy (2/7)](#biometrické-metody-autentizace-jejich-dopady-a-problémy-27)
+3. [Elektronický podpis a jeho použití (3/7)](#elektronický-podpis-a-jeho-použití-37)
+4. [Autentizace strojů a aplikací (4/7)](#autentizace-strojů-a-aplikací-47)
+5. [Zásady a principy bezpečného kódu (5/7)](#zásady-a-principy-bezpečného-kódu-57)
+6. [Typické bezpečnostní chyby na úrovni kódu, souběžnost, ošetření vstupů (6/7)](#typické-bezpečnostní-chyby-na-úrovni-kódu-souběžnost-ošetření-vstupů-67)
+7. [Detekce bezpečnostních zranitelností, penetrační testování (7/7)](#detekce-bezpečnostních-zranitelností-penetrační-testování-77)
+
+## Metody autentizace a řízení přístupu (1/7)
 
 **Klíčové pojmy**
 
@@ -193,7 +195,7 @@ Good practices řízení přístupu
 - na role navazujeme oprávnění
 - např. role v databázích
 
-## Biometrické metody autentizace, jejich dopady a problémy
+## Biometrické metody autentizace, jejich dopady a problémy (2/7)
 
 > Automatizované metody identifikace nebo ověření identity na základě měřitelných fyziologických nebo behaviorálních (založených na chování) vlastností člověka
 
@@ -204,7 +206,6 @@ Na rozdíl od ostatních metod autentizace **musíme řešit variabilitu** ulož
 - velmi často závisí na měřících podmínkách, na samotném zařízení, stavu měřeného, schopnosti/motivaci měřeného provést si měření správně...
 - 100% shoda může znamenat problém - útočník se dostal k uloženým datům
 - řeší se balance mezi **false acceptance** (bezpečnostní problém) a **false rejection** (nepohodlí uživatelů)
-  ![](img/20230613154105.png)
 
 Biometriky jsou vhodné jako doplňkové metody, pro přístup k tajnému klíči, autentizaci uživatele (ne dat/počítače)... ne pro použití jako samotný klíč
 
@@ -232,7 +233,7 @@ Forenzní systémy pro biometrickou autentizaci jsou přesnější, spolehlivěj
 
 např. otisk prstu (tam sledujeme markanty), geometrie ruky, sken duhovky, sken sítnice, rozpoznání obličeje, rozpoznání hlasu, rozpoznání stylu interakce se zařízením (např. tempo psaní na klávesnici, dynamika podpisu), DNA
 
-## Elektronický podpis a jeho použití
+## Elektronický podpis a jeho použití (3/7)
 
 - zajišťuje **autentizaci** (že zpráva pochází od daného autora) a **integritu** (že zprávu nikdo nepozměnil) **podepisovaných dat**
 - musí být ověřitelný třetí stranou
@@ -287,7 +288,7 @@ Některé algoritmy umožňují obnovu dat na základě podpisu (v podpisu jsou 
 - doložení a ověření identifikačních informací (např. pro web předáme údaje o identitě a instalujeme *Certbot*, nebo nahrajeme určitý soubor, abychom dokázali, že máme nad serverem kontrolu)
 - vydání certifikátu žadateli (včetně zveřejnění v adresářové službě)
 
-## Autentizace strojů a aplikací
+## Autentizace strojů a aplikací (4/7)
 
 **Autentizace počítačů**
 
@@ -334,7 +335,7 @@ Některé algoritmy umožňují obnovu dat na základě podpisu (v podpisu jsou 
   - auth statement (způsob a čas provedené autentizace)
   - příslušnost ke skupinám, rolím, povolené operace
 
-## Zásady a principy bezpečného kódu
+## Zásady a principy bezpečného kódu (5/7)
 
 **Defensive programming**
 
@@ -359,7 +360,7 @@ Pro zajištění bezpečnosti kódu lze postupovat různými způsoby, přístup
 
 Při vývoji kódu je dobré zajistit, aby byly chybové stavy nereprezentovatelné (třeba pomocí builder patternu a různých builder tříd).
 
-## Typické bezpečnostní chyby na úrovni kódu, souběžnost, ošetření vstupů
+## Typické bezpečnostní chyby na úrovni kódu, souběžnost, ošetření vstupů (6/7)
 
 Seznamy běžných chyb
 
@@ -427,7 +428,7 @@ Pro **ošetřování vstupů** je vhodné použít fail-fast přístup. Jakmile 
   - v ideálním případě se chceme nutnosti udržovat stav mezi příkazy vyhnout, bezstavová komunikace je méně náchylná na chyby a je možné systém jednoduššeji škálovat
 - důležité je samozřejmě nikdy nevěřit uživatelským vstupům
 
-## Detekce bezpečnostních zranitelností, penetrační testování
+## Detekce bezpečnostních zranitelností, penetrační testování (7/7)
 
 Pro detekci (nejen) bezpečnostních zranitelností je možné použít více přístupů (nejsou exkluzivní)
 
