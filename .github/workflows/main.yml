@@ -1,10 +1,12 @@
 name: Combine Notes and Release
 
 on:
-  push:
+#  push:
+#        branches:
+#        - main
+  pull_request:
     branches:
       - main
-
 jobs:
   build_and_release:
     runs-on: ubuntu-latest
@@ -29,7 +31,7 @@ jobs:
         with:
           files: generated/combined.md
           tag_name: release-${{ github.run_id }}-${{ github.run_number }}-${{ github.sha }}
-          name: Automated Notes Release ${{ github.run_id }}-${{ github.run_number }}
+          name: Automated Combined Note Release ${{ github.run_id }}-${{ github.run_number }}
           body: |
             Automated release of combined notes.
             Triggered by commit ${{ github.sha }}.
