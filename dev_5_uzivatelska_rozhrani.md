@@ -1,18 +1,15 @@
 # Uživatelská rozhraní
 
-- [Principy návrhu a vývoje uživatelského rozhraní v moderních softwarových systémech](#principy-návrhu-a-vývoje-uživatelského-rozhraní-v-moderních-softwarových-systémech)
-- [Proces vývoje uživatelského rozhraní a zásady kvality](#proces-vývoje-uživatelského-rozhraní-a-zásady-kvality)
-- [User experience (UX)](#user-experience-ux)
-- [Interaction design](#interaction-design)
-- [Prototypování](#prototypování)
-- [Wireframování](#wireframování)
-- [Uživatelský výzkum](#uživatelský-výzkum)
-- [Testování použitelnosti](#testování-použitelnosti)
-- [Technologie a nástroje](#technologie-a-nástroje)
+> Principy návrhu a vývoje uživatelského rozhraní v moderních softwarových systémech, vč. webových, mobilních. Proces vývoje uživatelského rozhraní a zásady kvality. User experience (UX), interaction design, prototypování, wireframování, uživatelský výzkum, testování použitelnosti. Technologie a nástroje. Příklady z praxe pro vše výše uvedené. (PV252 || PV247 || PV278 || PV182)
+
+1. [Principy návrhu a vývoje uživatelského rozhraní v moderních softwarových systémech, vč. webových, mobilních (1/4)](#principy-návrhu-a-vývoje-uživatelského-rozhraní-v-moderních-softwarových-systémech-vč-webových-mobilních-14)
+2. [Proces vývoje uživatelského rozhraní a zásady kvality (2/4)](#proces-vývoje-uživatelského-rozhraní-a-zásady-kvality-24)
+3. [User experience (UX), interaction design, prototypování, wireframování, uživatelský výzkum, testování použitelnosti (3/4)](#user-experience-ux-interaction-design-prototypování-wireframování-uživatelský-výzkum-testování-použitelnosti-34)
+4. [Technologie a nástroje (4/4)](#technologie-a-nástroje-44)
 
 *Fun fact: v PV247 se toho o této otázce (vyjma základů Reactu) moc nedozvíte. Ostatní předměty jsem neměl, tak jen z vlastních zkušeností.*
 
-## Principy návrhu a vývoje uživatelského rozhraní v moderních softwarových systémech, vč. webových a mobilních
+## Principy návrhu a vývoje uživatelského rozhraní v moderních softwarových systémech, vč. webových, mobilních (1/4)
 
 Klíčem k úspěchu UI je uživatelská přívětivost a snadné použití rozhraní. Nabušený systém s tunou pokročilých funkcionalit bude k ničemu, pokud se nedá jednoduše používat koncovými uživateli. Běžní uživatelé obvykle dokáží systémům s dobrým UI prominout i některé funkcionální nedostatky.
 
@@ -36,16 +33,6 @@ Je fajn brát v potaz
 - Rozhraní by mělo být jednotné (konzistentní – jednotné barvy, fonty, styl tlačítek apod.)
 - Responsivita – fungování aplikace na různě velkých obrazovkách (desktop, tablet, mobil)
 
-V současnosti je nejuniverzálnějším způsobem tvorby UI HTML + CSS + JS. Aktuálně jsou populární frontendové JS frameworky (React, Vue, Solid, Svelte, Angular …). Lze je použít v prohlížeči, jako desktopovou aplikaci (Electron – přibalí se k aplikaci Chromium, nebo s využitím nativního WebView, např. Tauri), pro mobilní aplikace (Progressive Web App, není nutné instalovat z App Store), případně mají vlastní verze pro nativní mobilní zařízení (React Native, Svelte Native …). Tyto technologie mají obvykle dobře řešené věci jako accessibility či lokalizaci, existují pro ně solidní komponentové knihovny.
-
-Aktuálním trendem s interesantním potenciálem je WebAssembly, které umožňuje použití kompilovaného jazyka (C/C++, Rust …). Výsledná aplikace je spustitelná v prohlížeči a zpravidla rychlejší než čistý JS. WASM podporuje dva režimy – práci s DOM, nebo přímé vykreslování na `<canvas>` (používá třeba Figma).
-
-Alternativou může být použití multiplatformního frameworku Flutter (používá jazyk Dart, podporuje Android, iOS, web), který umožňuje vývoj pro více platforem z jednoho kódu.
-
-Nativními jazyky pro mobilní aplikace jsou Swift (iOS) a Java/Kotlin (Android).
-
-Pro desktopové aplikace je možné použít i technologie jako GTK (existují bindingy pro různé jazyky) nebo Qt (C++), JavaFX …
-
 ### Specifika pro web
 
 - Řešíme, kdy je stránka renderovaná:
@@ -56,7 +43,7 @@ Pro desktopové aplikace je možné použít i technologie jako GTK (existují b
 - Později se přešlo na single-page přístup pomocí client side renderingu
 - Aktuálně je možné přístupy míchat (initial page load je SSR, následně CSR), což je vhodné pro rychlý počáteční load a SEO (např. Next.js)
 
-## Proces vývoje uživatelského rozhraní a zásady kvality
+## Proces vývoje uživatelského rozhraní a zásady kvality (2/4)
 
 Začneme uživatelským výzkumem, abychom pochopili skutečné požadavky na UI. Následuje návrh pomocí wireframů a prototypů, které lze použít pro zpětnou vazbu a jako předlohu pro vývoj. Na závěr je důležité provést uživatelské testování s různými typy uživatelů, abychom předešli problémům při nasazení aplikace.
 
@@ -66,6 +53,21 @@ Začneme uživatelským výzkumem, abychom pochopili skutečné požadavky na UI
 - Je třeba analyzovat požadavky na systém a způsob, jakým se systém používá (např. minimalizace počtu kliknutí pro dosažení určité operace).
 - S uživateli lze pracovat ve **focus groups** (diskusních skupinách).
 - Lze použít A/B testování – každé skupině uživatelů prezentujeme určitou variantu produktu a sledujeme její dopad na chování.
+
+## User experience (UX), interaction design, prototypování, wireframování, uživatelský výzkum, testování použitelnosti (3/4)
+
+### User experience (UX)
+
+UX kombinuje následující aspekty:
+
+- Vizuální estetika (přitažlivý a konzistentní design)
+- Použitelnost (usability – rozhraní, které umožňuje plnit úkoly i za určitých omezení)
+- Užitnost (utility – rozhraní musí umožňovat provádět požadované úkony)
+- Efektivita (efficiency – usnadňuje provádění opakujících se činností)
+  - Uživatel by neměl být nucen zadávat do systému stejné informace vícekrát.
+  - Pro časté akce je vhodné umožnit dobře známé klávesové zkratky (např. Ctrl + S pro uložení).
+
+Celkové uživatelské zkušenosti rozhodují o tom, zda budou uživatelé produkt aktivně využívat.
 
 ### Interaction design
 
@@ -79,20 +81,7 @@ Je vhodné pro návrh hrubého rozložení jednotlivých komponent rozhraní. Ne
 
 Pomocí návrhových nástrojů jako Adobe XD nebo Figma lze vytvořit (částečně i interaktivní) prototyp, který se využije pro první uživatelské testování a získání zpětné vazby.
 
-## User experience (UX)
-
-UX kombinuje následující aspekty:
-
-- Vizuální estetika (přitažlivý a konzistentní design)
-- Použitelnost (usability – rozhraní, které umožňuje plnit úkoly i za určitých omezení)
-- Užitnost (utility – rozhraní musí umožňovat provádět požadované úkony)
-- Efektivita (efficiency – usnadňuje provádění opakujících se činností)
-  - Uživatel by neměl být nucen zadávat do systému stejné informace vícekrát.
-  - Pro časté akce je vhodné umožnit dobře známé klávesové zkratky (např. Ctrl + S pro uložení).
-
-Celkové uživatelské zkušenosti rozhodují o tom, zda budou uživatelé produkt aktivně využívat.
-
-## Testování použitelnosti
+### Testování použitelnosti
 
 Testování použitelnosti může zahrnovat:
 
@@ -103,3 +92,15 @@ Testování použitelnosti může zahrnovat:
 - Sledování pohybu očí (eye-tracking) uživatele při používání produktu:
   - Zjistíme, které části rozhraní upoutají nejvíce pozornosti.
   - Pro eye-tracking je obvykle nutný souhlas uživatele.
+
+## Technologie a nástroje (4/4)
+
+V současnosti je nejuniverzálnějším způsobem tvorby UI HTML + CSS + JS. Aktuálně jsou populární frontendové JS frameworky (React, Vue, Solid, Svelte, Angular …). Lze je použít v prohlížeči, jako desktopovou aplikaci (Electron – přibalí se k aplikaci Chromium, nebo s využitím nativního WebView, např. Tauri), pro mobilní aplikace (Progressive Web App, není nutné instalovat z App Store), případně mají vlastní verze pro nativní mobilní zařízení (React Native, Svelte Native …). Tyto technologie mají obvykle dobře řešené věci jako accessibility či lokalizaci, existují pro ně solidní komponentové knihovny.
+
+Aktuálním trendem s interesantním potenciálem je WebAssembly, které umožňuje použití kompilovaného jazyka (C/C++, Rust …). Výsledná aplikace je spustitelná v prohlížeči a zpravidla rychlejší než čistý JS. WASM podporuje dva režimy – práci s DOM, nebo přímé vykreslování na `<canvas>` (používá třeba Figma).
+
+Alternativou může být použití multiplatformního frameworku Flutter (používá jazyk Dart, podporuje Android, iOS, web), který umožňuje vývoj pro více platforem z jednoho kódu.
+
+Nativními jazyky pro mobilní aplikace jsou Swift (iOS) a Java/Kotlin (Android).
+
+Pro desktopové aplikace je možné použít i technologie jako GTK (existují bindingy pro různé jazyky) nebo Qt (C++), JavaFX …
