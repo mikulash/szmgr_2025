@@ -226,7 +226,7 @@ Transakce se potvrzují příkazem `COMMIT`, vrací příkazem `ROLLBACK` na sta
 
 ### Indexování
 
-Index slouží ke zrychlení/zefektivnění častých dotazů nad tabulkou. Dotazy obsahující zvolený sloupec (či jejich kombinaci) budou rychlejší.
+Index slouží ke zrychlení/zefektivnění častých dotazů nad tabulkou. Dotazy obsahující zvolený sloupec (či jejich kombinaci) budou rychlejší. Struktura <klíč, pointer na záznam>
 
 ```sql
 CREATE INDEX my_index ON Products (Price)
