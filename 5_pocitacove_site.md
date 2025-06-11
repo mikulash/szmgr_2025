@@ -105,7 +105,7 @@ V praxi se ujal model TCP/IP, který jednotlivé vrstvy ISO/OSI slučuje.
 - **fyzickou**
     - poskytuje rozhraní ve formě **framů bitů**
     - poskytuje přístup k přenosovému médiu
-    - interně vrstva transformuje bity na signály přenosového média, zajišťuje synchronizaci, multiplexing (skloubení více signálů/datových toků do jednoho pro přenos na sdíleném médiu, časový/frekvenční/vlnoděélkový multiplexing), demultiplexing...
+    - interně vrstva transformuje bity na signály přenosového média, zajišťuje synchronizaci, multiplexing (skloubení více signálů/datových toků do jednoho pro přenos na sdíleném médiu, časový/frekvenční/vlnodélkový multiplexing), demultiplexing...
     - médiem může být drátový/optický kabel, vzduch (pro bezdrátový přenos, rádiové/infračervené signály...)
 
 ### IP protokol
@@ -209,8 +209,7 @@ kvůli nedostatku se začala používat i maska sítě (CIDR)
 - `0000:0000:0000:0000:0000:0000:0000:0000` - `FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF`
 - možnost zkráceného zápisu:
     - vynecháním prefixových nul:
-        - `1050:0000:0000:0000:0005:0600:300c:326b` lze přepsat na
-        - `1050:0:0:0:5:600:300c:326b`
+        - `1050:0000:0000:0000:0005:0600:300c:326b` lze přepsat na `1050:0:0:0:5:600:300c:326b`
     - dále vynecháním nejvýše jedné sekvence nul:
         - `1050::5:600:300c:326b`
 
@@ -278,7 +277,7 @@ Systém je tvořen více identickými (a na stejné úrovni) moduly, peery, kter
 Např.:
 - distribuované výpočty Folding@Home
 - filesharing BitTorrent
-- Apache Cassandra (db)
+- Apache Cassandra (db), Gun.js(db)
 - blockchain (veřejný - kryptoměny, privátní - např. Hyperledger)
 
 #### Vrstvy:
@@ -333,7 +332,7 @@ Směrování může být:
 - **data-centrické** - zprávy na sobě nemají cílovou adresu, ale identifikátor dat. Příjemci v síti avizují, o jaká data mají zájem -> ta jsou jim přeposílána, není nutnost řešit unikátní adresy
 
 Další dělení směrování:
-- **proaktivní** (pravidelná výměna informací o stavu sítě, udržuje se info o topologii) vs **reaktivní** (nutnost flooding), záleží na kýžené rychlosti a vytížености sítě, energetických nárocích...
+- **proaktivní** (pravidelná výměna informací o stavu sítě, udržuje se info o topologii) vs **reaktivní** (nutnost flooding), záleží na kýžené rychlosti a vytížеnosti sítě, energetických nárocích...
 - směrování hop-by-hop vs znalost celé topologie
 - flat vs hierarchické (nadřízení mohou mít přidané zodpovědnosti, používají specializované algoritmy...)
 

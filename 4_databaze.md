@@ -132,7 +132,7 @@ SET sloupec_a = hodnota_a
 WHERE ... --často klíč
 ```
 
-Update bez WHERE může provést update všeho. Kontrolují se integritní omezení
+Update bez WHERE může provést update všeho. Kontrolují se integritní omezení ovlinvněných sloupců
 
 ### Delete
 
@@ -147,8 +147,9 @@ Delete bez WHERE může provést smazání celého obsahu
 Trochu nabušený select:
 
 ```sql
-SELECT DISTINCT Tabulka.sloupec, B.sloupec FROM Tabulka
-                                                  JOIN TabulkaB AS B ON Tabulka.cizi_id = B.id
+SELECT DISTINCT Tabulka.sloupec, B.sloupec
+FROM Tabulka
+JOIN TabulkaB AS B ON Tabulka.cizi_id = B.id
 WHERE price > 0
 ORDER BY sloupec ASC
 ```
