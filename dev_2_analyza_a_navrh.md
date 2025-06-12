@@ -68,7 +68,7 @@ Non-functional requirements platí vždy, je třeba je brát v potaz i s nově p
 
 SW architektura určuje, jakým způsobem je systém strukturován, jakým způsobem je dělen na komponenty/moduly a jak mezi sebou jednotlivé komponenty/moduly interagují a jak jsou jednotlivé části systému nasazeny na hw.
 
-SW architektury (vyšší úroveň abstrakce) a architektonické vzory (nižší úroveň abstrakce) jsou obecná řešení architektur systému. Uvádím jen seznam, podrobně jsou popsány v [části otázky 1](dev_1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller)
+SW architektury (vyšší úroveň abstrakce) a architektonické vzory (nižší úroveň abstrakce) jsou obecná řešení architektur systému. Uvádím jen seznam, podrobně jsou popsány v [části otázky 1](dev_1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-26)
 
 ### Architektonické vzory
 
@@ -264,9 +264,8 @@ Při definici kontraktů objektů s dědičností nesmíme porušit Liskov subst
 
 #### Příklady OCL
 
-Auto (třída Car) nesmí překročit rychlost 240.
-`context Car inv: speed < 240`
-^ speed a self.speed (kde self je Car) jsou identické
+Auto (třída Car) nesmí překročit rychlost 240. `context Car inv: speed < 240` - speed a self.speed (kde self je Car) jsou identické
+
 
 Před odebráním prvku musí zásobník něco obsahovat, vrací to co bylo na vrchu zásobníku
 
@@ -354,7 +353,7 @@ Popisuje jednotlivé komponenty systému a jejich komunikační toky, včetně p
 
 Popisuje komponenty a jejich kompozici v systému.
 
-Třídní/lollipop notace
+lollipop/Třídní notace
 
 ![](img/20230606160621.png)
 
@@ -370,7 +369,7 @@ Komunikační rozhraní komponentů se nazývají porty, přímé spoje connecto
 
 - Systémy bývají složité, špatně se udržují a je náročné měřit/zajistit kvalitu, často se mění nároky => pomůže dekompozice systému do menších koherentních částí, které se lépe udržují/mění, snadněji se měří kvalita
 
-Dekompozice podle [SOLID](1_kvalita_kodu.md#solid-principy)
+Dekompozice podle [SOLID](1_kvalita_kodu.md#solid)
 
 - **single responsibility** - každý modul/třída/funkce by se měly soustředit pouze na jednu část funkcionality (a tu zapouzdřovat)
 - **open/closed** - každý modul/třída/(funkce) by měly být rozšiřitelné tj. přidání změn způsobí minimální modifikaci kódu, většinou rozšiřujeme pomocí nových tříd/metod
@@ -394,66 +393,76 @@ Znázorňuje celý kontext (včetně částí, se kterými přímo nekomunikujem
 
 Návrhové vzory nabízí řešení na často řešené problémy v návrzích systému. Tato řešení jsou místy až příliš sofistikovaná, takže se doporučuje složitější návrhové vzory používat s rozvahou, abychom problém *neoverengineeringovali*.
 
-Accountability vzory *(přijdou mi ve slajdech popsány složitější, než jsou, proto popisuju koncepty/zapamatovatelné aspekty, zbytek si člověk dokáže odvodit. Odkazy vedou na příslušnou část s diagramem.)*
+##### Accountability vzory
 
-- [Party](#party) - společný název (abstrakce) pro osobu či firmu, obvykle má kontaktní údaje (adresu, telefon, email...)
-- [Organization Hierarchies](#organization-hierarchies) - řešíme problém reprezentace organizace skládající se z často měnících se hierarchií organizačních jednotek (např. Korporace, Region, Pobočka, Oddělení... typy jednotek mohou být také předmětem změn). Řešením je stavební blok `Organizace`, která má 0..1 rodiče `Organizace` a 0..n potomků `Organizace` (rekurzivní vazba). Jednotlivé typy oddělení pak mohou dědit od `Organizace`.
-- [Organization Structure](#organization-structure) - To samé co organization hierarchies, ale přidáváme k tomu `TimePeriod` (pro verzování v čase), `Typ Organizační Struktury`, který může mít `Pravidla` zajišťující, že třeba oddělení nebude nadřízené divizi.
-- [Accountability](#accountability) - Organization Structure, ale Organizaci nahradíme Party (a vztahu říkáme accountability). Je tam opět `TimePeriod`, ale `Typ Organizační Struktury` se jmenuje `Accountability Type`. `Pravidla` pro vazby zahazujeme
-- [Accountability Knowledge Level](#accountability-knowledge-level) - Accountability, ale `Pravidla` pro vazby mezi jednotlivými `Party`s zase přidáme. `Pravidla` jsou definována pro jednotlivé `Accountability Type`s, každé definuje povolenou kombinaci `Party Type` potomka a rodiče v hierarchii. Úrovni, kde popisujeme pravidla (a kde tím pádem jsou i `Accountability Type`s a `Party Type`s) říkáme knowledge level, existuje jen pro zajištění správné kompozice (ale nemá moc význam pro day-to-day operace).
+*Přijdou mi ve slajdech popsány složitější, než jsou, proto popisuju koncepty/zapamatovatelné aspekty, zbytek si člověk dokáže odvodit.*
 
-Příklad pro aplikaci accountability je ve [slajdech (str 35+)](https://is.muni.cz/auth/el/fi/podzim2021/PA103/um/02-03-Analysis-patterns.pdf#page=35).
+##### Party
 
-Observations & measurements
-
-- [Quantity](#quantity) - kvantita má hodnotu a jednotku (v Rustu bychom použili Newtype pattern konkrétní jednotky a pomocí traitů implementovali funkcionalitu)
-- [Conversion Ratio](#conversion-ratio) - převedení jedné jednotky na jinou, samo o sobě funguje jen pro lineární vztahy
-- [Compound Units](#compound-units) - Jednotka může být buď `Atomic Unit` (např. kilometry), nebo `Compound Unit`, která má aspoň jeden `Unit Reference` obsahující mocninu (např. kilometry za hodinu).
-- [Measurement](#measurement) - Reprezentuje výsledek měření. Každé měření bylo někým vykonáno (`Person`), zkoumalo nějaký měřený fenomén (`Phenomenon Type`) a zjistilo nějakou hodnotu, včetně jednotek (`Quantity`)
-- [Observation](#observation) - výše popsaný `Measurement` je typ `Observation`, stejně jako `Category Observation` umožňující zaznamenávat nekvantitativní měření s nějakou kategorickou hodnotou (např. počet lidí s danou krevní skupinou), kde nás zajímá konkrétní `Phenomenon` (např. A+), který je součástí `Phenomenon Type`.
-  - je možné přidat i způsob měření `Protocol`, či sledovat přítomnost/nepřítomnost kategorického jevu, který může mít závislosti na (pod)jevech modelovaných pomocí `Observation Concept` (např. diabetik typu 2 je obecně diabetik)
-
-### Diagramy analytických vzorů
-
-#### Party
+Společný název (abstrakce) pro osobu či firmu, obvykle má kontaktní údaje (adresu, telefon, email...)
 
 ![](img/20230602212700.png)
 
-#### Organization Hierarchies
+##### Organization Hierarchies
+
+Řešíme problém reprezentace organizace skládající se z často měnících se hierarchií organizačních jednotek (např. Korporace, Region, Pobočka, Oddělení... typy jednotek mohou být také předmětem změn). Řešením je stavební blok `Organizace`, která má 0..1 rodiče `Organizace` a 0..n potomků `Organizace` (rekurzivní vazba). Jednotlivé typy oddělení pak mohou dědit od `Organizace`.
 
 ![](img/20230602212810.png)
 
-#### Organization Structure
+##### Organization Structure
+
+To samé co organization hierarchies, ale přidáváme k tomu `TimePeriod` (pro verzování v čase), `Typ Organizační Struktury`, který může mít `Pravidla` zajišťující, že třeba oddělení nebude nadřízené divizi.
 
 ![](img/20230602221810.png)
 
 #### Accountability
 
+Organization Structure, ale Organizaci nahradíme Party (a vztahu říkáme accountability). Je tam opět `TimePeriod`, ale `Typ Organizační Struktury` se jmenuje `Accountability Type`. `Pravidla` pro vazby zahazujeme.
+
 ![](img/20230602223147.png)
 
-#### Accountability Knowledge Level
+##### Accountability Knowledge Level
+
+Accountability, ale `Pravidla` pro vazby mezi jednotlivými `Party`s zase přidáme. `Pravidla` jsou definována pro jednotlivé `Accountability Type`s, každé definuje povolenou kombinaci `Party Type` potomka a rodiče v hierarchii. Úrovni, kde popisujeme pravidla (a kde tým pádem jsou i `Accountability Type`s a `Party Type`s) říkáme knowledge level, existuje jen pro zajištění správné kompozice (ale nemá moc význam pro day-to-day operace).
+
+Příklad pro aplikaci accountability je ve [slajdech (str 35+)](https://is.muni.cz/auth/el/fi/podzim2021/PA103/um/02-03-Analysis-patterns.pdf#page=35).
 
 ![](img/20230602224136.png)
 
-#### Quantity
+##### Observations & measurements
+
+##### Quantity
+
+Kvantita má hodnotu a jednotku (v Rustu bychom použili Newtype pattern konkrétní jednotky a pomocí traitů implementovali funkcionalitu).
 
 ![](img/20230603105247.png)
 
-#### Conversion Ratio
+##### Conversion Ratio
+
+Převedení jedné jednotky na jinou, samo o sobě funguje jen pro lineární vztahy.
 
 ![](img/20230603105928.png)
 
-#### Compound Units
+##### Compound Units
+
+Jednotka může být buď `Atomic Unit` (např. kilometry), nebo `Compound Unit`, která má aspoň jeden `Unit Reference` obsahující mocninu (např. kilometry za hodinu).
 
 ![](img/20230603110857.png)
 
-#### Measurement
+##### Measurement
+
+Reprezentuje výsledek měření. Každé měření bylo někým vykonáno (`Person`), zkoumalo nějaký měřený fenomén (`Phenomenon Type`) a zjistilo nějakou hodnotu, včetně jednotek (`Quantity`).
 
 ![](img/20230603111248.png)
 
 #### Observation
 
+Výše popsaný `Measurement` je typ `Observation`, stejně jako `Category Observation` umožňující zaznamenávat nekvantitativní měření s nějakou kategorickou hodnotou (např. typ krevní skupiny), kde nás zajímá konkrétní `Phenomenon` (např. A+), který je součástí `Phenomenon Type`.
+
+Je možné přidat i způsob měření `Protocol`, či sledovat přítomnost/nepřítomnost kategorického jevu, který může mít závislosti na (pod)jevech modelovaných pomocí `Observation Concept` (např. diabetik typu 2 je obecně diabetik).
+
 ![](img/20230603112121.png)
 
-Včetně způsobu měření a logických vazeb mezi (pod)jevy
+**Včetně způsobu měření a logických vazeb mezi (pod)jevy:**
+
 ![](img/20230603112705.png)

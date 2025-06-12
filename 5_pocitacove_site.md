@@ -410,7 +410,7 @@ Média se mohou přenášet diskretizovaně (soubor, zpráva), nebo kontinuáln�
 
 #### Typy médií
 
-**Text** - např. HTTP, SMTP, FTP, vyžaduje relativně málo bandwidth, delay a nároky na chybovost závisí na aplikaci. Komprese např. pomocí huffman, nebo shannon-fano kódování (více v [otázka 5 - databáze](4_databaze.md#kódování-a-komprese-dat)), na webu se používá gzip (obsahuje huffmana), drobné chyby dělají problémy
+**Text** - např. HTTP, SMTP, FTP, vyžaduje relativně málo bandwidth, delay a nároky na chybovost závisí na aplikaci. Komprese např. pomocí huffman, nebo shannon-fano kódování, na webu se používá gzip (obsahuje huffmana), drobné chyby dělají problémy
 
 **Audio** - v základu analog, digitalizace pomocí vzorkování (hodnota v čase) signálu a kvantitativní (mapování např. na celá čísla). Požadavky na šířku pásma záleží na požadované kvalitě a případné komprimaci, jsme ochotni tolerovat drobné chyby
 

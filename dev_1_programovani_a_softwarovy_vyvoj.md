@@ -99,7 +99,7 @@ Více v [Bezpečný kód](dev_4_bezpecny_kod.md)
 
 ## Vícevrstvá architektura moderních informačních systémů, architektura model-view-controller (3/6)
 
-Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller), takže jen shrnutí:
+Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-26), takže jen shrnutí:
 
 - **MVC pattern - model, view, controller** - odděluje systém na model, view a controller. Model obsahuje data a business logiku. View je zobrazením těchto dat a controller slouží k manipulaci nad modelem. Jde o cyklický vztah: `USER (uses)> CONTROLLER (manipulates)> MODEL (updates)> VIEW (shown to)> USER`
   - oddělení logiky zvyšuje modulárnost kódu, který je pak snadnější upravovat, testovat, udržovat

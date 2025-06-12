@@ -15,7 +15,7 @@
 
 ### Typy architektur
 
-Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller), takže jen shrnutí:
+Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller-36), takže jen shrnutí:
 
 #### Monolitická architektura
 - obsahuje vše, co systém potřebuje, je možné pouze vertikální škálování, špatná spolehlivost (pád znamená pád celého systému)
@@ -24,7 +24,7 @@ Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#zá
 - nezaměňovat s layered
 - jednotlivé úrovně lze distribuovat, paralelizovat, nahradit (komunikace skrz API)
 - Klient může být tenký/tlustý dle poskytnuté funkcionality.
-- př. Client -> Server -> Database
+- př. Client → Server → Database
 
 #### Hexagonal/Microkernel/component-based
 - základní aplikace poskytuje minimální funkcionalitu, zbytek se dodává skrz plug-in komponenty komunikující přes předdefinované api

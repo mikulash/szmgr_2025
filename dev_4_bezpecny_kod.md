@@ -422,7 +422,7 @@ Pro **ošetřování vstupů** je vhodné použít fail-fast přístup. Jakmile 
 - problém může dělat třeba UTF-8 řetězce, kde jeden znak může mít různou délku
 - pro ošetření vstupů je navíc fajn používat validační knihovny (např. zod pro js, clap pro rust)
 - Pro průzkum toho, co všechno v našem systému závisí na uživatelském vstupu, je možné použít **taint analýzu**
-- Jednotky systému mohou používat [kontrakty](dev_2_analyza_a_navrh.md#rozhraní-komponent-kontrakty-na-úrovni-rozhraní-ocl) (preconditions, postconditions, invariants) jako pojistku v případě nedostatečného ošetření vstupů
+- Jednotky systému mohou používat [kontrakty](dev_2_analyza_a_navrh.md#rozhraní-komponent-kontrakty-na-úrovni-rozhraní-ocl-56) (preconditions, postconditions, invariants) jako pojistku v případě nedostatečného ošetření vstupů
 - Pro kontrolu dostatečného ošetření vstupů je možné použít **fuzzing** (viz další sekce)
 - Pro jednoduché zpracování sekvence vstupů (příkazů) je vhodné použít **automata-based modelling**
   - v ideálním případě se chceme nutnosti udržovat stav mezi příkazy vyhnout, bezstavová komunikace je méně náchylná na chyby a je možné systém jednoduššeji škálovat
