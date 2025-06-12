@@ -60,7 +60,7 @@ Specializace DEV
    3. [Protokoly na síťových vrstvách, funkce IPv4, pokročilé funkce IPv6](5_pocitacove_site.md#protokoly-na-síťových-vrstvách-funkce-ipv4-pokročilé-funkce-ipv6-35)
    4. [Peer-to-peer (P2P) sítě, ad-hoc/senzorové sítě, vysokorychlostní sítě, počítačové sítě a multimédia](5_pocitacove_site.md#peer-to-peer-sítě-ad-hocsenzorové-sítě-vysokorychlostní-sítě-počítačové-sítě-a-multimédia-45)
    5. [Příklady z praxe pro vše výše uvedené](5_pocitacove_site.md#příklady-z-praxe-pro-vše-výše-uvedené-55)
-6. [Distribuované systémy](6_distribuovane_systemy.md) (PA053) MISSING
+6. [Distribuované systémy](6_distribuovane_systemy.md) (PA053)
    1. [Základní pojmy, principy](6_distribuovane_systemy.md#základní-pojmy-principy-16)
    2. [Rozdíl mezi centralizovanou a distribuovanou architekturou systému, nevýhody obojího a jejich překonávání](6_distribuovane_systemy.md#rozdíl-mezi-centralizovanou-a-distribuovanou-architekturou-systému-nevýhody-obojího-a-jejich-překonávání-26)
    3. [Replikace, sdílení dat](6_distribuovane_systemy.md#replikace-sdílení-dat-36)
@@ -74,7 +74,7 @@ Specializace DEV
    1. [Nástroje a prostředí pro softwarový vývoj rozsáhlých systémů](dev_1_programovani_a_softwarovy_vyvoj.md#nástroje-a-prostředí-pro-softwarový-vývoj-rozsáhlých-systémů-16)
    2. [Základní koncepty softwarových architektur z pohledu implementace](dev_1_programovani_a_softwarovy_vyvoj.md#základní-koncepty-softwarových-architektur-z-pohledu-implementace-26)
    3. [Vícevrstvá architektura moderních informačních systémů, architektura model-view-controller](dev_1_programovani_a_softwarovy_vyvoj.md#vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller-36)
-   4. [Technologie a jazyky vhodné pro frontend a backend vývoj](dev_1_programovani_a_softwarovy_vyvoj.md#technologie-a-jazyky-vhodné-pro-frontend-a-backend-vývoj-46) MISSING
+   4. [Technologie a jazyky vhodné pro frontend a backend vývoj](dev_1_programovani_a_softwarovy_vyvoj.md#technologie-a-jazyky-vhodné-pro-frontend-a-backend-vývoj-46) 
    5. [Persistence, ORM](dev_1_programovani_a_softwarovy_vyvoj.md#persistence-orm-56)
    6. [Příklady z praxe pro vše výše uvedené](dev_1_programovani_a_softwarovy_vyvoj.md#příklady-z-praxe-pro-vše-výše-uvedené-66)
 2. [Analýza a návrh systémů](dev_2_analyza_a_navrh.md) (PA103, PV167 || PV258 || PV293)
