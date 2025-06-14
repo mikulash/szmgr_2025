@@ -151,7 +151,7 @@ Pokud často pracujeme s aktuální hodnotou, můžeme použít verzování, ale
 ### Druhy sql dotazů specifické pro analytiku
 
 - **Slice** - v rámci jedné dimenze vybíráme konkrétní hodnotu a zobrazujeme pouze data s touto hodnotou dimenze. V sql pomocí WHERE. Např. kolik se prodalo laptopů?
-- **Dice** - jako slice, akorát pracujeme s intervaly/více hodnotami jedné dimenze (např. prodeje od-do, prodeje laptopů a telefonů), nebo hodnot více dimenzí (prodeje laptopů v říjnu)
+- **Dice** - jako slice, akorát pracujeme s intervaly/více hodnotami jedné dimenze (např. prodeje od-do, prodeje laptopů a telefonů), nebo hodnot více dimenzí (prodeje laptopů v říjnu). V SQL pomocí WHERE a AND/OR/IN/BETWEEN...
 - **Roll-up** - provádíme agregaci dat. Dimenzionální - můžeme vynechat nějakou dimenzi (kolik jsme prodali za celý čas? kolik ve všech pobočkách?) nebo hierarchický - můžeme se dívat z pohledu vyšší úrovně nějaké dimenze (kolik jsme prodali v jednotlivých regionech, které se skládají z více poboček?). Oba přístupy lze kombinovat. V sql pomocí agregačních funkcí (GROUP BY a třeba SUM)
 - **Drill-down** - opak roll-upu, jdeme z abstrakce do většího detailu. Je nutné, aby nějaká detailnější data existovala. Obvykle děláme drill-down z nějakého materializovaného pohledu a jdeme na konkrétní data.
 

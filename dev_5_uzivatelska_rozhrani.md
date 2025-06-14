@@ -75,12 +75,25 @@ Snažíme se pochopit, jakým způsobem uživatelé se systémem interagují, a 
 
 ### Wireframování
 
-Je vhodné pro návrh hrubého rozložení jednotlivých komponent rozhraní. Neřeší se zde barvy a styly, ale pouze layout a struktura obsahu.
+Wireframe je grafický skelet webu nebo aplikace, který slouží jako průvodce obsahem a koncepty stránek. Funguje podobně jako architektonický plán a pomáhá designérům a klientům diskutovat o detailech budování rozhraní.
+**Účel:** Získání konsenzu a sběr interní zpětné vazby o tom, jak bude nová funkcionalita fungovat
+
+**Charakteristiky:**
+- Low fidelity design (nízká věrnost)
+- Skládá se z čar, boxů a odstínů šedi
+- Neřeší se zde barvy a styly, ale pouze layout a struktura obsahu
+- Slouží ke komunikaci informační struktury, layoutu, obsahu a funkcionality
+  
 
 ### Prototypování
 
-Pomocí návrhových nástrojů jako Adobe XD nebo Figma lze vytvořit (částečně i interaktivní) prototyp, který se využije pro první uživatelské testování a získání zpětné vazby.
+Krok výše od wireframu s vyšší věrností (higher fidelity). Pomocí návrhových nástrojů jako Adobe XD nebo Figma lze vytvořit (částečně i interaktivní) prototyp.
 
+**Charakteristiky:**
+- Zahrnuje realisticky vypadající komponenty
+- Slouží pro další diskusi se stakeholdery
+- Využívá se pro uživatelské testování a získání zpětné vazby
+- Validované prototypy jsou připravené k vývoji
 ### Testování použitelnosti
 
 Testování použitelnosti může zahrnovat:
