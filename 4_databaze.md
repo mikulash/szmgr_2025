@@ -132,7 +132,7 @@ SET sloupec_a = hodnota_a
 WHERE ... --často klíč
 ```
 
-Update bez WHERE může provést update všeho. Kontrolují se integritní omezení ovlinvněných sloupců
+Update bez WHERE může provést update všeho. Kontrolují se integritní omezení ovlivněných sloupců
 
 ### Delete
 

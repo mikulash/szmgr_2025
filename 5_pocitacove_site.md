@@ -158,11 +158,37 @@ TCP mění množství poslaných dat v průběhu komunikace, aby nebyl příjemc
 
 ### Protokoly na síťových vrstvách
 
-- **Aplikační** - HTTP, SMTP, DNS, FTP...
-- **Transportní** - TCP, UDP
-- **Síťová IP** - IPv4 (spolu s ARP, RARP, ICMP, IGMP), IPv6 (ICMPv6)
-    - pro směrování Distance vector: RIP, IGRP, EIGRP, Link state: OSPF, IS-IS
-- **Vrstva síťového rozhraní** - ethernet, 802.11 (Wi-Fi)
+- **Aplikační**
+    - **HTTP** - přenos webových stránek, komunikace mezi webovým prohlížečem a serverem
+    - **SMTP** - odesílání e-mailových zpráv
+    - **DNS** - překlad doménových jmen na IP adresy
+    - **FTP** - přenos souborů mezi počítači
+
+- **Transportní**
+    - **TCP** - spolehlivý, spojovaný přenos dat s kontrolou chyb a potvrzováním
+    - **UDP** - rychlý, nespojovaný přenos dat bez garantované doručení
+
+- **Síťová IP**
+    - **IPv4** - internetový protokol verze 4, adresování a směrování v síti
+        - **ARP** - mapování IP adres na MAC adresy
+        - **RARP** - mapování MAC adres na IP adresy
+        - **ICMP** - chybové zprávy a diagnostika sítě (ping, traceroute)
+        - **IGMP** - správa multicastových skupin
+    - **IPv6** - internetový protokol verze 6, nástupce IPv4 s větším adresním prostorem
+        - **ICMPv6** - ICMP pro IPv6
+
+  **Směrovací protokoly:**
+    - Distance vector:
+        - **RIP** - jednoduchý směrovací protokol pro malé sítě
+        - **IGRP** - Cisco proprietární protokol, vylepšení RIP
+        - **EIGRP** - pokročilý hybridní směrovací protokol od Cisco
+    - Link state:
+        - **OSPF** - otevřený standard pro směrování ve větších sítích
+        - **IS-IS** - směrovací protokol původně pro ISO sítě
+
+- **Vrstva síťového rozhraní**
+    - **Ethernet** - standard pro kabelové lokální sítě (LAN)
+    - **802.11 (Wi-Fi)** - standard pro bezdrátové lokální sítě (WLAN)
 
 ### Funkce IPv4
 
