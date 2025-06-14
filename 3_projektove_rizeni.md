@@ -1,17 +1,15 @@
-# Projektové řízení
+# **Projektové řízení** (PA179)
 
 > Plánování, řízení rizik, role modelů v projektovém řízení. Ganttovy diagramy, síťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT). Mezinárodní standardy a metodiky projektového řízení (PMI Project Management Body of Knowledge, PRINCE 2). Příklady z praxe pro vše výše uvedené. [PA179](https://is.muni.cz/auth/el/fi/jaro2022/PA179/um/)
 
-1. [Plánování (1/8)](#plánování-18)
-2. [Řízení rizik (2/8)](#řízení-rizik-28)
-3. [Role modelů v projektovém řízení (3/8)](#role-modelů-v-projektovém-řízení-38)
-4. [Ganttovy diagramy (4/8)](#ganttovy-diagramy-48)
-5. [Síťová analýza (5/8)](#síťová-analýza-58)
-6. [Metoda kritické cesty (CPM) (6/8)](#metoda-kritické-cesty-cpm-68)
-7. [Program Evaluation and Review Technique (PERT) (7/8)](#program-evaluation-and-review-technique-pert-78)
-8. [Mezinárodní standardy a metodiky projektového řízení (8/8)](#mezinárodní-standardy-a-metodiky-projektového-řízení-88)
+1. [Plánování, řízení rizik, role modelů v projektovém řízení](#plánování-řízení-rizik-role-modelů-v-projektovém-řízení)
+2. [Ganttovy diagramy, síťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT)](#ganttovy-diagramy-síťová-analýza-metoda-kritické-cesty-cpm-program-evaluation-and-review-technique-pert)
+3. [Mezinárodní standardy a metodiky projektového řízení (PMI Project Management Body of Knowledge, PRINCE 2)](#mezinárodní-standardy-a-metodiky-projektového-řízení-pmi-project-management-body-of-knowledge-prince-2)
+4. [Příklady z praxe pro vše výše uvedené](#příklady-z-praxe-pro-vše-výše-uvedené)
 
-## Plánování (1/8)
+## Plánování, řízení rizik, role modelů v projektovém řízení (1/4)
+
+### Plánování
 
 Je třeba rozlišovat mezi:
 
@@ -37,13 +35,13 @@ Je třeba rozlišovat mezi:
         - monitoringem výkonu firmy
         - výběrem a prioritizací programů a projektů
 
-Pro konkrétní projekt je potřeba si zvolit vhodný přístup **prediktivní** nebo **agilní** [viz otázka 3](2_softwarove_inzenyrstvi.md).
+Pro konkrétní projekt je potřeba si zvolit vhodný přístup **prediktivní** nebo **agilní** [viz otázka 2](2_softwarove_inzenyrstvi.md).
 
-### Agilní plánování
+#### Agilní plánování
 
-Dále je potřeba u plánování projektů sepsat [Project Charter](3_projektove_rizeni.md#pmi-project-management-body-of-knowledge-pmbok) popisující základní informace o projektu (proč, co, kdo, kdy, jak, za kolik...), sepsat podrobnosti klíčových strategií (komunikace, rizika, kvalita, změny) a nějakým způsobem začít plánovat práci (product backlog, řešení architektury...).
+Dále je potřeba u plánování projektů sepsat [Project Charter](3_projektove_rizeni.md#pmi-project-management-body-of-knowledge-pmbok-88) popisující základní informace o projektu (proč, co, kdo, kdy, jak, za kolik...), sepsat podrobnosti klíčových strategií (komunikace, rizika, kvalita, změny) a nějakým způsobem začít plánovat práci (product backlog, řešení architektury...).
 
-### Prediktivní plánování
+#### Prediktivní plánování
 
 Sepisuje se **Project Initiation Documentation** obsahující detailní Business Case, veškeré informace o projektu (proč, co, kdo, kdy, jak, za kolik), definují se klíčové strategie (komunikace, rizika, kvalita, změny), vše se dokumentuje, vytváří se příslušné registry, vše se schvaluje product boardem (zástupci exekutivy, inženýrů a zákazníků). Do PID se pak zapisují i změny a průběh, aby bylo možné porovnat plán a realitu, je dostupný všem v rámci projektu.
 
@@ -55,7 +53,7 @@ Dělá se **projektový plán** (proč, co, kdo, kdy, jak, za kolik...) - **Work
 
 ![](img/20230526000518.png)
 
-## Řízení rizik (2/8)
+### Řízení rizik
 
 Postup:
 
@@ -85,7 +83,7 @@ Možné zdroje rizik (nejčastější tučně):
 - **firemní prostředí** - nestabilní, změna vedení...
 - **subdodavatelé** - opoždění, nedostatečná kvalita, komunikace...
 
-### Specifika prevence u agilního řízení rizik
+#### Specifika prevence u agilního řízení rizik
 
 Prevence:
 
@@ -94,15 +92,17 @@ Prevence:
 - **Jasná definice, co znamená "hotovo"**
 - **Krátké iterace** - brzo zjistíme, co je případně blbě
 
-## Role modelů v projektovém řízení (3/8)
+### Role modelů v projektovém řízení
 
-Těžko říct, co se tím myslí; v přednáškách PA179 žádná významná zmínka o modelech nebyla :thinking: Datové modely? Modelování komunikace, financí, rizik?
+Těžko říct, co se tím myslí; v přednáškách PA179 žádná významná zmínka o modelech nebyla. Datové modely? Modelování komunikace, financí, rizik?
 
 V řízení lze modely použít při plánování projektů pomocí [síťové analýzy](3_projektove_rizeni.md#síťová-analýza-58), [metody kritické cesty](3_projektove_rizeni.md#metoda-kritické-cesty-cpm-68).
 
 Dále je možné modelovat procesy (komunikace), finance, rizika... a na těchto modelech hledat kritická místa, zkoumat co by kdyby...
 
-## Ganttovy diagramy (4/8)
+## Ganttovy diagramy, síťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT) (2/4)
+
+### Ganttovy diagramy
 
 - nástroj pro plánování (nejen) projektů
 
@@ -124,7 +124,7 @@ ale lze rozšířit...
 
 ![](img/20230525195955.png)
 
-## Síťová analýza (5/8)
+### Síťová analýza
 
 Metody pro modelování souboru činností vedoucích k dosažení nějakého cíle (tj. projektů).
 
@@ -132,7 +132,7 @@ Cílem je projekt naplánovat, minimalizovat prostoje a náklady, určit termín
 
 Používá se pro to síťový graf hranově/uzlově orientovaný - úlohy jsou na hranách/uzlech. Uzlově orientovaný umožňuje snadno modelovat precedenční podmínky, lze snadno použít pro metodu kritické cesty.
 
-## Metoda kritické cesty (CPM) (6/8)
+### Metoda kritické cesty (CPM)
 
 Metoda pro identifikaci vzájemně závislých aktivit, které mají vliv (jsou kritické) na dobu dokončení projektu a nemohou být opožděny bez prodloužení dokončení projektu.
 
@@ -146,7 +146,7 @@ Metoda pro identifikaci vzájemně závislých aktivit, které mají vliv (jsou 
 
 ![](img/20230526101347.png)
 
-## Program Evaluation and Review Technique (PERT) (7/8)
+### Program Evaluation and Review Technique (PERT)
 
 Technika k odhadu času k dokončení tasku. Bereme **optimistický** odhad, **pesimistický** odhad a **nejpravděpodobnější** odhad:
 
@@ -154,7 +154,7 @@ Technika k odhadu času k dokončení tasku. Bereme **optimistický** odhad, **p
 
 Pokud máme informace o úrovni platů implementátorů tasků, můžeme dopočítat odhadovanou cenu.
 
-## Mezinárodní standardy a metodiky projektového řízení (8/8)
+## Mezinárodní standardy a metodiky projektového řízení (PMI Project Management Body of Knowledge, PRINCE 2) (3/4)
 
 - standardy projektového řízení PRINCE2, PMBOK, IPMA ICB popisují obecnější způsob řízení
 - metodiky sw vývoje (RUP, SCRUM) řeší řízení v rámci vývojového týmu, jsou specifické pro vývoj SW
@@ -200,7 +200,9 @@ Pokud máme informace o úrovni platů implementátorů tasků, můžeme dopoč�
     - tým vyžaduje řád a kontrolu
     - manažery s málo zkušenostmi, hodí se mu podrobný popis postupu
 
-**Fáze** (hrubě odpovídá UP inception, elaboration, construction a transition):
+#### Fáze
+
+(hrubě odpovídá UP inception, elaboration, construction a transition):
 
 - **Starting up**
     - tvorba **Project brief**:
@@ -239,7 +241,9 @@ Pokud máme informace o úrovni platů implementátorů tasků, můžeme dopoč�
     - případné předání projektu ops a maintenance týmu
     - tvorba SLA
 
-**7 principů** (vše máme nějak zdokumentované):
+#### 7 principů
+
+(vše máme nějak zdokumentované):
 
 - **Kontinuální odůvodnění projektu** - proč to děláme?
 - **Učení se ze zkušeností** - co (ne)fungovalo
@@ -249,7 +253,7 @@ Pokud máme informace o úrovni platů implementátorů tasků, můžeme dopoč�
 - **Důraz na produkt** - primární cíl je produkt, ne práce
 - **Přizpůsobení metodiky projektu** - není nutné PRINCE používat úplně doslovně, řádek po řádku. Ne všechny formuláře jsou vždy zcela relevantní
 
-**7 témat:**
+#### 7 témat
 
 - **Business case** - obsahuje očekávané přínosy, rizika, časový a cenový rozsah, důvody projektu... Měl by být neustále aktualizován a držen validní po celou dobu projektu
 - **Organizace** - definice rolí a odpovědností, typy stakeholderů (dodavatel, business/zákazník, uživatel), 3 úrovně managementu (project board pro směrování projektu (obsahuje exekutivu, senior suppliera, senior usera), project manager pro řízení projektu, team manager pro dodávání produktu), manage by exception
@@ -259,7 +263,7 @@ Pokud máme informace o úrovni platů implementátorů tasků, můžeme dopoč�
 - **Změny** - u požadavků na změnu řešíme prioritu, dopad, kritičnost, zkoumáme možnosti řešení, dle změny upravujeme záznamy a plán
 - **Postup projektu** - porovnáváme realitu s plány (čas, cena, kvalita, rozsah, rizika...), sledujeme zda stále projekt splňuje business case
 
-**7 procesů:**
+#### 7 procesů
 
 ![](img/20230525115631.png)
 
@@ -290,11 +294,13 @@ Pokud máme informace o úrovni platů implementátorů tasků, můžeme dopoč�
 
 ### Metodiky
 
-Popsány v [otázce 3](2_softwarove_inzenyrstvi.md)
+Popsány v [otázce 3](2_softwarove_inzenyrstvi.md) (metodiky sw vývoje jako RUP, SCRUM)
 
-## Notes
+## Příklady z praxe pro vše výše uvedené (4/4)
 
-**Specifika IT projektů** v porovnání s většinou průmyslových odvětví:
+### Specifika IT projektů
+
+v porovnání s většinou průmyslových odvětví:
 
 - nepřesné/neznámé, časté a měnící se požadavky
 - větší nutnost přizpůsobení produktu
@@ -306,7 +312,7 @@ Popsány v [otázce 3](2_softwarove_inzenyrstvi.md)
 - nutnost řízení rizik
 - dokončené projekty je často třeba servisovat/poskytovat podporu
 
-**IT Infrastructure Library (ITIL)**
+### IT Infrastructure Library (ITIL)
 
 Best practices pro **řízení IT služeb**:
 
@@ -316,3 +322,31 @@ Best practices pro **řízení IT služeb**:
 - **Service transition** - jak měníme stávající služby, řešení deploymentu, uložení získaných znalostí pro budoucí projekty
 - **Service operation** - dokumentace pro uživatele/helpdesk, řešení incidentů/změnových požadavků/problémů, řešení identit a přístupu k systému
 - **Continual service improvement** - monitoring, logování, aktualizace běžící služby
+
+### Praktické příklady aplikace
+
+#### Příklad použití CPM v praxi
+
+**Situace:** Vývoj webové aplikace pro e-commerce
+
+**Aktivity a závislosti:**
+- A: Analýza požadavků (5 dní)
+- B: Design databáze (3 dní, po A)
+- C: Design UI/UX (4 dny, po A)
+- D: Implementace backend (8 dní, po B)
+- E: Implementace frontend (6 dní, po C)
+- F: Integrace (3 dny, po D a E)
+- G: Testování (4 dny, po F)
+
+**Kritická cesta:** A → B → D → F → G (23 dní)
+**Slack:** C a E mají 2 dny slack
+
+#### Příklad PERT odhadu
+
+**Task:** Implementace platebního systému
+
+- **Optimistický odhad:** 8 dní (vše jde hladce)
+- **Nejpravděpodobnější:** 12 dní (standardní průběh)
+- **Pesimistický:** 20 dní (komplikace s API, bezpečnost)
+
+**PERT odhad:** (8 + 4×12 + 20) / 6 = 76/6 ≈ 12,7 dní
