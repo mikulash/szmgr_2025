@@ -130,6 +130,7 @@ Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#zá
     - **Transformer (map)** - transformuje vstup na výstup
     - **Tester (reduce)** - testuje kritérium a potenciálně vyprodukuje (mimo předání dat bez modifikace dál) výstup, který může vyvolat akci (zápis do databáze)
     - **Consumer/sink** - ukončuje akci
+    - aktivní filter aktivně tahá data (pulling) a předává je dalšímu filtru. pasivní filter jen pasivně čeká na data a jak přijdou, zpracuje je, následující aktivní filter si je z něj sám tahá
   - filtry je možné snadno používat znovu (reuse)
   - vede k batch processingu, což není fajn pro rychlou odezvu systému
   - např. unix terminal, compiler, RxJS, Dart streamy

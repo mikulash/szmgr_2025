@@ -84,7 +84,7 @@ SW architektury (vyšší úroveň abstrakce) a architektonické vzory (nižší
 
 ### Komponentové systémy
 
-Komponenty jsou spustitelné softwarové jednotky, které mají definované komunikační rozhraní, do vnitřního fungování nevidíme/nezajímá nás. Komponent by měl poskytovat logicky související funkcionalitu, funguje jako vrstva abstrakce. Komponenty mohou být vyvíjeny nezávisle na jiných komponentech, jsou nahraditelné (stačí splnit rozhraní a jeho kontrakt), znovupoužitelné. Komponenty mohou mít vnitřní stav, ten však může dělat problém u škálování (paralelizací komponentů), mohou být asynchronní, mohou se interně skládat z dalších komponentů...
+Komponenty jsou spustitelné softwarové jednotky, které mají definované komunikační rozhraní, do vnitřního fungování nevidíme/nezajímá nás. Komponent by měl poskytovat logicky související funkcionalitu, funguje jako vrstva abstrakce. Komponenty mohou být vyvíjeny nezávisle na jiných komponentách, jsou nahraditelné (stačí splnit rozhraní a jeho kontrakt), znovupoužitelné. Komponenty mohou mít vnitřní stav, ten však může dělat problém u škálování (paralelizací komponentů), mohou být asynchronní, mohou se interně skládat z dalších komponentů...
 
 Pokud systém vystavuje rozhraní používaná i někým jiným (klient), je fajn nějakým způsobem verzovat rozhraní. Díky tomu se předejde problémům při přidávání změn, nějakou dobu totiž můžeme podporovat více rozhraní, než se klient aktualizuje na novou verzi.
 
@@ -261,6 +261,11 @@ Součástí kontraktu (v kontextu struktur/objektů) můžou být:
 **OCL (Object Constraint Language)** je deklarativní jazyk, který umožňuje popis kontraktů a jejich constraintů (omezení domén hodnot), včetně jejich zavedení do UML, a může být použit i pro jejich vynucování (např. generování kódu na základě kontraktu popsaného v komentáři/anotacích (v Javě `@`)).
 
 Při definici kontraktů objektů s dědičností nesmíme porušit Liskov substitution principle, dědic může invarianty a postconditions pouze utahovat, ne je rozvolňovat (co platilo pro rodiče, musí platit i pro potomka). Naopak je to u preconditions, kde může dědic podporovat více vstupů než předek.
+
+Pre- a postconditions se vztahují k metodám, invarianty k objektům.
+
+`@pre` se používá v postconditions pro odkaz na stav objektu před voláním metody, `self` se používá pro odkaz na aktuální instanci objektu.
+Preconditions mohou být ve zděděných třídách rozvolněny, postconditions a invarianty musí být v dědicích utahovány - Liskov substitution principle.
 
 #### Příklady OCL
 
