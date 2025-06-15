@@ -93,7 +93,7 @@ Více v [Bezpečný kód](dev_4_bezpecny_kod.md)
   - `-` hlavička je viditelná (=> použij aspoň https), údaje se zasílají s každým požadavkem
 - **TLS certifikáty** - server musí poskytnout certifikát, klient může poskytnout certifikát, čímž se autentizuje
 - **OAuth2** - protokol pro poskytnutí autorizace třetím stranám, funguje na principu vydávání tokenů (Refresh token, Access token). Access token má omezenou dobu platnosti a obsahuje autorizační data (majitel tokenu je oprávněn k akci) uživatele podepsaná soukromým klíčem autorizačního serveru. Refresh token může mít delší dobu platnosti, je uložený u uživatele a je možné ho použít k získání dalšího access tokenu bez nutnosti autentizace (provedou se ale kontroly ohledně práv uživatele).
-- **OpenID Connect** - nadstavba nad OAuth2, přidává autentizaci a informace o identitě uživatele. Používá se pro federalizovanou správu identity (single sign-on). *Klient* je aplikace, která potřebuje autentizovat uživatele. *Autorizační server* autentizuje uživatele, vydává token autorizující držitele k přístupu ke *scopes* obsahující *claims* (např. scope profil pro claimy id, email, name, picture, locale...) umístěných na *resource serveru*. Resource server slouží jako endpoint pro poskytování claimů na základě scopes v tokenu
+- **OpenID Connect** - nadstavba nad OAuth2, přidává autentizaci a informace o identitě uživatele. Používá se pro federalizovanou správu identity (single sign-on). *Klient* je aplikace, která potřebuje autentizovat uživatele. *Autorizační server* autentizuje uživatele, vydává token autorizující držitele k přístupu ke *scopes* obsahující *claims* (např. scope profil pro claimy id, email, name, picture, locale...) umístěných na *resource serveru*. Resource server slouží jako endpoint pro poskytování claimů na základě scopes v tokenu (JWT)
 - **SAML** - xml protokol pro výměnu autentizačních a autorizačních dat, starší než oauth/oidc
 - **Kerberos** - na rozdíl od oauth2 a openid connect používá v základu symetrickou kryptografii (např. uživatelovo heslo je na autorizačním serveru, uživatel posílá pouze svou identitu a server vrací přístupová data šifrovaná heslem uživatele)
 
@@ -105,7 +105,7 @@ Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#zá
   - oddělení logiky zvyšuje modulárnost kódu, který je pak snadnější upravovat, testovat, udržovat
   - např. multipage web
 - **MVP pattern - model, view, presenter** - presenter je prostředník mezi modelem a view, jde přes něj veškerá komunikace. Uživatel používá pouze view, akce uživatele view předává presenteru, který aktualizuje model a zasílá view nová data. Např. SPA. Vztah Presenter - View je imperativní. Presenter naslouchá událostem vyvolaným View a podle toho s ním manipuluje.
-- **MVVM pattern - model, view, view model** - uživatel interaguje pouze přes view, veškerá komunikace jde přes view model, které provádí data, propisuje je do modelu. Rozdíl oproti mvp je, že view model může být použit pro více views, změny se sledují pomocí observeru. Např. android aplikace. Vztah View - ViewModel je deklarativní. ViewModel neinteraguje s View přímo, ale pozoruje deklarované vlastnosti prostřednictvím speciální vrstvy datových vazeb.
+- **MVVM pattern - model, view, viewmodel** - uživatel interaguje pouze přes view, veškerá komunikace jde přes viewmodel, které provádí data, propisuje je do modelu. Rozdíl oproti mvp je, že viewmodel může být použit pro více views, změny se sledují pomocí observeru. Např. android aplikace. Vztah View - ViewModel je deklarativní. ViewModel neinteraguje s View přímo, ale pozoruje deklarované vlastnosti prostřednictvím speciální vrstvy datových vazeb.
 - **Klient-Server** - klient slouží jako uživatelské rozhraní. Server zpracovává požadavky zasílané klientem a odpovídá na ně. Server dle požadavku klienta provádí aplikační logiku, přistupuje k databázi... Komunikace je vždy iniciována klientem, server pouze odpovídá. Lze dělit na úrovně (2 tier, 3 tier i s databází, další úrovně můžou být servisní vrstvy...)
 
 - **Peer-to-Peer** - každý klient je současně i serverem, klienti spolu komunikují napřímo. Klienti takto sdílí výpočetní výkon, distribuují data... např. BitTorrent
@@ -143,13 +143,25 @@ Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#zá
   - Pro využití komponenty je nutné řešit discovery pomocí nějakého registru (může stačit hashmapa), musíme znát identitu (která by se neměla měnit) chtěného komponentu, který v systému nemusí být
   - např. VS Code - jádro je textový editor, pluginy jsou extensions
 
-- **Servisně orientovaná architektura (SOA)** - hybrid mezi monolitem a microservices.
+- **Servisně orientovaná architektura ([SOA](https://www.youtube.com/watch?v=9fn4vGEKFs8))** - tradiční enterprise přístup
+  - důraz na znovupoužitelnost služeb napříč celou organizací
+  - používá ESB (Enterprise Service Bus) pro komunikaci mezi službami
+  - standardy jako SOAP, WSDL, UDDI pro definici a objevování služeb
+  - služby jsou obvykle hrubozrnné (coarse-grained)
+  - centralizovaná governance a správa služeb
+  - těžší infrastruktura, komplexnější implementace
+  - fajn pro velké enterprise organizace s potřebou sdílení služeb
+![img.png](img.png)
+
+- **Servisně založená architektura ([Service-Based Architecture](https://www.youtube.com/watch?v=LK0tC1-mlFA))** - hybrid mezi monolitem a microservices
   - separátní UI (může jich být více), separátně nasazené služby (obvykle 4-12), každá se soustředí na jednu úlohu (nebo část systému), sdílená db, služby jsou interně tvořeny vrstvenou architekturou/děleny dle domény
   - Pokud služba využívá část databáze, kterou žádná jiná služba nevyužívá, je možné tuto část oddělit do vlastní databáze.
   - pokud chceme jednotné API, používá se vrstva fasády, která přeposílá komunikaci jednotlivým službám
-  - ACID transakce (microservices mají BASE, basically available, soft state, eventually consistent, tj. duplikace dat, konzistence může chvíli trvat...), fajn pro konzistenci a integritu, ale úprava znamená nutnost testu celého systému
+  - ACID transakce (microservices mají BASE - basically available, soft state, eventually consistent, tj. duplikace dat, konzistence může chvíli trvat...), fajn pro konzistenci a integritu, ale úprava znamená nutnost testu celého systému
   - fajn pro domain driven design bez přílišné složitosti
   - fajn když potřebujeme ACID
+  - modernější, jednodušší přístup než tradiční SOA
+![img_1.png](img_1.png)
 
 - **Microservices**
   - cílem je vysoká nezávislost jednotlivých služeb, mohou být implementovány v různých programovacích jazycích
