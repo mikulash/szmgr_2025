@@ -151,7 +151,7 @@ Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#zá
   - centralizovaná governance a správa služeb
   - těžší infrastruktura, komplexnější implementace
   - fajn pro velké enterprise organizace s potřebou sdílení služeb
-![img.png](img.png)
+![img.png](img/SOA_archi.png)
 
 - **Servisně založená architektura ([Service-Based Architecture](https://www.youtube.com/watch?v=LK0tC1-mlFA))** - hybrid mezi monolitem a microservices
   - separátní UI (může jich být více), separátně nasazené služby (obvykle 4-12), každá se soustředí na jednu úlohu (nebo část systému), sdílená db, služby jsou interně tvořeny vrstvenou architekturou/děleny dle domény
@@ -161,7 +161,7 @@ Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#zá
   - fajn pro domain driven design bez přílišné složitosti
   - fajn když potřebujeme ACID
   - modernější, jednodušší přístup než tradiční SOA
-![img_1.png](img_1.png)
+![img_1.png](img/service_based_archi.png)
 
 - **Microservices**
   - cílem je vysoká nezávislost jednotlivých služeb, mohou být implementovány v různých programovacích jazycích
