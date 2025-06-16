@@ -1,0 +1,20 @@
+{
+    "name": "markdown-mindmap-generator",
+    "version": "1.0.0",
+    "description": "Generate HTML and PNG mind-maps from Markdown files",
+    "main": "generateMindmap.js",
+    "scripts": {
+        "start": "node generateMindmap.js",
+        "test": "node generateMindmap.js README.md"
+    },
+    "author": "",
+    "license": "MIT",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "dependencies": {
+        "markmap-lib": "^0.18.12",
+        "markmap-render": "^0.18.12",
+        "puppeteer": "^21.11.0"
+    }
+}
