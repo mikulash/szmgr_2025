@@ -146,7 +146,7 @@ Iterace jsou seskupovány do fází:
 
 Iterace by neměla překročit 3 měsíce, přínos iterace je **inkrement**, každá iterace obsahuje workflows, které jsou více či méně přítomné. Pro každé workflow se používají určité UML diagramy:
 
-- **Business modelování**
+- **Business modelování** - kdo jsou stakeholders, jaké jsou jejich potřeby, jaké jsou obchodní cíle?
     - activity diagram
 - **Požadavky**
     - use case diagram
@@ -159,7 +159,7 @@ Iterace by neměla překročit 3 měsíce, přínos iterace je **inkrement**, ka
 - **Deployment**
     - deployment diagram
 
-RUP je konkrétní metodika stavějící na UP (přidává třeba jednotlivé role a odpovědnosti v týmu, konkrétní postupy...), UP je obecný rámec.
+RUP je konkrétní komerční metodika stavějící na UP (přidává třeba jednotlivé role a odpovědnosti v týmu, konkrétní postupy...), UP je obecný rámec.
 
 ## Agilní metodiky a principy agilního vývoje SW (3/5)
 

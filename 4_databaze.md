@@ -236,17 +236,18 @@ CREATE INDEX my_index ON Products (Price)
 Pro indexy se mohou používat:
 
 - **tradiční indexy** - jako v knihách, odkazy na řádky s danou hodnotou, je možné dělat více úrovní indexů, používat různá indexová uspořádání...
-- **haše** - pro získání jednoduché hodnoty velkých dat
-- **B+ stromy** - každý uzel obsahuje odkazy na uzly níže, nebo hodnoty (jedná se o listový uzel). Hodnoty jsou v listech vzestupně uspořádány, uzly v sobě mají i informace o intervalech daných odkazů/hodnot, listy jsou provázané.
+- **haše** - pro získání jednoduché hodnoty velkých dat, neumožňují range scans nebo ordering.
+- **B+ stromy** - každý uzel obsahuje odkazy na uzly níže, nebo hodnoty (jedná se o listový uzel). Hodnoty jsou v listech vzestupně uspořádány, uzly v sobě mají i informace o intervalech daných odkazů/hodnot, listy jsou provázané. nejvíce používané.
   ![](img/20230526220652.png)
-- **R stromy** - podobné jako B+, ale jsou vícedimenzionální, ve 2D fungují jako obdélníky. Data jsou v listových uzlech stromu. Rodič uzlu zahrnuje všechny své potomky (ve 2D jde o větší obdélník, který obsahuje potomky). Ideální je, aby zabíraly rodičovské obdélníky co nejméně prostoru - rodič totiž jako index redukuje oblast nutnou k prohledání (říká *hledej ve mně!*).
+- **B stromy** - podobné jako B+, ale uzly mohou obsahovat i hodnoty, ne pouze odkazy na další uzly. liste nejsou provázané, ale jsou na stejné úrovni, jinak podobné jako B+.
+- **R stromy** - podobné jako B+, ale jsou vícedimenzionální, ve 2D fungují jako obdélníky. Data jsou v listových uzlech stromu. Rodič uzlu zahrnuje všechny své potomky (ve 2D jde o větší obdélník, který obsahuje potomky). Ideální je, aby zabíraly rodičovské obdélníky co nejméně prostoru - rodič totiž jako index redukuje oblast nutnou k prohledání (říká *hledej ve mně!*). Třeba pro geodata.
   ![](img/20230526220927.png)
   ![](img/20230611232516.png)
 
 Další dělení indexů:
 
-- **dense** - každý řádek je zaindexovaný, zabírá více místa, ale hledání je rychlejší
-- **sparse** - pouze některé řádky zaindexované, zabírá méně místa, ale hledání pomalejší (je potřeba dohledat konkrétní řádek)
+- **dense/hustý** - každý řádek je zaindexovaný, zabírá více místa, ale hledání je rychlejší. může ukazovat na [kapsu](#kapsy).
+- **sparse/řídký** - pouze některé řádky zaindexované, zabírá méně místa, ale hledání pomalejší (je potřeba dohledat konkrétní řádek)
 
 ### Hašování
 
@@ -289,3 +290,7 @@ Pro různé účely používáme různé algoritmy, jde o balanc rychlosti (u he
 - Profiling databázových dotazů
 - Sharding a replikace pro škálování
 - Používání materializovaných views pro složité analytické dotazy
+
+## Notes
+### Kapsy
+do kapsy se umísťují kolidující případy. kapsa se prochází lineárně. na kapsu s vyčerpanou kapacitou lze navázat přetokovou kapsu, těch může být více, ale musí se řetězit.

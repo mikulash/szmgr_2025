@@ -221,7 +221,7 @@ Pro zajištění rychlosti dotazů v OLAP se používá redundance v podobě:
     - fyzické - distribuce dat na různé výpočetní uzly, umožnění paralelního zpracování na více strojích
 - může být implementováno přímo v databázovém systému, nebo si ho zajistíme na aplikační úrovni (náročnější)
 - typy dělení:
-    - horizontální - tabulku dělíme na více tabulek se stejnými sloupci, obvykle podle intervalu (často časová dimenze, případně nějaká, co se často nemění), ale je možné i třeba podle hashe
+    - horizontální (sharding)- tabulku dělíme na více tabulek se stejnými sloupci, obvykle podle intervalu (často časová dimenze, případně nějaká, co se často nemění), ale je možné i třeba podle hashe
     - vertikální - část sloupců přesuneme do jiné tabulky (a.k.a. row splitting, vztah 1:1), dává smysl když určité sloupce nepoužíváme často.
 - data používaná společně by měla být uložena společně
 - fajn pro škálování, části lze nezávisle prohledávat na více strojích
