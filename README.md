@@ -7,7 +7,8 @@ Oficiální link s otázkami: [https://www.fi.muni.cz/studies/fe-mgr/swe2021.htm
 Každá otázka je v samostatném markdown souboru, ale všechny poznamky jsou pravidelně mergovany do jednoho souboru dostupného v github [releasech](https://github.com/mikulash/szmgr_2025/releases). třeba pro vygerování PDFka nebo tak. Tohle je dělaný github actions, takže by to `combined` verze by měla být vždy aktuální.
 ## others
 
-[Workshop obhajob záverečných prác](https://www.youtube.com/watch?v=l5wGGtFUMxU)
+- [Workshop obhajob záverečných prác](https://www.youtube.com/watch?v=l5wGGtFUMxU)
+- notebookLM [podcasty](https://ucnmuni-my.sharepoint.com/:f:/g/personal/483813_muni_cz/EqfqAECs-RBLrTFtUA9ktEYBd2YZpT6Oqi3v4JJXYbAZFQ?e=pdsnN1)
 
 ## Shorter TOC
 **Společný základ programu**
