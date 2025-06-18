@@ -158,6 +158,7 @@ Architektonický styl, který rozděluje systém na volně provázané, vzájemn
 - centralizovaná governance a správa služeb
 - těžší infrastruktura, komplexnější implementace
 - fajn pro velké enterprise organizace s potřebou sdílení služeb
+  ![img.png](img/SOA_archi.png)
 
 ### Webové služby
 
