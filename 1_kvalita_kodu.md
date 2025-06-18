@@ -35,7 +35,7 @@ Za nejdůležitější atributy kvality kódu se považují:
 - **Bezpečnost** = jak je systém odolný vůči útokům
 - **Použitelnost** = snadnost používání systému a jednoduchost učení se práce s ním, správná funkcionalita (obvykle samostatný bod)
 
-### Udržitelnost (maintainability)
+#### Udržitelnost (maintainability)
 - refaktoring na koherentní jednotky, aby bylo místo nutné změny minimální a snadno lokalizovatelné,
 - separace dat od logiky (aby bylo možné jednotku nahradit jinou),
 - decoupling (závislosti na rozhraních, namísto na implementacích)
