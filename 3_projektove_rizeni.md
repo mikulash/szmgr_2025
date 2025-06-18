@@ -2,10 +2,10 @@
 
 > Plánování, řízení rizik, role modelů v projektovém řízení. Ganttovy diagramy, síťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT). Mezinárodní standardy a metodiky projektového řízení (PMI Project Management Body of Knowledge, PRINCE 2). Příklady z praxe pro vše výše uvedené. [PA179](https://is.muni.cz/auth/el/fi/jaro2022/PA179/um/)
 
-1. [Plánování, řízení rizik, role modelů v projektovém řízení](#plánování-řízení-rizik-role-modelů-v-projektovém-řízení)
-2. [Ganttovy diagramy, síťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT)](#ganttovy-diagramy-síťová-analýza-metoda-kritické-cesty-cpm-program-evaluation-and-review-technique-pert)
-3. [Mezinárodní standardy a metodiky projektového řízení (PMI Project Management Body of Knowledge, PRINCE 2)](#mezinárodní-standardy-a-metodiky-projektového-řízení-pmi-project-management-body-of-knowledge-prince-2)
-4. [Příklady z praxe pro vše výše uvedené](#příklady-z-praxe-pro-vše-výše-uvedené)
+1. [Plánování, řízení rizik, role modelů v projektovém řízení](#plánování-řízení-rizik-role-modelů-v-projektovém-řízení-14)
+2. [Ganttovy diagramy, síťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT)](#ganttovy-diagramy-síťová-analýza-metoda-kritické-cesty-cpm-program-evaluation-and-review-technique-pert-24)
+3. [Mezinárodní standardy a metodiky projektového řízení (PMI Project Management Body of Knowledge, PRINCE 2)](#mezinárodní-standardy-a-metodiky-projektového-řízení-pmi-project-management-body-of-knowledge-prince-2-34)
+4. [Příklady z praxe pro vše výše uvedené](#příklady-z-praxe-pro-vše-výše-uvedené-44)
 
 ## Plánování, řízení rizik, role modelů v projektovém řízení (1/4)
 
@@ -39,7 +39,7 @@ Pro konkrétní projekt je potřeba si zvolit vhodný přístup **prediktivní**
 
 #### Agilní plánování
 
-Dále je potřeba u plánování projektů sepsat [Project Charter](3_projektove_rizeni.md#pmi-project-management-body-of-knowledge-pmbok-88) popisující základní informace o projektu (proč, co, kdo, kdy, jak, za kolik...), sepsat podrobnosti klíčových strategií (komunikace, rizika, kvalita, změny) a nějakým způsobem začít plánovat práci (product backlog, řešení architektury...).
+Dále je potřeba u plánování projektů sepsat Project Charter popisující základní informace o projektu (proč, co, kdo, kdy, jak, za kolik...), sepsat podrobnosti klíčových strategií (komunikace, rizika, kvalita, změny) a nějakým způsobem začít plánovat práci (product backlog, řešení architektury...).
 
 #### Prediktivní plánování
 
@@ -47,7 +47,7 @@ Sepisuje se **Project Initiation Documentation** obsahující detailní Business
 
 Dělá se detailní analýza požadavků, spousta Use case diagramů, detailní rozsah sloužící jako základ pro ocenění, design mockupy. Tvoří se **specifikační dokument** produktu - obsahuje požadavky, rozbití systému na komponenty (včetně detailního popisu až po pole vstupních formulářů), očekávanou kvalitu, akceptační kritéria.
 
-Dělá se **projektový plán** (proč, co, kdo, kdy, jak, za kolik...) - **Work Breakdown Structure** tvořená ze specifikačního dokumentu, počítá se čas a cena jednotlivých **Work Packages** (součást WBS, nejnižší jednotka) třeba pomocí [PERT](3_projektove_rizeni.md#program-evaluation-and-review-technique-pert-78), jejich závislosti, tvoříme rozvrh (gantt/network diagram), přiřazujeme odpovědnosti (mělo by jít snadno najít aktivity člověka i všechny spojené s aktivitou).
+Dělá se **projektový plán** (proč, co, kdo, kdy, jak, za kolik...) - **Work Breakdown Structure** tvořená ze specifikačního dokumentu, počítá se čas a cena jednotlivých **Work Packages** (součást WBS, nejnižší jednotka) třeba pomocí [PERT](#program-evaluation-and-review-technique-pert), jejich závislosti, tvoříme rozvrh (gantt/network diagram), přiřazujeme odpovědnosti (mělo by jít snadno najít aktivity člověka i všechny spojené s aktivitou).
 
 *WBS*
 
@@ -96,7 +96,7 @@ Prevence:
 
 Těžko říct, co se tím myslí; v přednáškách PA179 žádná významná zmínka o modelech nebyla. Datové modely? Modelování komunikace, financí, rizik?
 
-V řízení lze modely použít při plánování projektů pomocí [síťové analýzy](3_projektove_rizeni.md#síťová-analýza-58), [metody kritické cesty](3_projektove_rizeni.md#metoda-kritické-cesty-cpm-68).
+V řízení lze modely použít při plánování projektů pomocí [síťové analýzy](#síťová-analýza), [metody kritické cesty](#metoda-kritické-cesty-cpm).
 
 Dále je možné modelovat procesy (komunikace), finance, rizika... a na těchto modelech hledat kritická místa, zkoumat co by kdyby...
 
