@@ -85,6 +85,9 @@ Wireframe je grafický skelet webu nebo aplikace, který slouží jako průvodce
 - Slouží ke komunikaci informační struktury, layoutu, obsahu a funkcionality
   
 
+### Mockupy
+Mockup je statický návrh uživatelského rozhraní, který zobrazuje, jak bude aplikace vypadat. Obsahuje detaily jako barvy, fonty a další vizuální prvky, ale obvykle není interaktivní.
+
 ### Prototypování
 
 Krok výše od wireframu s vyšší věrností (higher fidelity). Pomocí návrhových nástrojů jako Adobe XD nebo Figma lze vytvořit (částečně i interaktivní) prototyp.
