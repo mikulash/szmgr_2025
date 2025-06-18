@@ -471,3 +471,5 @@ Je možné přidat i způsob měření `Protocol`, či sledovat přítomnost/nep
 **Včetně způsobu měření a logických vazeb mezi (pod)jevy:**
 
 ![](img/20230603112705.png)
+
+[Go to the next question](./dev_3_zpracovani_dat.md)

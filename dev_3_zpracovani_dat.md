@@ -304,3 +304,5 @@ JOINy jsou:
 ### Příklad architektury Data Warehouse pro Big Data
 
 ![](img/20230612205443.png)
+
+[Go to the next question](dev_4_bezpecny_kod.md)

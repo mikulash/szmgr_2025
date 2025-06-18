@@ -350,3 +350,5 @@ Best practices pro **řízení IT služeb**:
 - **Pesimistický:** 20 dní (komplikace s API, bezpečnost)
 
 **PERT odhad:** (8 + 4×12 + 20) / 6 = 76/6 ≈ 12,7 dní
+
+[Go to the next question](./4_databaze.md)

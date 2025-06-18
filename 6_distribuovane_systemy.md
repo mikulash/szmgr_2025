@@ -282,3 +282,5 @@ Příklady middleware:
 - **Message queue systémy, event brokeři** - messaging middleware
 - **Apache Camel** - integration framework
 - **Spring Boot** - application framework s middleware capabilities
+
+[Go to the next question](./dev_1_programovani_a_softwarovy_vyvoj.md)

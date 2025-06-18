@@ -294,3 +294,5 @@ Pro různé účely používáme různé algoritmy, jde o balanc rychlosti (u he
 ## Notes
 ### Kapsy
 do kapsy se umísťují kolidující případy. kapsa se prochází lineárně. na kapsu s vyčerpanou kapacitou lze navázat přetokovou kapsu, těch může být více, ale musí se řetězit.
+
+[Go to the next question](./5_pocitacove_site.md)

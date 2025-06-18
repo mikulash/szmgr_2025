@@ -494,3 +494,5 @@ Pro zefektivnění směrování je možné použít **Multiprotocol Label Switch
 **Integrita** - data nebyla cestou změněna
 
 **Šifrování** - data nejsou čitelná/srozumitelná třetím stranám
+
+[Go to the next question](./6_distribuovane_systemy.md)

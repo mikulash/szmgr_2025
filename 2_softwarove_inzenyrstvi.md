@@ -343,3 +343,5 @@ V závěru je fajn si udělat analýzu toho, co (ne)fungovalo, co zlepšit...
 - údržba se může dělat jako samostatný projekt, mohou na to být specializované týmy
 - řeší se oprava (i bezpečnostních) chyb, aktualizace a vylepšení (ideálně nějakým způsobem automatizované, ale může být fajn potvrzení uživatele), správu změn (co se jak a proč změnilo)
 - znovupoužitelnost se obvykle řeší v rámci jednotlivých služeb/programů/komponent, ale ne znovupoužitím struktur mezi různými projekty (pokud nejde o specializovanou knihovnu) - mohli bychom mít problém v případě změny
+
+[Go to the next question](./3_projektove_rizeni.md)

@@ -117,3 +117,5 @@ Alternativou může být použití multiplatformního frameworku Flutter (použ�
 Nativními jazyky pro mobilní aplikace jsou Swift (iOS) a Java/Kotlin (Android).
 
 Pro desktopové aplikace je možné použít i technologie jako GTK (existují bindingy pro různé jazyky) nebo Qt (C++), JavaFX …
+
+[Go back to the first question](1_kvalita_kodu.md)

@@ -564,3 +564,5 @@ Pro zajištění důvěrnosti dat bez šifrování lze použít **Chaffing and w
       - např. počítadlo pokusů by mělo nejdřív snížit počet pokusů, pak ověřit pin a v případě úspěchu resetovat počítadlo pokusů... jinak lze po zadání pinu a detekci neúspěchu rychle odpojit zdroj
 
 **Honeypotting** - pro útočníka připravíme izolovaný subsystém, do kterého ho pustíme a sledujeme jeho chování, čímž se učíme o jeho způsobu práce
+
+[Go to the next question](dev_5_uzivatelska_rozhrani.md)

@@ -432,3 +432,5 @@ Některé REST metody jsou kešovatelné, v komunikaci mohou být prostředníci
 
 - komunikační protokol pro web services, umožňuje výměnu dat, vzdálená volání funkcí
 - slouží jako jednotná vrstva mezi službami (aktuálně se používá spíš gRPC)
+
+[Go to the next question](./dev_2_analyza_a_navrh.md)
