@@ -384,7 +384,7 @@ Dekompozice podle [SOLID](1_kvalita_kodu.md#solid)
 
 **Problém s cyklickou vazbou objektů** - např. v metodě toString() je potřeba vhodně řešit, abychom se necyklili. Proto může být vhodnější definovat si pro takové případy speciální objekty s jasnou hierarchií a bez cyklů
 
-**Interface Definition Language** - popisuje rozhraní formou, která je nezávislá na použitém programovacím jazyce (např. OpenAPI Specification pro REST, protocol buffer pro gRPC, Web Service Description Language pro SOAP, CORBA IDL). Obvykle je možné pomocí IDL schématu vygenerovat v daném programovacím jazyce kód/struktury, který poskytovatel implementuje a uživatel používá. Více v [otázce 7](6_distribuovane_systemy.md).
+**Interface Definition Language** - popisuje rozhraní formou, která je nezávislá na použitém programovacím jazyce (např. OpenAPI Specification pro REST, protocol buffer pro gRPC, Web Services Description Language pro SOAP, CORBA IDL). Obvykle je možné pomocí IDL schématu vygenerovat v daném programovacím jazyce kód/struktury, který poskytovatel implementuje a uživatel používá. Více v [otázce 7](6_distribuovane_systemy.md).
 
 **Event list** - seznam všech událostí, které mohou v systému nastat
 

@@ -424,7 +424,7 @@ Některé REST metody jsou kešovatelné, v komunikaci mohou být prostředníci
   }
 }
 ```
-#### WSDL (web services definition language)
+#### WSDL (web services description language)
 
 - standardizovaný způsob popisu rozhraní webových služeb (jméno, lokaci, podporované protokoly, operace, formát zpráv...), používá se se SOAP
 

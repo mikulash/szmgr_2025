@@ -169,7 +169,7 @@ Komponenty umožňující komunikaci a interakci prostřednictvím standardizova
 Dříve se používaly web services založené na:
 - **SOAP** (simple object access protocol)
 - **XML**
-- definované pomocí **Web Service Description Language (WSDL)**
+- definované pomocí **Web Services Description Language (WSDL)**
 
 *SOAP Request:*
 ```xml
@@ -188,7 +188,7 @@ Dříve se používaly web services založené na:
 </soapenv:Envelope>
 ```
 
-##### WSDL (Web Service Description Language)
+##### WSDL (Web Services Description Language)
 - **W3C specification** pro popis webových služeb
 - **Programmatically generated** from source code annotations
 - **Programming language independent** way to specify service interfaces
