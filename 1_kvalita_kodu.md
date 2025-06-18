@@ -206,7 +206,7 @@ Každá informace by měla být v systému jednoznačně definována na jediném
   - contravariantni parametry metod u podtrid: musi prijmat typ, ktere bere nadtrida nebo obecnější
   - covariantni navratove typy metod u podtrid: musi vracet typ, ktery vraci nadtrida nebo konkrétnější
   - nevyhazovat zadne nove vyjimky v podtridach, ktere nejsou v nadtride
-- [super video k LSP](https://www.youtube.com/watch?v=7hXi0N1oWFU)
+  - detailnější video k ty contra/covariance a LSP [here](https://www.youtube.com/watch?v=7hXi0N1oWFU)
 
 #### Interface segregation principle
 - klienti kódu by neměli být závislí na metodách, které nepoužívají, a.k.a. dělej malá a jednoduchá rozhraní namísto velkých
@@ -231,7 +231,7 @@ Každá informace by měla být v systému jednoznačně definována na jediném
 - Techniky (některé editory je podporují, což usnadňuje práci a je pravděpodobně spolehlivější):
   - **Extrakce funkce** - kus kódu funguje jako jednotka/potřeboval by komentář => vytáhni ho do funkce, dej tomu přiléhající jméno, bude možné to použít na více místech
   - **Inline funkce** - opak výše, vhodné pro triviální situace jako `isMoreThanFiveEven(x)`
-  - **Nahrazení funkce metodou struktury** - fajn, když funkce používá ranec proměnných => stanou se fieldy struktury
+  - **Nahrazení mnoha parametrů funkce strukturou** - fajn, když funkce používá ranec proměnných => stanou se fieldy struktury
   - **Move method/field** - z jedné do jiné struktury, pokud to dává smysl (třeba doménově)
   - **Extrakce/inline třídy** - z třídy obsahující množinu polí, která jsou related, vytáhneme nový objekt, který bude původní třída obsahovat/nebo naopak pro inline
   - **Early return** - obecně chceme, aby funkce popisovala správný/bezchybný tok programu. Pokud při zpracování funkce objevíme chybu ve vstupních datech, hodíme tam return. V takových případech nepoužíváme `if-else`, ale `if return`
@@ -251,11 +251,16 @@ Kód, který se dobře čte a udržuje nemusí být ten nejrychlejší/nejefekti
 = proces evaluace, zda systém splňuje specifikované požadavky (IEEE: "Testing is the process of exercising or evaluating a system or system component by manual or automated means to verify that it satisfies specified requirements.")
 
 **Terminologie:**
-- **Defekt (defect)** - nedokonalost nebo porucha sw, kvůli které produkt nesplňuje požadavky
-- **Error** - lidská chyba produkující nesprávný výsledek
-- **Selhání (failure)** - náhlá neschopnost produktu provádět požadovanou funkci
-- **Chyba (fault)** - projev erroru v software
-- **Bug** - synonymum pro defekt
+- **Defekt (defect)** - nedokonalost nebo porucha sw, kvůli které produkt nesplňuje požadavky  
+  _Příklad: Funkce vrací špatný výsledek kvůli chybě v algoritmu._
+- **Error** - lidská chyba produkující nesprávný výsledek  
+  _Příklad: Vývojář omylem použije špatný operátor ve výrazu._
+- **Selhání (failure)** - náhlá neschopnost produktu provádět požadovanou funkci  
+  _Příklad: Aplikace spadne při pokusu uložit data._
+- **Chyba (fault)** - projev erroru v software  
+  _Příklad: Nesprávně inicializovaná proměnná způsobí nesprávné chování._
+- **Bug** - synonymum pro defekt  
+  _Příklad: Tlačítko v UI nefunguje podle očekávání._
 
 **Principy testování:**
 - **Sensitivita** - testy musí odhalit chybu/nedostatek vždy
@@ -271,6 +276,7 @@ Kód, který se dobře čte a udržuje nemusí být ten nejrychlejší/nejefekti
 - Každý test by měl testovat pouze jednu věc/vlastnost/feature, ideální je spousta malých testů, díky čemuž můžeme snadno identifikovat zdroj problému.
 - Ideálně by měl testování provádět někdo jiný, než autor testovaného kódu
 - **Prioritizace testování na základě rizik** - nemůžeme otestovat všechno, prioritizace testování rizikových funkcionalit (risk = dopad + pravděpodobnost)
+- Pokud narazíme na chybu, pro kterou nebyl test, je důležitá nejen oprava, ale i přidání (ideálně automatizovaného) testu, aby se chyba už nemohla opakovat
 
 ### Typy testování podle přístupu
 
@@ -281,15 +287,13 @@ Kód, který se dobře čte a udržuje nemusí být ten nejrychlejší/nejefekti
 
 ### Obecné typy testování
 
-- Pokud narazíme na chybu, pro kterou nebyl test, je důležitá nejen oprava, ale i přidání (ideálně automatizovaného) testu, aby se chyba už nemohla opakovat
 - **Regresní testování** - sledujeme, zda změny v systému nepřinesly pády (automatizovaných) testů
 - **Smoke testy** - sledujeme, zda vybrané kritické funkce fungují v novém prostředí. Pokud ne, nemá vůbec cenu nasazovat a testovat další věci
 - **Sanity testy** - jako smoke, ale spouští se pro ověření nápravy chyb/přidání funkcionality
 - **A/B testování** - používáme dvě varianty a sledujeme, která je úspěšnější (obvykle při testování UI)
 - :haha: v praxi někteří experti praktikují melounové testování pro zvýšení test coverage, zvenku zelené, uvnitř červené :haha:
 
-- Kvalita testů lze ověřit mutačním testováním. Do aplikace zavedeme defekty (mutací zdrojového kódu, lze automatizovat třeba negací operátoru, off-by-one, vynechání volání...) a sledujeme, kolik jich bylo odhaleno testy => pokud něco prošlo, může jít o kandidáta na další testy
-- **Mutační testování:** zanesení (malých) chyb do sw a testování kvality testovací suity. Předpoklad že testy, které najdou mutanty, najdou i opravdové chyby. Mscore = Mkilled / (Mtotal - Meq) kde Meq jsou ekvivalentní mutanti (mutace oproti původnímu programu nezpůsobí chybu)
+- Kvalita testů lze ověřit **mutačním testováním**: do aplikace zavedeme defekty (mutací zdrojového kódu, např. negací operátoru, off-by-one, vynechání volání) a sledujeme, kolik jich bylo odhaleno testy. Pokud něco prošlo, může jít o kandidáta na další testy. Předpoklad je, že testy, které najdou mutanty, najdou i opravdové chyby. Mscore = Mkilled / (Mtotal - Meq), kde Meq jsou ekvivalentní mutanti (mutace oproti původnímu programu nezpůsobí chybu).
 - Některé situace jsou pro náš produkt rizikovější (lze odhadnout při analýze), než ostatní - na ty bychom se měli zaměřit při testování
 - Vstupy testů vhodně rozdělujeme na kategorie (např. <0, 0, >0), z každé vybereme pár reprezentantů (abychom nemuseli testovat úplně každou hodnotu)
 
@@ -384,7 +388,7 @@ Cílem je identifikace a řešení případných problémů týkajících se ryc
 - narůstající počet uživatelů a požadavků v průběhu dlouhého časového úseku
 - nejčastěji má za cíl odhalit memory leaks atp
 
-### Škálovatelnost testing
+### testing škálovatelnosti
 - sledování narůstajícího využití resources s narůstajícím počtem požadavků
 - měli bychom pozorovat +- přímou úměru
 
