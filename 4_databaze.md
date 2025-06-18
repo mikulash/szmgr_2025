@@ -246,7 +246,7 @@ Pro indexy se mohou používat:
 
 Další dělení indexů:
 
-- **dense/hustý** - každý řádek je zaindexovaný, zabírá více místa, ale hledání je rychlejší. může ukazovat na [kapsu](#kapsy).
+- **dense/hustý** - každý řádek je zaindexovaný, zabírá více místa, ale hledání je rychlejší. může ukazovat na [kapsu](#kapsy) - skupinu řádků se stejným klíčem, která se prochází lineárně.
 - **sparse/řídký** - pouze některé řádky zaindexované, zabírá méně místa, ale hledání pomalejší (je potřeba dohledat konkrétní řádek)
 
 ### Hašování

@@ -57,7 +57,7 @@ V praxi se ujal model TCP/IP, který jednotlivé vrstvy ISO/OSI slučuje.
     - pull (datový přenos iniciuje klient) vs push (datový přenos iniciuje server) model
 
 #### Transportní - TCP, UDP
-- bere **data**, transformuje je na **segmenty**
+- bere **data**, transformuje je na **segmenty** (TCP) nebo **datagramy** (UDP)
 - zajištění transportu segmentů do cílové aplikace, komunikace mezi procesy
 - adresování pomocí portu (16 bitové číslo 0-65535)
 - může poskytovat end-to-end spolehlivost, spojení (segmenty jsou číslovány, záleží na pořadí, dodání je potvrzeno)

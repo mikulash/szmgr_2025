@@ -204,6 +204,8 @@ Pokud máme informace o úrovni platů implementátorů tasků, můžeme dopoč�
 
 (hrubě odpovídá UP inception, elaboration, construction a transition):
 
+![img.png](img.png)
+
 - **Starting up**
     - tvorba **Project brief**:
         - řešíme feasibilitu, zachycujeme klíčové požadavky, rizika

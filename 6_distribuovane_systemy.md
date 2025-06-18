@@ -138,7 +138,7 @@ NoSQL databáze mají obvykle mechanismy pro automatickou replikaci/distribuci d
 Je možné použít **sharding** (rozbijeme data, uzel se stará o svou doménu) pro distribuci dat
 
 #### Master-Slave replikace
-**Master-slave replikace** pro škálování (u aplikací s častým čtením) a prevenci výpadků (spadne master? jeden ze slaves je nový master) - master se při zápisu stará o aktualizaci dat na slaves.
+**Master-slave replikace** pro škálování (u aplikací s častým čtením) a prevenci výpadků (spadne master? jeden ze slaves je nový master) - master se při zápisu stará o aktualizaci dat na slaves. Zapisujeme jen na mastera a ten pak zpropaguje na slaves, kteri jsou jinak read only a jsou pak treba bliz uzivatelum.
 
 ### Systémy pro sdílení dat
 
@@ -148,13 +148,16 @@ Pro sdílení dat (událostí) je možné použít **Apache Kafka**, platformu p
 
 ### Architektura orientovaná na služby (SOA)
 
-Hybrid mezi microservices a monolitem, poměrně pragmatická architektura pro škálovatelný systém. Systém je tvořen vzájemně nezávislými, samostatně nasaditelnými a vzájemně komunikujícími službami (obvykle 4-12), které obsahují ucelené jednotky funkcionality (např. uživatelé, správa produktů, správa objednávek, platební služba, mailová služba...).
+Architektonický styl, který rozděluje systém na volně provázané, vzájemně nezávislé a samostatně nasaditelné služby, z nichž každá implementuje ucelenou obchodní funkci. Služby komunikují pomocí standardních rozhraní (SOAP, REST, zpráv přes middleware/ESB apod.) a lze je vyvíjet, nasazovat a škálovat nezávisle.
 
 #### Charakteristiky SOA:
-- Každá služba může být nezávisle na ostatních škálována
-- Nad službami může být pro zajištění jednotného API vrstva fasády
-- Služby obvykle sdílí databázi, ale je možné ji rozbít na více nezávislých celků
-- Je náročnější na vývoj, ale celkově je systém díky modularizaci lépe udržitelný a škálovatelný
+- důraz na znovupoužitelnost služeb napříč celou organizací
+- používá ESB (Enterprise Service Bus) pro komunikaci mezi službami
+- standardy jako SOAP, WSDL, UDDI pro definici a objevování služeb
+- služby jsou obvykle hrubozrnné (coarse-grained)
+- centralizovaná governance a správa služeb
+- těžší infrastruktura, komplexnější implementace
+- fajn pro velké enterprise organizace s potřebou sdílení služeb
 
 ### Webové služby
 

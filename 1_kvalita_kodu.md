@@ -325,7 +325,7 @@ Validace, že se izolovaná jednotka kódu (funkce/třída) chová tak, jak bych
 - Izolujeme jednotku od zbytku systému pomocí *test doubles*, nafejkovaných závislostí:
   - **dummy objekt** - nikdy se nepoužije, ale je potřeba třeba jako parametr
   - **fake objekt** - jen pro účely testů, jednoduchý, ale v praxi nepoužitelný (např. in-memory db)
-  - **stub** - vrací vždy stejnou věc
+  - **stub** - vrací vždy stejnou věc (stubborn, tvrdohlave vraci vzdy stejnou hodnotu)
   - **spy** - je schopen si zapamatovat, jak a s čím byl volán (např. volala se metoda odeslání mailu s tímto obsahem)
   - **mock** - předprogramovaný objekt (když tě někdo zavolá s parametrem A, uděláš toto, jinak něco jiného)
 - **AAA** - arrange (příprava), act (provedení testovaného chování), assert (ověření) - tři fáze každého testu, act by měl být co nejkratší
