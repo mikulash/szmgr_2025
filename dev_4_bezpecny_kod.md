@@ -316,8 +316,10 @@ Některé algoritmy umožňují obnovu dat na základě podpisu (v podpisu jsou 
   - zajišťuje integritu dat (nezměněná data, ^^^)
   - zajišťuje důvěrnost dat (symetrický šifrovací klíč známý oběma stranám, data jsou šifrována)
   - zajišťuje ochranu před útokem přehráním (MAC v kombinaci se sekvenčním číslem)
+  - AH - Authentication Header - zajišťuje autentizaci a integritu dat, ale nešifruje
+  - ESP - Encapsulating Security Payload - zajišťuje privacy
 - umožňuje transportní (end to end, nepodporuje NAT), nebo tunelovací režim (celý datagram beru jako data, přilepím tomu novou IP hlavičku)
-
+![img_1.png](img_1.png)
 **Secure Shell Host (SSH)**
 
 - slouží k vzdálenému přihlášení k serveru
