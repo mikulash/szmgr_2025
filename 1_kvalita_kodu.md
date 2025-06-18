@@ -517,3 +517,5 @@ Pro ověření kvality je také možné použít formální verifikaci (použív
 
 - Issue tracking
 - Správa technického dluhu (tracking, vyhrazení času na jeho nápravu)
+
+[Go to the next question](./2_softwarove_inzenyrstvi.md)
