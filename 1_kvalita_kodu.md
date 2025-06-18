@@ -35,6 +35,50 @@ Za nejdůležitější atributy kvality kódu se považují:
 - **Bezpečnost** = jak je systém odolný vůči útokům
 - **Použitelnost** = snadnost používání systému a jednoduchost učení se práce s ním, správná funkcionalita (obvykle samostatný bod)
 
+### Udržitelnost (maintainability)
+- refaktoring na koherentní jednotky, aby bylo místo nutné změny minimální a snadno lokalizovatelné,
+- separace dat od logiky (aby bylo možné jednotku nahradit jinou),
+- decoupling (závislosti na rozhraních, namísto na implementacích)
+
+#### Výkonnost
+- kešování
+- paralelismus
+- asynchronní komunikace/zpracování
+- detekce a mitigace bottlenecků
+- používat profiler
+
+#### Spolehlivost
+- detekce a náprava zdrojů nespolehlivosti
+- kontrolní mechanismy pro zajištění spolehlivosti
+- vhodné ošetření chyb
+- automatický reporting neočekávaných chyb
+- timeout po requestu
+- monitorování, logování, sběr událostí
+- pravidelné snapshoty a rollback v případě pádu, např. při selhání odeslání formuláře přesměrovat na předvyplněný formulář (předcházet frustraci usera)
+- transakce
+- kontrola vstupů na každé úrovni
+- odstranění single point of failure
+
+#### Testovatelnost
+- separace dat a logiky
+- odstranění globálního stavu
+- clean kod, KISS, dependency separation
+
+#### Škálovatelnost
+- refaktoring na jednodušší, samostatně nasaditelné jednotky
+- extrakce dat pro umožnění paralelizace jednotek
+- extrakce a samostatné nasazení subsystému
+- distribuce a/nebo replikace dat (db bývá bottleneck, ostatní věci lze snadněji paralelizovat)
+
+#### Bezpečnost
+- detekce a oprava chyb
+- použití šifrované komunikace
+
+#### Použitelnost
+- zlepšení UX
+- použití taktik pro zlepšení výkonnosti/škálovatelnosti (když je to pomalé)
+
+
 ### Softwarové metriky
 
 Měřitelné aspekty sw systému (počet řádků kódu, pokrytí testy, cyklomatická složitost…), které nám dávají informace o celkovém obrazu, ale může být netriviální je vhodně interpretovat.
@@ -97,48 +141,6 @@ Problémy s kvalitou a jejich zpracování můžeme rozlišit na různých úrov
 
 **Poznámka:** Některé z uvedených taktik jsou konfliktní - nemůžeme mít všechno (např. lepší bezpečnost může ohrozit použitelnost).
 
-### Udržitelnost (maintainability)
-- refaktoring na koherentní jednotky, aby bylo místo nutné změny minimální a snadno lokalizovatelné,
-- separace dat od logiky (aby bylo možné jednotku nahradit jinou),
-- decoupling (závislosti na rozhraních, namísto na implementacích)
-
-### Výkonnost
-- kešování
-- paralelismus
-- asynchronní komunikace/zpracování
-- detekce a mitigace bottlenecků
-- používat profiler
-
-### Spolehlivost
-- detekce a náprava zdrojů nespolehlivosti
-- kontrolní mechanismy pro zajištění spolehlivosti
-- vhodné ošetření chyb
-- automatický reporting neočekávaných chyb
-- timeout po requestu
-- monitorování, logování, sběr událostí
-- pravidelné snapshoty a rollback v případě pádu, např. při selhání odeslání formuláře přesměrovat na předvyplněný formulář (předcházet frustraci usera)
-- transakce
-- kontrola vstupů na každé úrovni
-- odstranění single point of failure
-
-### Testovatelnost
-- separace dat a logiky
-- odstranění globálního stavu
-- clean kod, KISS, dependency separation
-
-### Škálovatelnost
-- refaktoring na jednodušší, samostatně nasaditelné jednotky
-- extrakce dat pro umožnění paralelizace jednotek
-- extrakce a samostatné nasazení subsystému
-- distribuce a/nebo replikace dat (db bývá bottleneck, ostatní věci lze snadněji paralelizovat)
-
-### Bezpečnost
-- detekce a oprava chyb
-- použití šifrované komunikace
-
-### Použitelnost
-- zlepšení UX
-- použití taktik pro zlepšení výkonnosti/škálovatelnosti (když je to pomalé)
 
 ## Principy Clean Code a SOLID, refaktoring kódu (3/6)
 
